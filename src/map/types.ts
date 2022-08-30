@@ -1,13 +1,76 @@
-import type { ReactElement, CSSProperties } from 'react';
-import type { MapboxOptions } from 'mapbox-gl';
+import type { ReactElement } from 'react';
+import type { MapboxOptions, MapEventType } from 'mapbox-gl';
 
 export interface MapOptions extends MapboxOptions {}
 
-export interface MapProps extends Omit<MapOptions, 'container'> {
-  className?: string;
-  children?: ReactElement;
-}
+export type MapEvents = {
+  onError: (e: MapEventType['error']) => void;
+
+  onLoad: (e: MapEventType['load']) => void;
+  onIdle: (e: MapEventType['idle']) => void;
+  onRemove: (e: MapEventType['remove']) => void;
+  onRender: (e: MapEventType['render']) => void;
+  onResize: (e: MapEventType['resize']) => void;
+
+  onWebglContextLost: (e: MapEventType['webglcontextlost']) => void;
+  onWebglContextRestored: (e: MapEventType['webglcontextrestored']) => void;
+
+  onDataloading: (e: MapEventType['dataloading']) => void;
+  onData: (e: MapEventType['data']) => void;
+  onTileDataLoading: (e: MapEventType['tiledataloading']) => void;
+  onSourceDataLoading: (e: MapEventType['sourcedataloading']) => void;
+  onStyleDataLoading: (e: MapEventType['styledataloading']) => void;
+  onSourceData: (e: MapEventType['sourcedata']) => void;
+  onStyleData: (e: MapEventType['styledata']) => void;
+
+  onBoxZoomCancel: (e: MapEventType['boxzoomcancel']) => void;
+  onBoxZoomStart: (e: MapEventType['boxzoomstart']) => void;
+  onBoxZoomEnd: (e: MapEventType['boxzoomend']) => void;
+
+  onTouchCancel: (e: MapEventType['touchcancel']) => void;
+  onTouchMove: (e: MapEventType['touchmove']) => void;
+  onTouchEnd: (e: MapEventType['touchend']) => void;
+  onTouchStart: (e: MapEventType['touchstart']) => void;
+
+  onClick: (e: MapEventType['click']) => void;
+  onContextMenu: (e: MapEventType['contextmenu']) => void;
+  onDoubleClick: (e: MapEventType['dblclick']) => void;
+  onMouseMove: (e: MapEventType['mousemove']) => void;
+  onMouseUp: (e: MapEventType['mouseup']) => void;
+  onMouseDown: (e: MapEventType['mousedown']) => void;
+  onMouseOut: (e: MapEventType['mouseout']) => void;
+  onMouseOver: (e: MapEventType['mouseover']) => void;
+
+  onMoveStart: (e: MapEventType['movestart']) => void;
+  onMove: (e: MapEventType['move']) => void;
+  onMoveEnd: (e: MapEventType['moveend']) => void;
+
+  onZoomStart: (e: MapEventType['zoomstart']) => void;
+  onZoom: (e: MapEventType['zoom']) => void;
+  onZoomEnd: (e: MapEventType['zoomend']) => void;
+
+  onRotateStart: (e: MapEventType['rotatestart']) => void;
+  onRotate: (e: MapEventType['rotate']) => void;
+  onRotateEnd: (e: MapEventType['rotateend']) => void;
+
+  onDragStart: (e: MapEventType['dragstart']) => void;
+  onDrag: (e: MapEventType['drag']) => void;
+  onDragEnd: (e: MapEventType['dragend']) => void;
+
+  onPitchStart: (e: MapEventType['pitchstart']) => void;
+  onPitch: (e: MapEventType['pitch']) => void;
+  onPitchEnd: (e: MapEventType['pitchend']) => void;
+
+  onWheel: (e: MapEventType['wheel']) => void;
+};
+
+export type EventMapping = { [T in keyof MapEvents]: string };
 
 export type KeysOfUnion<T> = T extends T ? keyof T : never;
 
 export type PropKey = KeysOfUnion<MapboxOptions>;
+
+export interface MapProps extends Omit<MapOptions, 'container'>, Partial<MapEvents> {
+  className?: string;
+  children?: ReactElement;
+}

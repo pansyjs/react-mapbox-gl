@@ -5,14 +5,15 @@ import { getTargetElement } from '@pansy/shared/react';
 import MapboxWorker from 'mapbox-gl/dist/mapbox-gl-csp-worker';
 
 import { MapContext } from '@/context';
+import { useEvents } from '@/hooks/useEvents';
 
-import { allProps, setterMap, converterMap } from './config';
+import { allProps, mapEventMap } from './config';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import type { FC } from 'react';
 import type { MapboxOptions } from 'mapbox-gl';
-import type { MapProps } from './types';
+import type { MapProps, EventMapping } from './types';
 
 // @ts-ignore
 Mapbox.workerClass = MapboxWorker;
@@ -21,6 +22,8 @@ export const Map: FC<MapProps> = (props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [ready, readyAction] = useBoolean(false);
   const [map, setMap] = useState<Mapbox.Map>();
+
+  useEvents<Mapbox.Map, EventMapping>(map as Mapbox.Map, mapEventMap, props);
 
   useEffect(() => {
     const container = getTargetElement(containerRef);
@@ -53,21 +56,11 @@ export const Map: FC<MapProps> = (props) => {
     allProps.forEach((key) => {
       if (key in props) {
         // @ts-ignore
-        options[key] = getSetterValue(key, props);
+        options[key] = props[key];
       }
     });
 
     return options;
-  };
-
-  const getSetterValue = (key: string, props: MapProps) => {
-    if (key in converterMap) {
-      // @ts-ignore
-      return converterMap[key](props[key]);
-    }
-
-    // @ts-ignore
-    return props[key];
   };
 
   return (

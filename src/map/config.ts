@@ -1,5 +1,66 @@
 import type { Map } from 'mapbox-gl';
-import type { PropKey } from './types';
+import type { PropKey, EventMapping } from './types';
+
+export const mapEventMap: EventMapping = {
+  onError: 'error',
+
+  onLoad: 'load',
+  onIdle: 'idle',
+  onRemove: 'remove',
+  onRender: 'render',
+  onResize: 'resize',
+
+  onWebglContextLost: 'webglcontextlost',
+  onWebglContextRestored: 'webglcontextrestored',
+
+  onDataloading: 'dataloading',
+  onData: 'data',
+  onTileDataLoading: 'tiledataloading',
+  onSourceDataLoading: 'sourcedataloading',
+  onStyleDataLoading: 'styledataloading',
+  onSourceData: 'sourcedata',
+  onStyleData: 'styledata',
+
+  onBoxZoomCancel: 'boxzoomcancel',
+  onBoxZoomStart: 'boxzoomstart',
+  onBoxZoomEnd: 'boxzoomend',
+
+  onTouchCancel: 'touchcancel',
+  onTouchMove: 'touchmove',
+  onTouchEnd: 'touchend',
+  onTouchStart: 'touchstart',
+
+  onClick: 'click',
+  onContextMenu: 'contextmenu',
+  onDoubleClick: 'dblclick',
+  onMouseMove: 'mousemove',
+  onMouseUp: 'mouseup',
+  onMouseDown: 'mousedown',
+  onMouseOut: 'mouseout',
+  onMouseOver: 'mouseover',
+
+  onMoveStart: 'movestart',
+  onMove: 'move',
+  onMoveEnd: 'moveend',
+
+  onZoomStart: 'zoomstart',
+  onZoom: 'zoom',
+  onZoomEnd: 'zoomend',
+
+  onRotateStart: 'rotatestart',
+  onRotate: 'rotate',
+  onRotateEnd: 'rotateend',
+
+  onDragStart: 'dragstart',
+  onDrag: 'drag',
+  onDragEnd: 'dragend',
+
+  onPitchStart: 'pitchstart',
+  onPitch: 'pitch',
+  onPitchEnd: 'pitchend',
+
+  onWheel: 'wheel',
+};
 
 /** 静态属性 */
 export const StaticProps: PropKey[] = [
