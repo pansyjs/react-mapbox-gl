@@ -25,7 +25,7 @@ $ pnpm i mapbox-gl @pansy/react-mapbox-gl
 import { Map } from '@pansy/react-mapbox-gl';
 
 const config = {
-  accessToken: 'xxxx - token',
+  accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
   style: 'mapbox://styles/mapbox/streets-v11',
 };
 
