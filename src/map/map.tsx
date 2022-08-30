@@ -1,5 +1,5 @@
 import * as Mapbox from 'mapbox-gl';
-import { useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState, useImperativeHandle } from 'react';
 import { useBoolean } from '@pansy/react-hooks';
 import { getTargetElement } from '@pansy/shared/react';
 import MapboxWorker from 'mapbox-gl/dist/mapbox-gl-csp-worker';
@@ -11,19 +11,20 @@ import { allProps, mapEventMap } from './config';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-import type { FC } from 'react';
 import type { MapboxOptions } from 'mapbox-gl';
 import type { MapProps, EventMapping } from './types';
 
 // @ts-ignore
 Mapbox.workerClass = MapboxWorker;
 
-export const Map: FC<MapProps> = (props) => {
+export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [ready, readyAction] = useBoolean(false);
+  const [ready, readyAction] = useBoolean();
   const [map, setMap] = useState<Mapbox.Map>();
 
   useEvents<Mapbox.Map, EventMapping>(map as Mapbox.Map, mapEventMap, props);
+
+  useImperativeHandle(ref, () => map as Mapbox.Map, [map]);
 
   useEffect(() => {
     const container = getTargetElement(containerRef);
@@ -70,7 +71,7 @@ export const Map: FC<MapProps> = (props) => {
       </div>
     </MapContext.Provider>
   );
-};
+});
 
 Map.defaultProps = {
   attributionControl: false,
