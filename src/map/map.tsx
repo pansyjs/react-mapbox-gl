@@ -2,9 +2,10 @@ import * as Mapbox from 'mapbox-gl';
 import { useEffect, useRef, useState } from 'react';
 import { useBoolean } from '@pansy/react-hooks';
 import { getTargetElement } from '@pansy/shared/react';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxWorker from 'mapbox-gl/dist/mapbox-gl-csp-worker';
 import { allProps, setterMap, converterMap } from './config';
+
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 import type { MapboxOptions } from 'mapbox-gl';
 import type { MapProps } from './types';
@@ -76,7 +77,7 @@ export const Map: FC<MapProps> = (props) => {
 
 Map.defaultProps = {
   attributionControl: false,
-  style: 'mapbox://styles/beijingsensoro/cl5ufc8qi001j15n1vn8lmhe9',
+  style: 'mapbox://styles/mapbox/navigation-preview-night-v2',
   accessToken:
     'pk.eyJ1IjoiYmVpamluZ3NlbnNvcm8iLCJhIjoiY2wzNDhwMGU2MDAxdzNkbXB2eG5qcGJ4bSJ9.9YrZb00BwBNTsfMTdgj-oA',
 };
