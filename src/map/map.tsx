@@ -3,17 +3,19 @@ import { useEffect, useRef, useState } from 'react';
 import { useBoolean } from '@pansy/react-hooks';
 import { getTargetElement } from '@pansy/shared/react';
 import MapboxWorker from 'mapbox-gl/dist/mapbox-gl-csp-worker';
+
+import { MapContext } from '@/context';
+
 import { allProps, setterMap, converterMap } from './config';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 
+import type { FC } from 'react';
 import type { MapboxOptions } from 'mapbox-gl';
 import type { MapProps } from './types';
 
 // @ts-ignore
 Mapbox.workerClass = MapboxWorker;
-
-import { FC } from 'react';
 
 export const Map: FC<MapProps> = (props) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -69,9 +71,11 @@ export const Map: FC<MapProps> = (props) => {
   };
 
   return (
-    <div ref={containerRef} style={{ height: '100%', width: '100%' }}>
-      {ready && props.children}
-    </div>
+    <MapContext.Provider value={map}>
+      <div ref={containerRef} style={{ height: '100%', width: '100%' }}>
+        {ready && props.children}
+      </div>
+    </MapContext.Provider>
   );
 };
 
