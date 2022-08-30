@@ -1,0 +1,62 @@
+{
+  "name": "@pansy/react-mapbox",
+  "version": "1.0.0",
+  "description": "A React binding of mapbox-gl-js",
+  "main": "index.js",
+  "scripts": {
+    "start": "dumi dev",
+    "build": "redbud build",
+    "build:site": "dumi build",
+    "prepare": "husky install",
+    "tsc:check": "tsc --noEmit"
+  },
+  "keywords": [
+    "map",
+    "react",
+    "component",
+    "mapbox",
+    "mapbox-gl"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "mapbox-gl": "^2.0.0"
+  },
+  "dependencies": {
+    "@pansy/shared": "^1.3.1",
+    "@pansy/react-hooks": "^0.11.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.0.3",
+    "@commitlint/config-conventional": "17.0.3",
+    "@types/mapbox-gl": "^2.7.5",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@umijs/babel-preset-umi": "3.5.30",
+    "@umijs/fabric": "^3.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "husky": "^8.0.1",
+    "dumi": "^1.1.47",
+    "mapbox-gl": "^2.10.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "redbud": "^1.1.0",
+    "typescript": "^4.8.2",
+    "vitest": "^0.22.1"
+  },
+  "lint-staged": {
+    "*.{jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "authors": [
+    "wangxingkang <wang_xingkang@qq.com> (https://github.com/wangxingkang)"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
