@@ -1,33 +1,14 @@
 import { useRef, useEffect } from 'react';
-import reduce from 'lodash/reduce';
 import { useDeepCompareEffect, useUnmount } from '@pansy/react-hooks';
 import isEqual from 'lodash/isEqual';
-import { isFunction } from '@pansy/shared';
 
-import type { SyntheticEvent } from 'react';
-
-export type Instance = {
+export interface Instance extends Record<string, any> {
   on(type: string, handle: (...args: any[]) => void): void;
   off(type: string, handle: (...args: any[]) => void): void;
-};
+}
 
 export type Listeners<Events extends Record<string, string>> = {
-  [T in keyof Events]: (evt: SyntheticEvent<any>) => void;
-};
-
-const getPropsEvents = (props: Record<string, any> = {}) => {
-  return reduce(
-    props,
-    (result, value, key) => {
-      if (isFunction(value) && /^on[A-Z]/.test(key)) {
-        // @ts-ignore
-        result[key] = value;
-      }
-
-      return result;
-    },
-    {},
-  );
+  [T in keyof Events]: (evt: any) => void;
 };
 
 export const useEvents = <Ins extends Instance, Events extends Record<string, string>>(
@@ -37,8 +18,6 @@ export const useEvents = <Ins extends Instance, Events extends Record<string, st
 ) => {
   const listeners = useRef<Partial<Listeners<Events>>>({});
 
-  const propsEvents = getPropsEvents(props);
-
   useEffect(() => {
     if (ins) {
       listeners.current = listenEvents(events, props, ins);
@@ -47,9 +26,9 @@ export const useEvents = <Ins extends Instance, Events extends Record<string, st
 
   useDeepCompareEffect(() => {
     if (ins) {
-      listeners.current = updateEvents(listeners.current, propsEvents, ins);
+      listeners.current = updateEvents(listeners.current, props, ins);
     }
-  }, [propsEvents]);
+  }, [props]);
 
   useUnmount(() => {
     unlistenEvents(listeners.current, ins);
@@ -62,10 +41,13 @@ export const useEvents = <Ins extends Instance, Events extends Record<string, st
     ins: Ins,
   ) =>
     Object.keys(partialEvents).reduce((listeners, event) => {
-      const propEvent = props[event];
+      const eventCallback = props[event];
+      const eventName = partialEvents[event];
 
-      if (propEvent) {
-        ins.on(partialEvents[event], propEvent);
+      if (eventName && eventCallback) {
+        ins.on(eventName, eventCallback);
+        // @ts-ignore
+        listeners[event] = eventCallback;
       }
 
       return listeners;

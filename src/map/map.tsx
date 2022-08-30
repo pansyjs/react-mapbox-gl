@@ -5,9 +5,9 @@ import { getTargetElement } from '@pansy/shared/react';
 import MapboxWorker from 'mapbox-gl/dist/mapbox-gl-csp-worker';
 
 import { MapContext } from '@/context';
-import { useEvents } from '@/hooks/useEvents';
+import { useReact } from '@/hooks/useReact';
 
-import { allProps, mapEventMap } from './config';
+import { allProps, mapEventMap, setterMap, converterMap } from './config';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -22,7 +22,12 @@ export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
   const [ready, readyAction] = useBoolean();
   const [map, setMap] = useState<Mapbox.Map>();
 
-  useEvents<Mapbox.Map, EventMapping>(map as Mapbox.Map, mapEventMap, props);
+  const { onInstanceCreated } = useReact<MapProps, Mapbox.Map, EventMapping>(props, {
+    ins: map,
+    events: mapEventMap,
+    setterMap,
+    converterMap,
+  });
 
   useImperativeHandle(ref, () => map as Mapbox.Map, [map]);
 
@@ -32,6 +37,8 @@ export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
     if (!container) return;
 
     createInstance().then((map) => {
+      onInstanceCreated();
+
       map.once('load', () => {
         readyAction.setTrue();
       });
