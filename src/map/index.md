@@ -67,3 +67,4 @@ nav:
 | bearing | 地图初始化时的方位角（旋转角度），以正北方的逆时针转动度数计量 | `number` | `0` |
 | zoom | 地图初始化时的层级。 | `number` | `0` |
 | center | 地图初始化时的地理中心点。 | `number` | `[0, 0]` |
+| projection | 设置渲染地图的投影 | `string` | `mercator` |

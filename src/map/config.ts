@@ -44,6 +44,7 @@ export const NativeDynamicProps: PropKey[] = [
   'bearing',
   'zoom',
   'center',
+  'projection',
 ];
 
 export const allProps = NativeDynamicProps.concat(StaticProps);
