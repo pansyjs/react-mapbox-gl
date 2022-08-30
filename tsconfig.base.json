@@ -16,7 +16,8 @@
     "jsx": "react-jsx",
     "types": ["vitest", "vitest/globals"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@pansy/react-mapbox-gl": ["src/index.ts"]
     }
   },
   "include": ["src"],

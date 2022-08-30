@@ -16,4 +16,5 @@ export default defineConfig({
     },
   ],
   hash: true,
+  workerLoader: {},
 });

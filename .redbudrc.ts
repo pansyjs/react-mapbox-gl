@@ -2,10 +2,9 @@ import { defineConfig } from 'redbud';
 
 export default defineConfig({
   esm: {
-    output: 'lib',
+    output: 'es',
   },
   cjs: {
-    output: 'lib/_cjs',
+    output: 'lib',
   },
-  platform: 'browser',
 });
