@@ -6,9 +6,11 @@ export const StaticProps: PropKey[] = [
   'hash',
   'interactive',
   'bearingSnap',
+  'clickTolerance',
   'pitchWithRotate',
   'attributionControl',
   'customAttribution',
+  'cooperativeGestures',
   'logoPosition',
   'failIfMajorPerformanceCaveat',
   'preserveDrawingBuffer',
@@ -18,16 +20,21 @@ export const StaticProps: PropKey[] = [
   'bounds',
   'fitBoundsOptions',
   'maxTileCacheSize',
-  'localIdeographFontFamily',
   'transformRequest',
   'collectResourceTiming',
   'fadeDuration',
   'crossSourceCollisions',
   'accessToken',
+  'optimizeForTerrain',
+  'locale',
+  'localFontFamily',
+  'localIdeographFontFamily',
+  'testMode',
 ];
 
 /** 动态属性 */
 export const NativeDynamicProps: PropKey[] = [
+  'zoom',
   'minZoom',
   'maxZoom',
   'style',
@@ -39,10 +46,12 @@ export const NativeDynamicProps: PropKey[] = [
   'keyboard',
   'doubleClickZoom',
   'touchZoomRotate',
+  'touchPitch',
   'renderWorldCopies',
   'pitch',
+  'maxPitch',
+  'minPitch',
   'bearing',
-  'zoom',
   'center',
   'projection',
 ];
@@ -50,6 +59,16 @@ export const NativeDynamicProps: PropKey[] = [
 export const allProps = NativeDynamicProps.concat(StaticProps);
 
 export const setterMap = {
+  touchPitch(enable: boolean, map: Map) {
+    if (!map) return;
+
+    if (enable) {
+      map.touchPitch.enable();
+      return;
+    }
+
+    map.touchPitch.disable();
+  },
   scrollZoom(enable: boolean, map: Map) {
     if (!map) return;
 
