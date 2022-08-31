@@ -7,4 +7,5 @@ export default defineConfig({
   cjs: {
     output: 'lib',
   },
+  platform: 'browser',
 });

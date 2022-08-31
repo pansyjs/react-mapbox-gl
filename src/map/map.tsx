@@ -15,7 +15,7 @@ import type { MapboxOptions } from 'mapbox-gl';
 import type { MapProps, EventMapping } from './types';
 
 // @ts-ignore
-Mapbox.workerClass = MapboxWorker;
+Mapbox['workerClass'] = MapboxWorker;
 
 export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
