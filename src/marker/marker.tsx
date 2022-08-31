@@ -1,6 +1,6 @@
 import { Marker as MapboxMarker } from 'mapbox-gl';
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useGetState } from '@pansy/react-hooks';
 import { forwardRef, useEffect, useRef, useImperativeHandle } from 'react';
 
 import { useMap } from '@/hooks/useMap';
@@ -14,7 +14,7 @@ import type { MarkerOptions } from 'mapbox-gl';
 export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
   const map = useMap();
   const contentWrapper = useRef<HTMLDivElement>();
-  const [marker, setMarker] = useGetState<MapboxMarker>(null as any);
+  const [marker, setMarker] = useState<MapboxMarker>();
 
   const { onInstanceCreated } = useReact<MarkerProps, MapboxMarker, EventMapping>(props, {
     ins: marker,
@@ -44,10 +44,6 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
 
     const marker = new MapboxMarker(contentWrapper.current, options);
 
-    marker.setLngLat(props.lngLat);
-
-    marker.addTo(map);
-
     return Promise.resolve(marker);
   };
 
@@ -65,5 +61,5 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
     return options;
   };
 
-  return marker && createPortal(props.children, marker.getElement());
+  return <>{marker && createPortal(props.children, marker.getElement())}</>;
 });
