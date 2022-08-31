@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Map } from '@pansy/react-mapbox-gl';
+import { Map, Marker } from '@pansy/react-mapbox-gl';
 
 export default () => {
   const [enable, setEnable] = useState(true);
@@ -22,7 +22,14 @@ export default () => {
         测试
       </button>
       <Map onClick={enable ? handleClick1 : handleClick2}>
-        <span style={{ zIndex: 100 }}>{123}</span>
+        <Marker
+          lngLat={[30.5, 50.5]}
+          // render={() => {
+          //   return <div style={{ background: 'red' }}>123</div>
+          // }}
+        >
+          <div style={{ background: 'red' }}>123</div>
+        </Marker>
       </Map>
     </div>
   );
