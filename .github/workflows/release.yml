@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - next
+      - rc
   pull_request:
     branches:
       - master
