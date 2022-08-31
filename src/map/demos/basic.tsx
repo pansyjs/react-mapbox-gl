@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Map, Marker } from '@pansy/react-mapbox-gl';
+import { Map } from '@pansy/react-mapbox-gl';
 
 export default () => {
   const [enable, setEnable] = useState(true);
@@ -21,26 +21,7 @@ export default () => {
       >
         测试
       </button>
-      <Map onClick={enable ? handleClick1 : handleClick2}>
-        <Marker
-          lngLat={[30.5, 50.5]}
-          onDragEnd={(e) => {
-            //@ts-ignore
-            console.log(e.target.getLngLat());
-          }}
-          onClick={(e) => {
-            //@ts-ignore
-            console.log(e.target.getLngLat());
-          }}
-          draggable={true}
-
-          // render={() => {
-          //   return <div style={{ background: 'red' }}>123</div>
-          // }}
-        >
-          <div style={{ background: 'red', borderRadius: '50%', padding: '3px' }}>123</div>
-        </Marker>
-      </Map>
+      <Map onClick={enable ? handleClick1 : handleClick2}></Map>
     </div>
   );
 };
