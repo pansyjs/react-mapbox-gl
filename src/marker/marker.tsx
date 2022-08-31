@@ -1,5 +1,5 @@
 import { Marker as MapboxMarker } from 'mapbox-gl';
-import { useState } from 'react';
+import { useGetState } from '@pansy/react-hooks';
 import { createPortal } from 'react-dom';
 import { forwardRef, useEffect, useRef, useImperativeHandle } from 'react';
 
@@ -8,22 +8,36 @@ import { useReact } from '@/hooks/useReact';
 
 import { allProps, setterMap, converterMap, mapEventMap } from './config';
 
-import type { MarkerProps, EventMapping } from './types';
 import type { MarkerOptions } from 'mapbox-gl';
+import type { MarkerProps, EventMapping } from './types';
 
 export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
   const map = useMap();
   const contentWrapper = useRef<HTMLDivElement>();
-  const [marker, setMarker] = useState<MapboxMarker>();
+  const [marker, setMarker, getMarker] = useGetState<MapboxMarker | undefined>(undefined);
 
   const { onInstanceCreated } = useReact<MarkerProps, MapboxMarker, EventMapping>(props, {
     ins: marker,
     events: mapEventMap,
     setterMap,
     converterMap,
+    unmount: () => {
+      if (contentWrapper.current) {
+        contentWrapper.current.removeEventListener('click', handleClick);
+        contentWrapper.current = undefined;
+      }
+    },
   });
 
   useImperativeHandle(ref, () => marker as MapboxMarker, [marker]);
+
+  const handleClick = (e: MouseEvent) => {
+    props.onClick?.({
+      type: 'click',
+      target: getMarker() as MapboxMarker,
+      originalEvent: e,
+    });
+  };
 
   useEffect(() => {
     if (map) {
@@ -32,6 +46,9 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
 
         marker.setLngLat(props.lngLat);
         marker.addTo(map);
+
+        contentWrapper.current?.addEventListener('click', handleClick);
+
         onInstanceCreated();
       });
     }
@@ -43,14 +60,6 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
     contentWrapper.current = document.createElement('div');
 
     const marker = new MapboxMarker(contentWrapper.current, options);
-    marker.getElement().addEventListener('click', (e: MouseEvent) => {
-      //@ts-ignore
-      options.onClick?.({
-        type: 'click',
-        target: marker,
-        originalEvent: e,
-      });
-    });
     return Promise.resolve(marker);
   };
 

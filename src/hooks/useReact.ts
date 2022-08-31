@@ -12,6 +12,7 @@ export interface Options<Ins, Events> {
   events: Events;
   setterMap?: Record<string, Function>;
   converterMap?: Record<string, Function>;
+  unmount?: () => void;
 }
 
 /**
@@ -49,7 +50,7 @@ export const useReact = <
   props: P = {} as P,
   options: Options<Ins, Events>,
 ) => {
-  const { ins, events, setterMap = {}, converterMap = {} } = options;
+  const { ins, events, setterMap = {}, converterMap = {}, unmount } = options;
   const { eventProps, notEventProps } = splitPropsByEvent(props);
   const prevProps = usePrevious(notEventProps);
 
@@ -65,6 +66,7 @@ export const useReact = <
     if (ins && 'remove' in ins) {
       ins.remove();
     }
+    unmount?.();
   });
 
   const reactivePropChange = (nextProps: P, shouldDetectChange = true) => {

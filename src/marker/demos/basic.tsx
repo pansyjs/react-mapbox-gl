@@ -7,12 +7,10 @@ export default () => {
         <Marker
           lngLat={[30.5, 50.5]}
           onDragEnd={(e) => {
-            //@ts-ignore
-            console.log(e.target.getLngLat());
+            console.log(e);
           }}
           onClick={(e) => {
-            //@ts-ignore
-            console.log(e.target.getLngLat());
+            console.log(e);
           }}
           draggable={true}
         >
