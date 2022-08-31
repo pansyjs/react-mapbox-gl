@@ -1,7 +1,8 @@
 module.exports = {
   branches: [
+    '+([0-9])?(.{+([0-9]),x}).x',
     'master',
-    { name: 'rc', prerelease: true }
+    {name: 'beta', prerelease: true},
   ],
   plugins: [
     '@semantic-release/commit-analyzer',
