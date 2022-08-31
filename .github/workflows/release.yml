@@ -5,7 +5,7 @@ on:
     branches:
       - master
       - next
-      - rc
+      - beta
   pull_request:
     branches:
       - master
