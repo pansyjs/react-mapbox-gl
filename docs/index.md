@@ -1,8 +1,8 @@
 ---
-title: Mapbox - A React binding of mapbox-gl-js
+title: Mapbox - 🌍 基于 mapbox-gl 封装的 React 组件库.
 hero:
-  title: Sensoro Icons
-  desc: 语义化矢量图形库，提供了描述图标的抽象节点来满足对各种框架的适配。
+  title: React Mapbox GL
+  desc: 🌍 基于 mapbox-gl 封装的 React 组件库.
   actions:
     - text: 快速开始
       link: /docs/getting-started

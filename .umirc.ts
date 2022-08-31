@@ -4,7 +4,7 @@ const logo = 'https://cdn.jsdelivr.net/gh/wangxingkang/pictures@latest/imgs/sens
 
 export default defineConfig({
   mode: 'site',
-  title: 'Mapbox',
+  title: 'React Mapbox GL',
   dynamicImport: {},
   favicon: logo,
   logo,
@@ -12,7 +12,7 @@ export default defineConfig({
     null,
     {
       title: 'GitHub',
-      path: 'https://github.com/pansyjs/react-mapbox',
+      path: 'https://github.com/pansyjs/react-mapbox-gl',
     },
   ],
   hash: true,
