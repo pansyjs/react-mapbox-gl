@@ -43,7 +43,14 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
     contentWrapper.current = document.createElement('div');
 
     const marker = new MapboxMarker(contentWrapper.current, options);
-
+    marker.getElement().addEventListener('click', (e: MouseEvent) => {
+      //@ts-ignore
+      options.onClick?.({
+        type: 'click',
+        target: marker,
+        originalEvent: e,
+      });
+    });
     return Promise.resolve(marker);
   };
 

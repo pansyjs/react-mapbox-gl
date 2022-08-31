@@ -11,7 +11,7 @@ export const mapEventMap: EventMapping = {
 };
 
 /** 静态属性 */
-export const StaticProps: PropKey[] = ['anchor', 'clickTolerance', 'color'];
+export const StaticProps: PropKey[] = ['anchor', 'clickTolerance', 'color', 'onClick'];
 
 /** 动态属性 */
 export const NativeDynamicProps: PropKey[] = [

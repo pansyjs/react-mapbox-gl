@@ -14,6 +14,7 @@ export interface MarkerProps extends MarkerOptions, Partial<MarkerEvents> {
   className?: string;
   lngLat: LngLatLike;
   children: any;
+  onClick?: (e: MapEventType['click']) => void;
 }
 
 export type PropKey = KeysOfUnion<MarkerProps>;
