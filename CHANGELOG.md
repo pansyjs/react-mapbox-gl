@@ -1,3 +1,9 @@
+# [1.0.0-beta.3](https://github.com/pansyjs/react-mapbox-gl/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2022-09-01)
+
+### Bug Fixes
+
+- source 组件卸载 BUG ([879207f](https://github.com/pansyjs/react-mapbox-gl/commit/879207fa9a0e723f8c9e0dadaaa847bff749e2c2))
+
 # [1.0.0-beta.2](https://github.com/pansyjs/react-mapbox-gl/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2022-09-01)
 
 ### Bug Fixes
