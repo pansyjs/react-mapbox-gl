@@ -2,6 +2,7 @@
   "name": "@pansy/react-mapbox-gl",
   "version": "1.0.0-beta.1",
   "description": "🌍 基于 mapbox-gl 封装的 React 组件库.",
+  "repository": "git@github.com:pansyjs/react-mapbox-gl.git",
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
