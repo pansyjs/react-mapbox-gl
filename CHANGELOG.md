@@ -1,3 +1,9 @@
+# [1.0.0-beta.4](https://github.com/pansyjs/react-mapbox-gl/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2022-09-01)
+
+### Features
+
+- **layer:** 支持绑定事件 ([be2d098](https://github.com/pansyjs/react-mapbox-gl/commit/be2d098e3bc6c8dc086a00c84fb4c60b8c655373))
+
 # [1.0.0-beta.3](https://github.com/pansyjs/react-mapbox-gl/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2022-09-01)
 
 ### Bug Fixes
