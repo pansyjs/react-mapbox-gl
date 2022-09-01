@@ -1,7 +1,4 @@
-import { useRef, useState } from 'react';
-import { Layer, Map, Source, useMap } from '@pansy/react-mapbox-gl';
-import type { LayerProps } from '@pansy/react-mapbox-gl';
-import mapboxgl from 'mapbox-gl';
+import { Layer, Map, Source } from '@pansy/react-mapbox-gl';
 
 export default () => {
   const clusterLayer = {
@@ -39,45 +36,6 @@ export default () => {
       'circle-stroke-color': '#fff',
     },
   };
-  const BindLayer = () => {
-    const map = useMap();
-    //console.log(map)
-    map.on('click', 'clusters', (e) => {
-      const features = map.queryRenderedFeatures(e.point, {
-        layers: ['clusters'],
-      });
-      const clusterId = features[0].properties.cluster_id;
-      map.getSource('earthquakes').getClusterExpansionZoom(clusterId, (err, zoom) => {
-        if (err) return;
-
-        map.easeTo({
-          center: features[0].geometry.coordinates,
-          zoom: zoom,
-        });
-      });
-    });
-    map.on('click', 'unclustered-point', (e) => {
-      const coordinates = e.features[0].geometry.coordinates.slice();
-      const mag = e.features[0].properties.mag;
-      const tsunami = e.features[0].properties.tsunami === 1 ? 'yes' : 'no';
-      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      }
-
-      new mapboxgl.Popup()
-        .setLngLat(coordinates)
-        .setHTML(`magnitude: ${mag}<br>Was there a tsunami?: ${tsunami}`)
-        .addTo(map);
-    });
-
-    map.on('mouseenter', 'clusters', () => {
-      map.getCanvas().style.cursor = 'pointer';
-    });
-    map.on('mouseleave', 'clusters', () => {
-      map.getCanvas().style.cursor = '';
-    });
-    return <></>;
-  };
 
   return (
     <div style={{ height: 500 }}>
@@ -89,10 +47,38 @@ export default () => {
           clusterMaxZoom={14}
           clusterRadius={50}
         />
-        <Layer {...clusterLayer} />
-        <Layer {...clusterCountLayer} />
-        <Layer {...unclusteredPointLayer} />
-        <BindLayer />
+        <Layer
+          {...(clusterLayer as any)}
+          onClick={(e) => {
+            const map = e.target;
+
+            const features = map.queryRenderedFeatures(e.point, {
+              layers: ['clusters'],
+            });
+
+            // @ts-ignore
+            const clusterId = features[0].properties.cluster_id;
+
+            // @ts-ignore
+            map.getSource('earthquakes').getClusterExpansionZoom(clusterId, (err, zoom) => {
+              if (err) return;
+
+              map.easeTo({
+                // @ts-ignore
+                center: features[0].geometry.coordinates,
+                zoom: zoom,
+              });
+            });
+          }}
+          onMouseEnter={(e) => {
+            e.target.getCanvas().style.cursor = 'pointer';
+          }}
+          onMouseLeave={(e) => {
+            e.target.getCanvas().style.cursor = '';
+          }}
+        />
+        <Layer {...(clusterCountLayer as any)} />
+        <Layer {...(unclusteredPointLayer as any)} />
       </Map>
     </div>
   );

@@ -1,4 +1,5 @@
 import type { MapboxOptions, MapEventType } from 'mapbox-gl';
+import type { KeysOfUnion } from '@pansy/shared/types';
 
 export interface MapOptions extends MapboxOptions {}
 
@@ -64,8 +65,6 @@ export type MapEvents = {
 };
 
 export type EventMapping = { [T in keyof MapEvents]: string };
-
-export type KeysOfUnion<T> = T extends T ? keyof T : never;
 
 export type PropKey = KeysOfUnion<MapboxOptions>;
 

@@ -1,4 +1,5 @@
-import type { Marker, MarkerOptions, LngLatLike, MapEventType } from 'mapbox-gl';
+import type { Marker, MarkerOptions, LngLatLike } from 'mapbox-gl';
+import type { KeysOfUnion } from '@pansy/shared/types';
 
 export interface MarkerEvent<TOrig = undefined> {
   type: string;
@@ -17,8 +18,6 @@ export interface CustomizeMarkerEvents {
 }
 
 export type EventMapping = { [T in keyof MarkerEvents]: string };
-
-export type KeysOfUnion<T> = T extends T ? keyof T : never;
 
 export interface MarkerProps
   extends MarkerOptions,

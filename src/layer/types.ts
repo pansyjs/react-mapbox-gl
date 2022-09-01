@@ -20,7 +20,9 @@ import type {
   SymbolPaint,
   HillshadeLayout,
   HillshadePaint,
+  MapLayerEventType,
 } from 'mapbox-gl';
+import type { KeysOfUnion } from '@pansy/shared/types';
 
 export type LayerType =
   | 'background'
@@ -77,7 +79,31 @@ export interface LayoutPaint {
   };
 }
 
-export interface LayerProps<T extends LayerType> extends Omit<Layer, 'layout' | 'paint'> {
+export type LayerEvents = {
+  onClick: (e: MapLayerEventType['click']) => void;
+  onDoubleClick: (e: MapLayerEventType['dblclick']) => void;
+  onContextMenu: (e: MapLayerEventType['contextmenu']) => void;
+
+  onMouseDown: (e: MapLayerEventType['mousedown']) => void;
+  onMouseUp: (e: MapLayerEventType['mouseup']) => void;
+  onMouseMove: (e: MapLayerEventType['mousemove']) => void;
+  onMouseEnter: (e: MapLayerEventType['mouseenter']) => void;
+  onMouseLeave: (e: MapLayerEventType['mouseleave']) => void;
+  onMouseOver: (e: MapLayerEventType['mouseover']) => void;
+  onMouseOut: (e: MapLayerEventType['mouseout']) => void;
+
+  onTouchStart: (e: MapLayerEventType['touchstart']) => void;
+  onTouchEnd: (e: MapLayerEventType['touchend']) => void;
+  onTouchCancel: (e: MapLayerEventType['touchcancel']) => void;
+};
+
+export type LayerEventKeys = KeysOfUnion<LayerEvents>;
+
+export type EventMapping = { [T in keyof LayerEvents]: string };
+
+export interface LayerProps<T extends LayerType>
+  extends Omit<Layer, 'layout' | 'paint'>,
+    Partial<LayerEvents> {
   type: T;
   before?: string;
   layout?: LayoutPaint[T]['layout'];

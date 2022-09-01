@@ -40,6 +40,7 @@
     "@commitlint/config-conventional": "17.1.0",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
+    "@types/lodash": "^4.14.184",
     "@types/mapbox-gl": "^2.7.5",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
@@ -52,7 +53,7 @@
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "redbud": "^1.2.0",
+    "redbud": "^1.2.1",
     "semantic-release": "^19.0.5",
     "typescript": "^4.8.2",
     "vitest": "^0.22.1"
