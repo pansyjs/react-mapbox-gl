@@ -22,7 +22,8 @@ export const Source: FC<SourceProps> = forwardRef<GeoJSONSource, SourceProps>((p
     setterMap,
     converterMap,
     unmount: () => {
-      map && map.removeSource(id);
+      //@ts-ignore
+      map && map.style && map.removeSource(id);
     },
   });
 
