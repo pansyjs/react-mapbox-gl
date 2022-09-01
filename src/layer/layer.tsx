@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react';
 
 import { useMap } from '@/hooks/useMap';
 
-import type { FC } from 'react';
 import type { AnyLayer } from 'mapbox-gl';
-import type { LayerProps } from './types';
+import type { LayerProps, LayerType } from './types';
 
-export const Layer: FC<LayerProps> = (props) => {
+export const Layer = <T extends LayerType>(props: LayerProps<T>) => {
   const { before, ...rest } = props;
   const map = useMap();
   const [layer, setLayer] = useState<AnyLayer>();
@@ -15,7 +14,7 @@ export const Layer: FC<LayerProps> = (props) => {
     if (map) {
       map.addLayer(rest as AnyLayer, before);
 
-      setLayer(map.getLayer(props.id));
+      // setLayer(map.getLayer(props.id));
     }
   }, [map]);
 
