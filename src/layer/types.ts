@@ -80,6 +80,6 @@ export interface LayoutPaint {
 export interface LayerProps<T extends LayerType> extends Omit<Layer, 'layout' | 'paint'> {
   type: T;
   before?: string;
-  layout?: LayoutPaint[T];
-  paint?: LayoutPaint[T];
+  layout?: LayoutPaint[T]['layout'];
+  paint?: LayoutPaint[T]['paint'];
 }
