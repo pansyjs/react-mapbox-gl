@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import type { MapboxOptions, MapEventType } from 'mapbox-gl';
 
 export interface MapOptions extends MapboxOptions {}
@@ -72,5 +71,5 @@ export type PropKey = KeysOfUnion<MapboxOptions>;
 
 export interface MapProps extends Omit<MapOptions, 'container'>, Partial<MapEvents> {
   className?: string;
-  children?: ReactElement;
+  children?: any;
 }
