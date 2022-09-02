@@ -98,7 +98,7 @@ nav:
 | onMouseOut    | 当指针设备（一般为鼠标）离开地图画布时触发               |
 | onClick       | 当指针设备（一般为鼠标）在地图同一点处点击并释放时触发   |
 | onDoubleClick | 当指针设备（一般为鼠标）快速双击地图同一点时触发         |
-| onTouchCancel | 当 touchcancel 事件在地图中触发时启动。                  |
+| onTouchCancel | 当 touchcancel 事件在地图中触发时启动                    |
 | onTouchMove   | 当 touchmove 事件在地图中触发时启动                      |
 | onTouchEnd    | 当 touchend 事件在地图中触发时启动                       |
 | onTouchStart  | 当 touchstart 事件在地图中触发时启动                     |
