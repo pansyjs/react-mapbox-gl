@@ -88,7 +88,7 @@ export const useEvents = <T extends LayerType>(
 
     unlistenList.forEach((key) => {
       // @ts-ignore
-      ins.off(events[key], props.id, listeners[key]);
+      ins.off(key, props.id, listeners[key]);
     });
   };
 };
