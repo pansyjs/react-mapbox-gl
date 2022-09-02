@@ -1,3 +1,9 @@
+# [1.0.0-beta.5](https://github.com/pansyjs/react-mapbox-gl/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2022-09-02)
+
+### Bug Fixes
+
+- 修复 layer 卸载时解除监听报错 bug ([795a777](https://github.com/pansyjs/react-mapbox-gl/commit/795a7770e7d06dcb9bf73068999634753f46b00a))
+
 # [1.0.0-beta.4](https://github.com/pansyjs/react-mapbox-gl/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2022-09-01)
 
 ### Features
