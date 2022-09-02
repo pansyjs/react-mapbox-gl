@@ -18,6 +18,10 @@ nav:
 
 <code src="./demos/basic.tsx" />
 
+### 地球模式
+
+<code src="./demos/globe.tsx" />
+
 ## API
 
 ### 静态属性
@@ -73,3 +77,75 @@ nav:
 | bearing | 地图初始化时的方位角（旋转角度），以正北方的逆时针转动度数计量 | `number` | `0` |
 | center | 地图初始化时的地理中心点。 | `number` | `[0, 0]` |
 | projection | 设置渲染地图的投影 | `string` | `mercator` |
+
+### 事件
+
+##### 窗口
+
+| 属性     | 说明                       |
+| -------- | -------------------------- |
+| onResize | 在地图被调整大小后立即触发 |
+| onRemove | 在地图被移除后立即触发     |
+
+##### 地图交互
+
+| 属性          | 说明                                                     |
+| ------------- | -------------------------------------------------------- |
+| onMouseDown   | 当指针设备（一般为鼠标）在地图中被按压时触发             |
+| onMouseUp     | 当指针设备（一般为鼠标）在地图中被释放时触发             |
+| onMouseOver   | 当指针设备（一般为鼠标）在地图中移动时触发               |
+| onMouseMove   | 当指针设备（一般为鼠标）在地图中移动时触发               |
+| onMouseOut    | 当指针设备（一般为鼠标）离开地图画布时触发               |
+| onClick       | 当指针设备（一般为鼠标）在地图同一点处点击并释放时触发   |
+| onDoubleClick | 当指针设备（一般为鼠标）快速双击地图同一点时触发         |
+| onTouchCancel | 当 touchcancel 事件在地图中触发时启动。                  |
+| onTouchMove   | 当 touchmove 事件在地图中触发时启动                      |
+| onTouchEnd    | 当 touchend 事件在地图中触发时启动                       |
+| onTouchStart  | 当 touchstart 事件在地图中触发时启动                     |
+| onContextMenu | 点击鼠标右键或点开地图上的快捷菜单（context menu）时触发 |
+| onWheel       | 当滚轮事件(wheel) 在地图中触发时启动                     |
+
+##### 地图移动
+
+| 属性            | 说明                                               |
+| --------------- | -------------------------------------------------- |
+| onMoveStart     | 在地图开始改变视角之前触发                         |
+| onMove          | 在地图视角改变动画期间重复触发                     |
+| onMoveEnd       | 在地图视角改变完成后触发                           |
+| onDragStart     | 在拖动地图平移开始时触发                           |
+| onDrag          | 在拖动地图平移时重复触发                           |
+| onDragEnd       | 在拖动地图平移结束时触发                           |
+| onZoomStart     | 在地图缩放层级变化开始时触发                       |
+| onZoom          | 在地图缩放层级变化期间重复触发                     |
+| onZoomEnd       | 在地图缩放层级结束时触发                           |
+| onRotateStart   | 在地图视角水平旋转开始时触发                       |
+| onRotate        | 在地图视角水平旋转期间重复触发                     |
+| onRotateEnd     | 在地图视角水平旋转结束时触发                       |
+| onPitchStart    | 在地图视角的俯仰角变化开始时触发                   |
+| onPitch         | 在地图视角的俯仰角变化期间重复触发                 |
+| onPitchEnd      | 在地图视角的俯仰角变化结束时触发                   |
+| onBoxZoomStart  | 在框选缩放开始时触发                               |
+| onBoxZoomEnd    | 在框选缩放结束时触发                               |
+| onBoxZoomCancel | 在框选缩放取消时或者框选区域小于最小触发阈值时触发 |
+
+##### 地图生命周期
+
+| 属性 | 说明 |
+| --- | --- |
+| onLoad | 在所有必要数据源下载完毕、且首个可见的地图渲染完毕后立即触发 |
+| onRender | 改变地图位置、缩放级别、倾斜度和方位角，改变地图样式，改变 GeoJSON 数据源，载入矢量切片、GeoJSON 文件、glyph 或 sprite 时触发 |
+| onIdle | 在渲染完地图最后一帧并进入“空闲(idle)”状态之后触发,“空闲(idle)”状态有:无运行中的相机转换、所有即时请求的切片已加载完毕、所有淡入淡出/过渡动画都已完成 |
+| onError | 出现错误时触发 |
+| onWebglContextLost | 当 WebGL context 丢失时触发 |
+| onWebglContextRestored | 当 WebGL context 恢复时触发 |
+
+##### 地图数据加载
+
+| 属性                | 说明                                                                   |
+| ------------------- | ---------------------------------------------------------------------- |
+| onData              | 地图数据加载或改变时触发                                               |
+| onStyleData         | 地图样式加载或改变时触发                                               |
+| onSourceData        | 加载或改变地图数据源时触发，包括加载或改变属于该数据源的一个切片的情况 |
+| onDataloading       | 任意地图数据（样式、数据源、切片等）开始异步加载或改变时触发           |
+| onStyleDataLoading  | 地图样式开始异步加载或改变时触发                                       |
+| onSourceDataLoading | 当一个地图数据源开始异步加载或改变时触发                               |
