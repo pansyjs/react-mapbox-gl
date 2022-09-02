@@ -27,7 +27,6 @@ nav:
 | anchor | Marker 的锚点位置 | `center` \| `top` \| `bottom` \| `left` \| `right` \| `top-left` \| `top-right` \| `bottom-left` \| `bottom-right` | `center` |
 | clickTolerance | 监测有效点击的最大像素值 | `number` | `0` |
 | color | 默认图标的颜色，如果没有给定 Marker 的元素 | `string` | `#3FB1CE` |
-| onClick | Marker 绑定的点击事件 | `function` | `null` |
 
 ### 动态属性
 
@@ -40,3 +39,12 @@ nav:
 | pitchAlignment | Marker 地图平面的对齐方式 | `map` \| `viewport` \| `auto` | `auto` |
 | scale | 默认图标的大小，如果没有给定 Marker 的元素 | `number` | `1` |
 | lngLat | Marker 的位置 | `LngLatLike` | -- |
+
+### 事件
+
+| 属性        | 说明                       |
+| ----------- | -------------------------- |
+| onDragStart | 在开始拖动 Marker 时触发   |
+| onDrag      | 在拖动 Marker 期间重复触发 |
+| onDragEnd   | 在停止拖动 Marker 时触发   |
+| onClick     | 在点击 Marker 时触发       |
