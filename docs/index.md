@@ -1,5 +1,5 @@
 ---
-title: Mapbox - 🌍 基于 mapbox-gl 封装的 React 组件库.
+title: Mapbox - 基于 mapbox-gl 封装的 React 组件库.
 hero:
   title: React Mapbox GL
   desc: 🌍 基于 mapbox-gl 封装的 React 组件库.
