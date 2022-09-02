@@ -30,6 +30,6 @@ const config = {
 };
 
 export default () => {
-  return <Map {...config}></LarkMap>;
+  return <Map {...config} />;
 };
 ```

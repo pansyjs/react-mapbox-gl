@@ -9,6 +9,10 @@ export default defineConfig({
   navs: [
     null,
     {
+      title: 'Mapbox GL',
+      path: 'https://docs.mapbox.com/mapbox-gl-js/api/',
+    },
+    {
       title: 'GitHub',
       path: 'https://github.com/pansyjs/react-mapbox-gl',
     },
