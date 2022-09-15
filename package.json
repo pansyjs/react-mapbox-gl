@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@pansy/react-hooks": "^0.11.0",
-    "@pansy/shared": "^1.4.0",
+    "@pansy/shared": "^1.5.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
@@ -40,9 +40,9 @@
     "@commitlint/config-conventional": "17.1.0",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@types/lodash": "^4.14.184",
+    "@types/lodash": "^4.14.185",
     "@types/mapbox-gl": "^2.7.5",
-    "@types/react": "^18.0.18",
+    "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
     "@umijs/babel-preset-umi": "3.5.30",
     "@umijs/fabric": "^3.0.0",
@@ -53,10 +53,10 @@
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "redbud": "^1.2.1",
+    "redbud": "^1.2.3",
     "semantic-release": "^19.0.5",
-    "typescript": "^4.8.2",
-    "vitest": "^0.22.1"
+    "typescript": "^4.8.3",
+    "vitest": "^0.23.2"
   },
   "lint-staged": {
     "*.{jsx,less,md,json}": [
