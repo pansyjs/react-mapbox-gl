@@ -1,7 +1,6 @@
 import { Marker as MapboxMarker } from 'mapbox-gl';
-import { useGetState } from '@pansy/react-hooks';
-import { createPortal } from 'react-dom';
-import { forwardRef, useEffect, useRef, useImperativeHandle } from 'react';
+import { useGetState, usePortal } from '@pansy/react-hooks';
+import { forwardRef, useEffect, useImperativeHandle } from 'react';
 
 import { useMap } from '@/hooks/useMap';
 import { useReact } from '@/hooks/useReact';
@@ -13,7 +12,7 @@ import type { MarkerProps, EventMapping } from './types';
 
 export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
   const map = useMap();
-  const contentWrapper = useRef<HTMLDivElement>();
+  const { Portal, container } = usePortal();
   const [marker, setMarker, getMarker] = useGetState<MapboxMarker | undefined>(undefined);
 
   const { onInstanceCreated } = useReact<MarkerProps, MapboxMarker, EventMapping>(props, {
@@ -21,12 +20,6 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
     events: mapEventMap,
     setterMap,
     converterMap,
-    unmount: () => {
-      if (contentWrapper.current) {
-        contentWrapper.current.removeEventListener('click', handleClick);
-        contentWrapper.current = undefined;
-      }
-    },
   });
 
   useImperativeHandle(ref, () => marker as MapboxMarker, [marker]);
@@ -47,7 +40,7 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
         marker.setLngLat(props.lngLat);
         marker.addTo(map);
 
-        contentWrapper.current?.addEventListener('click', handleClick);
+        container.addEventListener('click', handleClick);
 
         onInstanceCreated();
       });
@@ -57,9 +50,7 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
   const createInstance = () => {
     const options = getCreateOptions();
 
-    contentWrapper.current = document.createElement('div');
-
-    const marker = new MapboxMarker(contentWrapper.current, options);
+    const marker = new MapboxMarker(container, options);
     return Promise.resolve(marker);
   };
 
@@ -77,5 +68,5 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
     return options;
   };
 
-  return <>{marker && createPortal(props.children, marker.getElement())}</>;
+  return <>{marker && <Portal>{props.children}</Portal>}</>;
 });
