@@ -48,7 +48,7 @@
     "@umijs/fabric": "^3.0.0",
     "dumi": "1.1.47",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
+    "lint-staged": "^14.0.0",
     "mapbox-gl": "^2.10.0",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
