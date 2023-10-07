@@ -46,7 +46,7 @@
     "@types/react-dom": "^18.0.6",
     "@umijs/babel-preset-umi": "3.5.30",
     "@umijs/fabric": "^3.0.0",
-    "dumi": "1.1.47",
+    "dumi": "1.1.54",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "mapbox-gl": "^2.10.0",
