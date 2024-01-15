@@ -11,10 +11,10 @@
     "es"
   ],
   "scripts": {
-    "start": "dumi dev",
+    "start": "storybook dev -p 6007",
     "build": "redbud build",
-    "build:site": "dumi build",
-    "prepare": "husky install && dumi setup",
+    "build:site": "storybook build",
+    "prepare": "husky install",
     "tsc:check": "tsc --noEmit"
   },
   "keywords": [
@@ -40,6 +40,14 @@
     "@commitlint/config-conventional": "17.7.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "@storybook/addon-essentials": "^7.6.8",
+    "@storybook/addon-interactions": "^7.6.8",
+    "@storybook/addon-links": "^7.6.8",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/blocks": "^7.6.8",
+    "@storybook/react": "^7.6.8",
+    "@storybook/react-vite": "^7.6.8",
+    "@storybook/test": "^7.6.8",
     "@testing-library/dom": "^9.3.4",
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
@@ -49,7 +57,6 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@umijs/fabric": "^4.0.1",
-    "dumi": "2.2.10",
     "husky": "^8.0.3",
     "jsdom": "^23.2.0",
     "lint-staged": "^14.0.1",
@@ -59,6 +66,7 @@
     "react-dom": "^18.2.0",
     "redbud": "^1.6.0",
     "semantic-release": "^22.0.0",
+    "storybook": "^7.6.8",
     "typescript": "^5.3.3",
     "vitest": "^1.1.3"
   },
