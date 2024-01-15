@@ -31,7 +31,7 @@
     "react-dom": "^16.x || ^17.x || ^18.x"
   },
   "dependencies": {
-    "@pansy/react-hooks": "^1.0.6",
+    "@pansy/react-hooks": "^2.0.0",
     "@pansy/shared": "^1.15.0",
     "lodash": "^4.17.21"
   },
