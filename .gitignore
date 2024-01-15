@@ -10,3 +10,8 @@ index.json
 indexes.json
 node_modules
 .umi
+
+# dumi
+.dumi/tmp
+.dumi/tmp-test
+.dumi/tmp-production

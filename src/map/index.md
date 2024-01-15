@@ -16,11 +16,11 @@ nav:
 
 ### 基本示例
 
-<code src="./demos/basic.tsx" />
+<code src="./demos/basic.tsx"></code>
 
 ### 地球模式
 
-<code src="./demos/globe.tsx" />
+<code src="./demos/globe.tsx"></code>
 
 ## API
 
