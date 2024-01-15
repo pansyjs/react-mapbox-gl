@@ -14,11 +14,7 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "Node",
     "jsx": "react-jsx",
-    "types": ["vitest", "vitest/globals"],
-    "paths": {
-      "@/*": ["src/*"],
-      "@pansy/react-mapbox-gl": ["src/index.ts"]
-    }
+    "types": ["vitest", "vitest/globals"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/**/*.md", "**/dist"]
