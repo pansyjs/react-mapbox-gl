@@ -1,11 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
 import { Map } from '../src';
+
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
   title: '组件/Map',
   component: Map,
-
   parameters: {
     layout: 'centered',
   },
@@ -16,6 +15,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-  args: {},
+export const Event: Story = {
+  args: {
+    onClick: (e) => {
+      console.log(e);
+    },
+  },
 };
