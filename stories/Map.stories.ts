@@ -5,6 +5,7 @@ import { Map } from '../src';
 const meta = {
   title: '组件/Map',
   component: Map,
+
   parameters: {
     layout: 'centered',
   },

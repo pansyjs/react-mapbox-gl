@@ -28,10 +28,10 @@ export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
     converterMap,
   });
 
-  // useEvents<Mapbox.Map, MapProps>(mapInstance!, props, {
-  //   eventMap: MapEventMap,
-  //   eventList: MapEventList,
-  // });
+  useEvents<Mapbox.Map, MapProps>(mapInstance!, props, {
+    eventMap: MapEventMap,
+    eventList: MapEventList,
+  });
 
   useImperativeHandle(ref, () => mapInstance as Mapbox.Map, [mapInstance]);
 

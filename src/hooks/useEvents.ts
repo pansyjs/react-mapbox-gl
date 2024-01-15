@@ -4,7 +4,7 @@ import { useTrackedEffect } from './useTrackedEffect';
 import type { Instance } from '../types';
 
 export const useEvents = <Ins extends Instance, Props extends Record<string, any>>(
-  map: Ins,
+  ins: Ins,
   props: Props,
   options: {
     eventMap: Record<string, any>;
@@ -15,7 +15,7 @@ export const useEvents = <Ins extends Instance, Props extends Record<string, any
 
   useTrackedEffect<[Ins, ...any[]]>(
     (changeIndexList = [], previousDeps, currentDeps) => {
-      if (!map) {
+      if (!ins) {
         return;
       }
       // 需要更新的事件对应到 deps 的数组下标，但是不包含 scene 实例的更新
@@ -32,25 +32,25 @@ export const useEvents = <Ins extends Instance, Props extends Record<string, any
         const currentCallback = currentDeps?.[index + 1] as any;
         // 分别注销旧的事件回调并绑定新的事件
         if (previousCallback) {
-          map.off(eventName, previousCallback);
+          ins.off(eventName, previousCallback);
         }
         if (currentCallback) {
-          map.on(eventName, currentCallback);
+          ins.on(eventName, currentCallback);
         }
       });
     },
-    [map, ...eventList.map((eventName) => props[eventName])],
+    [ins, ...eventList.map((eventName) => props[eventName])],
   );
 
   useUnmount(() => {
-    if (!map) {
+    if (!ins) {
       return;
     }
     eventList.forEach((key) => {
       const eventName = eventMap[key];
       const callback = props[key];
       if (eventName && callback) {
-        map.off(eventName, callback);
+        ins.off(eventName, callback);
       }
     });
   });
