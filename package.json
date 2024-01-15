@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@pansy/react-hooks": "^1.0.6",
-    "@pansy/shared": "^1.13.0",
+    "@pansy/shared": "^1.15.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
@@ -40,6 +40,10 @@
     "@commitlint/config-conventional": "17.7.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "@testing-library/dom": "^9.3.4",
+    "@testing-library/jest-dom": "^6.2.0",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.2",
     "@types/lodash": "^4.14.198",
     "@types/mapbox-gl": "^2.7.19",
     "@types/react": "^18.2.21",
@@ -47,6 +51,7 @@
     "@umijs/fabric": "^4.0.1",
     "dumi": "2.2.10",
     "husky": "^8.0.3",
+    "jsdom": "^23.2.0",
     "lint-staged": "^14.0.1",
     "mapbox-gl": "^3.0.1",
     "prettier": "^3.0.3",
