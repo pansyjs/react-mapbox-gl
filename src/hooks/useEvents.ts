@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { useDeepCompareEffect, useUnmount } from '@pansy/react-hooks';
-import isEqual from 'lodash/isEqual';
+import { isEqual } from 'lodash-es';
 
 export interface Instance extends Record<string, any> {
   on(type: string, handle: (...args: any[]) => void): void;

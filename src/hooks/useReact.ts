@@ -1,5 +1,5 @@
 import { useDeepCompareEffect, useUnmount, usePrevious } from '@pansy/react-hooks';
-import isEqual from 'lodash/isEqual';
+import { isEqual } from 'lodash-es';
 import { isFunction } from '@pansy/shared';
 
 import { toCapitalString } from '@/utils';
@@ -54,7 +54,9 @@ export const useReact = <
   const { eventProps, notEventProps } = splitPropsByEvent(props);
   const prevProps = usePrevious(notEventProps);
 
-  useEvents(ins as Ins, events, eventProps);
+  console.log(eventProps);
+
+  // useEvents(ins as Ins, events, eventProps);
 
   useDeepCompareEffect(() => {
     if (ins) {

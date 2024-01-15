@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { useDeepCompareEffect, useUnmount } from '@pansy/react-hooks';
-import isEqual from 'lodash/isEqual';
+import { isEqual } from 'lodash-es';
 
 import type { Map } from 'mapbox-gl';
 import type { LayerProps, LayerType, LayerEvents, EventMapping, LayerEventKeys } from '../types';
