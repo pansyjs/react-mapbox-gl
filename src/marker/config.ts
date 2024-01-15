@@ -1,7 +1,6 @@
 import { Marker } from 'mapbox-gl';
 
 import type { LngLatLike } from 'mapbox-gl';
-
 import type { EventMapping, PropKey } from './types';
 
 export const mapEventMap: EventMapping = {

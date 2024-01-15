@@ -1,5 +1,6 @@
+import React from 'react';
 import type { MapboxOptions, MapEventType } from 'mapbox-gl';
-import type { KeysOfUnion } from '@pansy/shared/types';
+import type { KeysOfUnion } from '../types';
 
 export interface MapOptions extends MapboxOptions {}
 
@@ -66,9 +67,11 @@ export type MapEvents = {
 
 export type EventMapping = { [T in keyof MapEvents]: string };
 
-export type PropKey = KeysOfUnion<MapboxOptions>;
+export type MapboxOptionKeys = KeysOfUnion<MapboxOptions>;
 
 export interface MapProps extends Omit<MapOptions, 'container'>, Partial<MapEvents> {
+  /** 地图加载前的加载效果 */
+  loading?: React.ReactNode;
   className?: string;
-  children?: any;
+  children?: React.ReactNode;
 }

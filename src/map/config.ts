@@ -1,5 +1,5 @@
 import type { Map } from 'mapbox-gl';
-import type { PropKey, EventMapping } from './types';
+import type { MapboxOptionKeys, EventMapping } from './types';
 
 export const mapEventMap: EventMapping = {
   onError: 'error',
@@ -63,7 +63,7 @@ export const mapEventMap: EventMapping = {
 };
 
 /** 静态属性 */
-export const StaticProps: PropKey[] = [
+export const StaticProps: MapboxOptionKeys[] = [
   'hash',
   'interactive',
   'bearingSnap',
@@ -94,7 +94,7 @@ export const StaticProps: PropKey[] = [
 ];
 
 /** 动态属性 */
-export const NativeDynamicProps: PropKey[] = [
+export const NativeDynamicProps: MapboxOptionKeys[] = [
   'zoom',
   'minZoom',
   'maxZoom',

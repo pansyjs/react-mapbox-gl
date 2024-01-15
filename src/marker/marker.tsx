@@ -11,7 +11,7 @@ import type { MarkerOptions } from 'mapbox-gl';
 import type { MarkerProps, EventMapping } from './types';
 
 export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
-  const map = useMap();
+  const { map } = useMap();
   const { Portal, container } = usePortal();
   const [marker, setMarker, getMarker] = useGetState<MapboxMarker | undefined>(undefined);
 
