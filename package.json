@@ -33,8 +33,8 @@
   "dependencies": {
     "@pansy/react-hooks": "^1.0.6",
     "@pansy/shared": "^1.15.0",
-    "type-fest": "^4.9.0",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "type-fest": "^4.9.0"
   },
   "devDependencies": {
     "@commitlint/cli": "17.7.1",
@@ -58,6 +58,7 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@umijs/fabric": "^4.0.1",
+    "antd": "^5.13.1",
     "husky": "^8.0.3",
     "jsdom": "^23.2.0",
     "lint-staged": "^14.0.1",
