@@ -1,9 +1,10 @@
 import { useUnmount } from '@pansy/react-hooks';
-import { useTrackedEffect } from './useTrackedEffect';
+import { useTrackedEffect } from '../../hooks/useTrackedEffect';
 
-import type { Instance } from '../types';
+import type { Map } from 'mapbox-gl';
+import type { Instance } from '../../types';
 
-export const useEvents = <Ins extends Instance, Props extends Record<string, any>>(
+export const useMapEvent = <Ins extends Instance, Props extends Record<string, any>>(
   map: Ins,
   props: Props,
   options: {
@@ -13,8 +14,8 @@ export const useEvents = <Ins extends Instance, Props extends Record<string, any
 ) => {
   const { eventMap = {}, eventList = [] } = options;
 
-  useTrackedEffect<[Ins, ...any[]]>(
-    (changeIndexList = [], previousDeps, currentDeps) => {
+  useTrackedEffect<any>(
+    (changeIndexList = [], previousDeps: [Map, ...any[]], currentDeps: [Map, ...any[]]) => {
       if (!map) {
         return;
       }
@@ -28,8 +29,8 @@ export const useEvents = <Ins extends Instance, Props extends Record<string, any
 
       eventIndexList.forEach((index) => {
         const eventName = eventMap[eventList[index]] as string;
-        const previousCallback = previousDeps?.[index + 1] as any;
-        const currentCallback = currentDeps?.[index + 1] as any;
+        const previousCallback = previousDeps[index + 1] as any;
+        const currentCallback = currentDeps[index + 1] as any;
         // 分别注销旧的事件回调并绑定新的事件
         if (previousCallback) {
           map.off(eventName, previousCallback);

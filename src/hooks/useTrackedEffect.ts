@@ -19,7 +19,10 @@ const diffTwoDeps = (deps1?: React.DependencyList, deps2?: React.DependencyList)
     : [];
 };
 
-const useTrackedEffect = <T extends React.DependencyList>(effect: Effect<T>, deps?: [...T]) => {
+export const useTrackedEffect = <T extends React.DependencyList>(
+  effect: Effect<T>,
+  deps?: [...T],
+) => {
   const previousDepsRef = useRef<T>();
 
   useEffect(() => {

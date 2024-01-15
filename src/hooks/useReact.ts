@@ -3,13 +3,11 @@ import { isEqual } from 'lodash-es';
 import { isFunction } from '@pansy/shared';
 
 import { toCapitalString } from '@/utils';
-import { useEvents } from './useEvents';
 
-import type { Instance } from './useEvents';
+import type { Instance } from '../types';
 
-export interface Options<Ins, Events> {
+export interface Options<Ins> {
   ins?: Ins;
-  events: Events;
   setterMap?: Record<string, Function>;
   converterMap?: Record<string, Function>;
   unmount?: () => void;
@@ -48,15 +46,11 @@ export const useReact = <
   Events extends Record<string, string>,
 >(
   props: P = {} as P,
-  options: Options<Ins, Events>,
+  options: Options<Ins>,
 ) => {
-  const { ins, events, setterMap = {}, converterMap = {}, unmount } = options;
-  const { eventProps, notEventProps } = splitPropsByEvent(props);
+  const { ins, setterMap = {}, converterMap = {}, unmount } = options;
+  const { notEventProps } = splitPropsByEvent(props);
   const prevProps = usePrevious(notEventProps);
-
-  console.log(eventProps);
-
-  // useEvents(ins as Ins, events, eventProps);
 
   useDeepCompareEffect(() => {
     if (ins) {

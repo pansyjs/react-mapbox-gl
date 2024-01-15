@@ -2,7 +2,9 @@ import Mapbox from 'mapbox-gl';
 import { useRef, useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { MapContext } from './context';
 import { useReact } from '@/hooks/useReact';
-import { allProps, mapEventMap, setterMap, converterMap } from './config';
+import { allProps, setterMap, converterMap } from './config';
+import { MapEventMap, MapEventList } from './constant';
+import { useEvents } from '@/hooks/useEvents';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './map.css';
@@ -22,10 +24,14 @@ export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
 
   const { onInstanceCreated } = useReact<MapProps, Mapbox.Map, EventMapping>(props, {
     ins: mapInstance,
-    events: mapEventMap,
     setterMap,
     converterMap,
   });
+
+  // useEvents<Mapbox.Map, MapProps>(mapInstance!, props, {
+  //   eventMap: MapEventMap,
+  //   eventList: MapEventList,
+  // });
 
   useImperativeHandle(ref, () => mapInstance as Mapbox.Map, [mapInstance]);
 
