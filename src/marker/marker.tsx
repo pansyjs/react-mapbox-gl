@@ -1,13 +1,11 @@
-import { Marker as MapboxMarker } from 'mapbox-gl';
+import Mapbox from 'mapbox-gl';
 import { useGetState, usePortal } from '@pansy/react-hooks';
 import { forwardRef, useEffect, useImperativeHandle } from 'react';
-
 import { useMap } from '@/hooks/useMap';
 import { useReact } from '@/hooks/useReact';
+import { allProps, setterMap, converterMap } from './config';
 
-import { allProps, setterMap, converterMap, mapEventMap } from './config';
-
-import type { MarkerOptions } from 'mapbox-gl';
+import type { Marker as MapboxMarker, MarkerOptions } from 'mapbox-gl';
 import type { MarkerProps, EventMapping } from './types';
 
 export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
@@ -17,7 +15,6 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
 
   const { onInstanceCreated } = useReact<MarkerProps, MapboxMarker, EventMapping>(props, {
     ins: marker,
-    events: mapEventMap,
     setterMap,
     converterMap,
   });
@@ -37,7 +34,6 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
       createInstance().then((marker) => {
         setMarker(marker);
 
-        marker.setLngLat(props.lngLat);
         marker.addTo(map);
 
         container.addEventListener('click', handleClick);
@@ -48,14 +44,14 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
   }, [map]);
 
   const createInstance = () => {
-    const options = getCreateOptions();
+    const options = getCreateOptions(props);
+    const marker = new Mapbox.Marker(container, options);
 
-    const marker = new MapboxMarker(container, options);
     return Promise.resolve(marker);
   };
 
   /** 获取创建参数 */
-  const getCreateOptions = () => {
+  const getCreateOptions = (props: MarkerProps) => {
     const options: MarkerOptions = {};
 
     allProps.forEach((key) => {

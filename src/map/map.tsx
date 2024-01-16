@@ -12,9 +12,6 @@ import './map.css';
 import type { MapContextValue } from './context';
 import type { MapProps, EventMapping, MapboxOptionKeys } from './types';
 
-Mapbox.accessToken =
-  'pk.eyJ1IjoienQyMDIzMTEwOSIsImEiOiJjbG9xdGgxcDMwbDAyMmpwODVrNG5seXphIn0.1xKSk8Ll-80kkEwtzfLWhw';
-
 export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
   const { className, loading, containerStyle, children } = props;
   const containerRef = useRef<HTMLDivElement>(null);

@@ -7,6 +7,11 @@ export interface MapOptions extends MapboxOptions {}
 export type MapEvents = {
   onError: (e: MapEventType['error']) => void;
 
+  /**
+   * 下载所有必要的资源并且第一次视觉上完整渲染发生后触发
+   * @param e
+   * @returns
+   */
   onLoad: (e: MapEventType['load']) => void;
   onIdle: (e: MapEventType['idle']) => void;
   onRemove: (e: MapEventType['remove']) => void;

@@ -1,6 +1,6 @@
-import { Marker } from 'mapbox-gl';
+import { toLngLat } from '../utils/toLngLat';
 
-import type { LngLatLike } from 'mapbox-gl';
+import type { LngLatLike, Marker } from 'mapbox-gl';
 import type { EventMapping, PropKey } from './types';
 
 export const mapEventMap: EventMapping = {
@@ -20,16 +20,17 @@ export const NativeDynamicProps: PropKey[] = [
   'rotationAlignment',
   'pitchAlignment',
   'scale',
-  'lngLat',
+  'lnglat',
 ];
 
 export const allProps = NativeDynamicProps.concat(StaticProps);
 
 export const setterMap = {
-  lngLat(value: LngLatLike, marker: Marker) {
+  lnglat(value: LngLatLike, marker: Marker) {
     if (!marker) return;
+    const lnglat = toLngLat(value);
 
-    marker.setLngLat(value);
+    lnglat && marker.setLngLat(lnglat);
   },
 };
 
