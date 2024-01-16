@@ -1,7 +1,7 @@
 import Mapbox from 'mapbox-gl';
 import { useRef, useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { MapContext } from './context';
-import { useReact } from '@/hooks/useReact';
+import { usePropsReactive } from '@/hooks/usePropsReactive';
 import { allProps, setterMap, converterMap } from './config';
 import { defaultContainerStyle, MapEventMap, MapEventList } from './constant';
 import { useEvents } from '@/hooks/useEvents';
@@ -10,7 +10,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import './map.css';
 
 import type { MapContextValue } from './context';
-import type { MapProps, EventMapping, MapboxOptionKeys } from './types';
+import type { MapProps, MapboxOptionKeys } from './types';
 
 export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
   const { className, loading, containerStyle, children } = props;
@@ -19,8 +19,7 @@ export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
 
   const { current: contextValue } = useRef<MapContextValue>({} as MapContextValue);
 
-  const { onInstanceCreated } = useReact<MapProps, Mapbox.Map, EventMapping>(props, {
-    ins: mapInstance,
+  const { onInstanceCreated } = usePropsReactive(props, mapInstance!, {
     setterMap,
     converterMap,
   });
