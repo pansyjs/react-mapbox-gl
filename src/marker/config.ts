@@ -1,7 +1,6 @@
 import { toLngLat } from '../utils/toLngLat';
 
-import type { LngLatLike, Marker } from 'mapbox-gl';
-import type { EventMapping, PropKey } from './types';
+import type { EventMapping, PropKeys } from './types';
 
 export const mapEventMap: EventMapping = {
   onDragStart: 'dragstart',
@@ -10,10 +9,10 @@ export const mapEventMap: EventMapping = {
 };
 
 /** 静态属性 */
-export const StaticProps: PropKey[] = ['anchor', 'clickTolerance', 'color', 'onClick'];
+export const StaticProps: PropKeys[] = ['anchor', 'clickTolerance', 'color', 'onClick'];
 
 /** 动态属性 */
-export const NativeDynamicProps: PropKey[] = [
+export const NativeDynamicProps: PropKeys[] = [
   'draggable',
   'offset',
   'rotation',
@@ -25,13 +24,8 @@ export const NativeDynamicProps: PropKey[] = [
 
 export const allProps = NativeDynamicProps.concat(StaticProps);
 
-export const setterMap = {
-  lnglat(value: LngLatLike, marker: Marker) {
-    if (!marker) return;
-    const lnglat = toLngLat(value);
+export const setterMap = {};
 
-    lnglat && marker.setLngLat(lnglat);
-  },
+export const converterMap: Partial<Record<PropKeys, (...value: any[]) => any>> = {
+  lnglat: toLngLat,
 };
-
-export const converterMap = {};

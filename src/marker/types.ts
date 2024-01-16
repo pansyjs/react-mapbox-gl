@@ -30,4 +30,4 @@ export interface MarkerProps
   children?: React.ReactNode;
 }
 
-export type PropKey = KeysOfUnion<MarkerProps>;
+export type PropKeys = KeysOfUnion<MarkerProps>;
