@@ -20,7 +20,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {},
   args: {
-    lnglat: [-122.414, 37.776],
+    lngLat: [-122.414, 37.776],
   },
 } satisfies Meta<typeof Marker>;
 

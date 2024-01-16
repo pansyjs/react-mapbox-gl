@@ -2,6 +2,8 @@ import React from 'react';
 import type { Marker, MarkerOptions, LngLatLike } from 'mapbox-gl';
 import type { KeysOfUnion } from '../types';
 
+export type { KeysOfUnion } from '../types';
+
 export interface MarkerEvent<TOrig = undefined> {
   type: string;
   target: Marker;
@@ -26,8 +28,8 @@ export interface MarkerProps
     Partial<CustomizeMarkerEvents> {
   className?: string;
   /** 经纬度坐标 */
-  lnglat?: LngLatLike;
+  lngLat?: LngLatLike;
   children?: React.ReactNode;
 }
 
-export type PropKeys = KeysOfUnion<MarkerProps>;
+export type PropKey = KeysOfUnion<MarkerProps>;

@@ -1,31 +1,25 @@
 import { toLngLat } from '../utils/toLngLat';
 
-import type { EventMapping, PropKeys } from './types';
-
-export const mapEventMap: EventMapping = {
-  onDragStart: 'dragstart',
-  onDrag: 'drag',
-  onDragEnd: 'dragend',
-};
+import type { PropKey } from './types';
 
 /** 静态属性 */
-export const StaticProps: PropKeys[] = ['anchor', 'clickTolerance', 'color', 'onClick'];
+export const StaticProps: PropKey[] = ['anchor', 'clickTolerance', 'color', 'onClick'];
 
 /** 动态属性 */
-export const NativeDynamicProps: PropKeys[] = [
+export const NativeDynamicProps: PropKey[] = [
   'draggable',
   'offset',
   'rotation',
   'rotationAlignment',
   'pitchAlignment',
   'scale',
-  'lnglat',
+  'lngLat',
 ];
 
 export const allProps = NativeDynamicProps.concat(StaticProps);
 
 export const setterMap = {};
 
-export const converterMap: Partial<Record<PropKeys, (...value: any[]) => any>> = {
-  lnglat: toLngLat,
+export const converterMap: Partial<Record<PropKey, (...value: any[]) => any>> = {
+  lngLat: toLngLat,
 };
