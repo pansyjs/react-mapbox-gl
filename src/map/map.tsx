@@ -37,10 +37,7 @@ export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
       onInstanceCreated();
 
       contextValue.map = map;
-
-      map.once('load', () => {
-        setMapInstance(map);
-      });
+      setMapInstance(map);
     });
   }, [containerRef]);
 
