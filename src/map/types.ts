@@ -2,7 +2,7 @@ import React from 'react';
 import type { MapboxOptions, MapEventType } from 'mapbox-gl';
 import type { KeysOfUnion } from '../types';
 
-export interface MapOptions extends MapboxOptions {}
+export type { KeysOfUnion } from '../types';
 
 export type MapEvents = {
   onError: (e: MapEventType['error']) => void;
@@ -74,7 +74,7 @@ export type EventMapping = { [T in keyof MapEvents]: string };
 
 export type MapboxOptionKeys = KeysOfUnion<MapboxOptions>;
 
-export interface MapProps extends Omit<MapOptions, 'container'>, Partial<MapEvents> {
+export interface MapProps extends Omit<MapboxOptions, 'container'>, Partial<MapEvents> {
   /** 地图加载前的加载效果 */
   loading?: React.ReactNode;
   /** 额外的样式类 */
@@ -83,3 +83,5 @@ export interface MapProps extends Omit<MapOptions, 'container'>, Partial<MapEven
   containerStyle?: React.CSSProperties;
   children?: React.ReactNode;
 }
+
+export type PropKey = KeysOfUnion<MapProps>;
