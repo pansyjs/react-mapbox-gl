@@ -1,14 +1,13 @@
 import Mapbox from 'mapbox-gl';
 import { useGetState, usePortal } from '@pansy/react-hooks';
 import { forwardRef, useEffect, useImperativeHandle } from 'react';
-import { useMap } from '@/hooks/useMap';
-import { useReact } from '@/hooks/useReact';
+import { useMap } from '../hooks/useMap';
+import { useReact } from '../hooks/useReact';
 import { useEvents } from '../hooks/useEvents';
 import { allProps, setterMap, converterMap } from './config';
 import { MarkerEventMap, MarkerEventList } from './constant';
 
-import type { Marker as MapboxMarker, MarkerOptions } from 'mapbox-gl';
-import type { MarkerProps, EventMapping, PropKey } from './types';
+import type { MarkerProps, EventMapping, PropKey, MapboxMarker, MarkerOptions } from './types';
 
 export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
   const { map } = useMap();
@@ -57,14 +56,18 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
         onInstanceCreated();
       });
     }
+
+    return () => {
+      container && container.removeEventListener('click', handleClick);
+    };
   }, [map]);
 
   const createInstance = () => {
     const options = getCreateOptions(props);
 
-    if (options.lnglat) {
+    if (options.lngLat) {
       const marker = new Mapbox.Marker(container, options);
-      marker.setLngLat(options.lnglat);
+      marker.setLngLat(options.lngLat);
 
       return Promise.resolve(marker);
     } else {
@@ -75,7 +78,7 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
   /** 获取创建参数 */
   const getCreateOptions = (props: MarkerProps) => {
     const options: MarkerOptions & {
-      lnglat?: MarkerProps['lngLat'];
+      lngLat?: MarkerProps['lngLat'];
     } = {};
 
     allProps.forEach((key) => {

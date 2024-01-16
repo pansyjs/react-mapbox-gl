@@ -28,5 +28,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Event: Story = {
-  args: {},
+  args: {
+    onClick: (e) => {
+      console.log(e);
+    },
+  },
 };
