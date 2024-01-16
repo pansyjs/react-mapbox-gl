@@ -1,30 +1,22 @@
 import { forwardRef, useEffect, useState, useImperativeHandle } from 'react';
 
-import { useMap } from '@/hooks/useMap';
-import { useReact } from '@/hooks/useReact';
-
+import { useMap } from '../hooks/useMap';
+import { usePropsReactive } from '../hooks/usePropsReactive';
 import { setterMap, converterMap } from './config';
 
-import type { FC } from 'react';
 import type { GeoJSONSource } from 'mapbox-gl';
-import type { SourceProps, EventMapping } from './types';
+import type { SourceProps } from './types';
 
-export const Source: FC<SourceProps> = forwardRef<GeoJSONSource, SourceProps>((props, ref) => {
+export const Source = forwardRef<GeoJSONSource, SourceProps>((props, ref) => {
   const { id, ...rest } = props;
-  const map = useMap();
+  const { map } = useMap();
   const [source, setSource] = useState<GeoJSONSource>();
 
   useImperativeHandle(ref, () => source as GeoJSONSource, [source]);
 
-  const { onInstanceCreated } = useReact<SourceProps, any, EventMapping>(props, {
-    ins: source,
-    events: {},
+  const { onInstanceCreated } = usePropsReactive(props, source!, {
     setterMap,
     converterMap,
-    unmount: () => {
-      //@ts-ignore
-      map && map.style && map.removeSource(id);
-    },
   });
 
   useEffect(() => {

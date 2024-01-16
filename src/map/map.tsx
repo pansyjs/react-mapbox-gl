@@ -1,10 +1,10 @@
 import Mapbox from 'mapbox-gl';
 import { useRef, useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { MapContext } from './context';
-import { usePropsReactive } from '@/hooks/usePropsReactive';
+import { useEvents } from '../hooks/useEvents';
+import { usePropsReactive } from '../hooks/usePropsReactive';
 import { allProps, setterMap, converterMap } from './config';
 import { defaultContainerStyle, MapEventMap, MapEventList } from './constant';
-import { useEvents } from '@/hooks/useEvents';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './map.css';

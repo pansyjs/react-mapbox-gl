@@ -22,7 +22,9 @@ import type {
   HillshadePaint,
   MapLayerEventType,
 } from 'mapbox-gl';
-import type { KeysOfUnion } from '@pansy/shared/types';
+import type { KeysOfUnion } from '../types';
+
+export type { KeysOfUnion } from '../types';
 
 export type LayerType =
   | 'background'

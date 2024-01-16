@@ -1,18 +1,21 @@
 import { useEffect } from 'react';
 
-import { useMap } from '@/hooks/useMap';
-import { useEvents } from './hooks/useEvents';
+import { useMap } from '../hooks/useMap';
+import { useEvents } from '../hooks/useEvents';
 
-import { eventMapping } from './config';
+import { LayerEventList, LayerEventMap } from './constant';
 
-import type { AnyLayer } from 'mapbox-gl';
+import type { AnyLayer, Map } from 'mapbox-gl';
 import type { LayerProps, LayerType } from './types';
 
 export const Layer = <T extends LayerType>(props: LayerProps<T>) => {
   const { before, ...rest } = props;
-  const map = useMap();
+  const { map } = useMap();
 
-  useEvents<T>(map, eventMapping, props);
+  useEvents<Map, LayerProps<T>>(map, props, {
+    eventMap: LayerEventMap,
+    eventList: LayerEventList,
+  });
 
   useEffect(() => {
     if (map) {
