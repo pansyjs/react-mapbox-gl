@@ -6,9 +6,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 const meta = {
   title: '组件/Map',
   component: Map,
-  parameters: {
-    layout: 'fullscreen',
-  },
+  parameters: {},
   tags: ['autodocs'],
   argTypes: {},
   args: {

@@ -14,9 +14,7 @@ const meta = {
       </Map>
     );
   },
-  parameters: {
-    layout: 'fullscreen',
-  },
+  parameters: {},
   tags: ['autodocs'],
   argTypes: {},
   args: {
