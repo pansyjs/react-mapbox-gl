@@ -14,7 +14,19 @@ export function usePropsReactive<
 >(props: P, ins: Ins, { setterMap = {}, converterMap = {} }: Options = {}) {
   const prevProps = usePrevious(props) as P;
 
-  const onInstanceCreated = (instance: Ins) => {
+  useDeepCompareEffect(() => {
+    if (ins) {
+      reactivePropChange(props, true);
+    }
+  }, [props]);
+
+  useUnmount(() => {
+    if (ins && 'remove' in ins) {
+      ins.remove();
+    }
+  });
+
+  const onInstanceCreated = () => {
     reactivePropChange(props, false);
   };
 
@@ -29,7 +41,7 @@ export function usePropsReactive<
 
     try {
       Object.keys(nextProps).forEach((key) => {
-        /** 忽略事件绑定处理 */
+        /** 忽略事件 */
         if (isFunction(props[key]) && /^on[A-Z]/.test(key)) return;
 
         let willReactive = true;

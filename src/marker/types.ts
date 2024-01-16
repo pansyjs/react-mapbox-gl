@@ -24,7 +24,7 @@ export interface CustomizeEvents {
 export type EventMapping = { [T in keyof MarkerEvents]: string };
 
 export interface MarkerProps
-  extends MarkerOptions,
+  extends Omit<MarkerOptions, 'element' | 'className'>,
     Partial<MarkerEvents>,
     Partial<CustomizeEvents> {
   className?: string;

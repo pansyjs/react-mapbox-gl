@@ -2,29 +2,19 @@ import Mapbox from 'mapbox-gl';
 import { useGetState, usePortal } from '@pansy/react-hooks';
 import { forwardRef, useEffect, useImperativeHandle } from 'react';
 import { useMap } from '../hooks/useMap';
-import { useReact } from '../hooks/useReact';
+import { usePropsReactive } from '../hooks/usePropsReactive';
 import { useEvents } from '../hooks/useEvents';
 import { allProps, setterMap, converterMap } from './config';
 import { MarkerEventMap, MarkerEventList } from './constant';
 
-import type { MarkerProps, EventMapping, PropKey, MapboxMarker, MarkerOptions } from './types';
+import type { MarkerProps, PropKey, MapboxMarker, MarkerOptions } from './types';
 
 export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
   const { map } = useMap();
   const { Portal, container } = usePortal();
   const [marker, setMarker, getMarker] = useGetState<MapboxMarker>();
 
-  // const { onInstanceCreated } = usePropsReactive(
-  //   props,
-  //   marker!,
-  //   {
-  //     setterMap,
-  //     converterMap
-  //   }
-  // );
-
-  const { onInstanceCreated } = useReact<MarkerProps, MapboxMarker, EventMapping>(props, {
-    ins: marker,
+  const { onInstanceCreated } = usePropsReactive(props, marker!, {
     setterMap,
     converterMap,
   });
