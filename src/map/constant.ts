@@ -1,5 +1,12 @@
+import React from 'react';
 import type { EventMapping } from './types';
 import type { KeysOfUnion } from '../types';
+
+export const defaultContainerStyle: React.CSSProperties = {
+  width: '100%',
+  height: '100%',
+  position: 'relative',
+};
 
 export const MapEventMap: EventMapping = {
   onError: 'error',

@@ -72,6 +72,9 @@ export type MapboxOptionKeys = KeysOfUnion<MapboxOptions>;
 export interface MapProps extends Omit<MapOptions, 'container'>, Partial<MapEvents> {
   /** 地图加载前的加载效果 */
   loading?: React.ReactNode;
+  /** 额外的样式类 */
   className?: string;
+  /** 地图挂载节点样式 */
+  containerStyle?: React.CSSProperties;
   children?: React.ReactNode;
 }

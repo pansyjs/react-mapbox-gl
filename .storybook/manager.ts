@@ -2,7 +2,7 @@ import { addons } from '@storybook/addons';
 import { create } from '@storybook/theming/create';
 
 const theme = create({
-  base: 'light',
+  base: 'dark',
 
   // Brand assets
   brandTitle: 'ReactMaoboxGl',
@@ -11,6 +11,6 @@ const theme = create({
 
 addons.setConfig({
   theme,
-  showPanel: true, // show addons panel by default
-  panelPosition: 'right', // position addons panel on the right by default
+  showPanel: true,
+  panelPosition: 'right',
 });

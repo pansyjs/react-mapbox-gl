@@ -6,10 +6,15 @@ const meta = {
   title: '组件/Map',
   component: Map,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
   tags: ['autodocs'],
   argTypes: {},
+  args: {
+    containerStyle: {
+      height: 500,
+    },
+  },
 } satisfies Meta<typeof Map>;
 
 export default meta;

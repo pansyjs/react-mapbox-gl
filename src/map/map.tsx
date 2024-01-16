@@ -3,7 +3,7 @@ import { useRef, useState, useEffect, forwardRef, useImperativeHandle } from 're
 import { MapContext } from './context';
 import { useReact } from '@/hooks/useReact';
 import { allProps, setterMap, converterMap } from './config';
-import { MapEventMap, MapEventList } from './constant';
+import { defaultContainerStyle, MapEventMap, MapEventList } from './constant';
 import { useEvents } from '@/hooks/useEvents';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -16,7 +16,7 @@ Mapbox.accessToken =
   'pk.eyJ1IjoienQyMDIzMTEwOSIsImEiOiJjbG9xdGgxcDMwbDAyMmpwODVrNG5seXphIn0.1xKSk8Ll-80kkEwtzfLWhw';
 
 export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
-  const { loading, children } = props;
+  const { className, loading, containerStyle, children } = props;
   const containerRef = useRef<HTMLDivElement>(null);
   const [mapInstance, setMapInstance] = useState<Mapbox.Map>();
 
@@ -72,7 +72,14 @@ export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
   };
 
   return (
-    <div ref={containerRef} style={{ width: 500, height: 500 }}>
+    <div
+      ref={containerRef}
+      style={{
+        ...defaultContainerStyle,
+        ...containerStyle,
+      }}
+      className={className}
+    >
       {!mapInstance && loading}
       {mapInstance && <MapContext.Provider value={contextValue}>{children}</MapContext.Provider>}
     </div>
