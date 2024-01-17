@@ -1,14 +1,15 @@
 {
   "name": "@pansy/react-mapbox-gl",
   "version": "1.0.0",
-  "description": "🌍 基于 mapbox-gl 封装的 React 组件库.",
+  "description": "🌍 基于 mapbox-gl 封装的 React 组件库",
   "repository": "git@github.com:pansyjs/react-mapbox-gl.git",
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
   "files": [
     "lib",
-    "es"
+    "es",
+    "src"
   ],
   "scripts": {
     "start": "storybook dev -p 6007",
@@ -18,17 +19,17 @@
     "tsc:check": "tsc --noEmit"
   },
   "keywords": [
-    "map",
-    "react",
-    "component",
     "mapbox",
-    "mapbox-gl"
+    "mapbox-gl",
+    "react",
+    "react-mapbox-gl",
+    "react mapbox"
   ],
   "license": "MIT",
   "peerDependencies": {
-    "mapbox-gl": "^2.0.0",
-    "react": "^16.x || ^17.x || ^18.x",
-    "react-dom": "^16.x || ^17.x || ^18.x"
+    "mapbox-gl": ">=2.0.0",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
   "dependencies": {
     "@pansy/react-hooks": "^1.0.6",
