@@ -1,4 +1,5 @@
 import { assert } from '../utils/assert';
+import { isStyleLoaded } from '../utils/isStyleLoaded';
 import { deepEqual } from '../utils/deepEqual';
 
 import type {
@@ -17,7 +18,7 @@ export function createSource<SourceT extends Source>(
   id: string,
   props: SourceProps<SourceT>,
 ) {
-  if (map.isStyleLoaded()) {
+  if (isStyleLoaded(map)) {
     const options = { ...props };
     delete options.id;
     delete options.children;

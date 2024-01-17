@@ -1,5 +1,6 @@
-import { useEffect, useState, useRef, useMemo } from 'react';
+import React, { useEffect, useState, useRef, useMemo, cloneElement } from 'react';
 import { useMap } from '../hooks/useMap';
+import { isStyleLoaded } from '../utils/isStyleLoaded';
 import { updateSource, createSource } from './utils';
 
 import type { SourceProps } from './types';
@@ -22,7 +23,7 @@ export function Source(props: SourceProps) {
       return () => {
         map.off('styledata', forceUpdate);
 
-        if (map.getStyle() && map.isStyleLoaded() && map.getSource(id)) {
+        if (map.getStyle() && isStyleLoaded(map) && map.getSource(id)) {
           const allLayers = map.getStyle()?.layers;
 
           if (allLayers) {
@@ -50,5 +51,16 @@ export function Source(props: SourceProps) {
   }
   propsRef.current = props;
 
-  return null;
+  return (
+    (source &&
+      React.Children.map(
+        props.children,
+        (child) =>
+          child &&
+          cloneElement(child as any, {
+            source: id,
+          }),
+      )) ||
+    null
+  );
 }
