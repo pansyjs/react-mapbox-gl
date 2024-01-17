@@ -1,10 +1,11 @@
-import type { GeoJSONSourceOptions } from 'mapbox-gl';
+import type { AnySourceData } from 'mapbox-gl';
+import type { CustomSource } from '../types/lib';
 
-export type { KeysOfUnion } from '../types';
-export type SourceEvents = {};
-
-export type EventMapping = { [T in keyof SourceEvents]: string };
-
-export interface SourceProps extends GeoJSONSourceOptions {
-  id: string;
+export interface Source {
+  type: string;
 }
+
+export type SourceProps<SourceT = AnySourceData> = (SourceT | CustomSource) & {
+  id?: string;
+  children?: React.ReactNode;
+};
