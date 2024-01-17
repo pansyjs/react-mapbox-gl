@@ -66,10 +66,12 @@ const MarkerCluster = () => {
             layers: ['clusters'],
           });
           const clusterId = features[0].properties?.cluster_id;
+          // @ts-ignore
           map.getSource('earthquakes').getClusterExpansionZoom(clusterId, (err, zoom) => {
             if (err) return;
 
             map.easeTo({
+              // @ts-ignore
               center: features[0].geometry.coordinates,
               zoom: zoom,
             });
