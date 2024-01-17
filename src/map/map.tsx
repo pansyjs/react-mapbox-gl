@@ -1,10 +1,17 @@
 import Mapbox from 'mapbox-gl';
-import { useRef, useState, useEffect, forwardRef, useImperativeHandle } from 'react';
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  forwardRef,
+  useImperativeHandle,
+  useMemo,
+} from 'react';
 import { MapContext } from './context';
 import { useEvents } from '../hooks/useEvents';
 import { usePropsReactive } from '../hooks/usePropsReactive';
 import { allProps, setterMap, converterMap } from './config';
-import { defaultContainerStyle, MapEventMap, MapEventList } from './constant';
+import { MapEventMap, MapEventList } from './constant';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './map.css';
@@ -16,6 +23,16 @@ export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
   const { className, loading, containerStyle, children } = props;
   const containerRef = useRef<HTMLDivElement>(null);
   const [mapInstance, setMapInstance] = useState<Mapbox.Map>();
+
+  const style: React.CSSProperties = useMemo(
+    () => ({
+      position: 'relative',
+      width: '100%',
+      height: '100%',
+      ...props.containerStyle,
+    }),
+    [props.style],
+  );
 
   const { current: contextValue } = useRef<MapContextValue>({} as MapContextValue);
 
@@ -65,14 +82,7 @@ export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
   };
 
   return (
-    <div
-      ref={containerRef}
-      style={{
-        ...defaultContainerStyle,
-        ...containerStyle,
-      }}
-      className={className}
-    >
+    <div ref={containerRef} style={style} className={className}>
       {!mapInstance && loading}
       {mapInstance && <MapContext.Provider value={contextValue}>{children}</MapContext.Provider>}
     </div>
