@@ -1,6 +1,4 @@
 **/*.svg
-.umi
-.umi-production
 **/dist
 **/lib
 **/es

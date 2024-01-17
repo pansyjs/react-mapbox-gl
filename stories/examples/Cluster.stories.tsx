@@ -1,0 +1,73 @@
+import React, { useEffect } from 'react';
+import { useMap, Map, Marker } from '../../src';
+
+import type { Meta, StoryObj } from '@storybook/react';
+
+const MarkerCluster = () => {
+  const { map } = useMap();
+
+  useEffect(() => {
+    if (map) {
+      map.once('style.load', () => {
+        map.addSource('earthquakes', {
+          type: 'geojson',
+          data: 'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson',
+          cluster: true,
+          clusterMaxZoom: 14,
+          clusterRadius: 50,
+        });
+
+        map.addLayer({
+          id: 'clusters',
+          type: 'circle',
+          source: 'earthquakes',
+          filter: ['has', 'point_count'],
+          paint: {
+            'circle-color': [
+              'step',
+              ['get', 'point_count'],
+              '#51bbd6',
+              100,
+              '#f1f075',
+              750,
+              '#f28cb1',
+            ],
+            'circle-radius': ['step', ['get', 'point_count'], 20, 100, 30, 750, 40],
+          },
+        });
+      });
+    }
+  }, [map]);
+
+  return null;
+};
+
+const meta = {
+  title: '示例/Cluster',
+  render: () => {
+    return (
+      <Map
+        zoom={3}
+        center={[-103.5917, 40.6699]}
+        style="mapbox://styles/mapbox/dark-v11"
+        containerStyle={{ height: '100vh' }}
+      >
+        <MarkerCluster />
+      </Map>
+    );
+  },
+  parameters: {
+    layout: 'fullscreen',
+  },
+  argTypes: {},
+  args: {
+    lngLat: [-122.414, 37.776],
+  },
+} satisfies Meta<typeof Marker>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Cluster: Story = {
+  args: {},
+};
