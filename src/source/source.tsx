@@ -42,8 +42,6 @@ export function Source(props: SourceProps) {
     return undefined;
   }, [map]);
 
-  console.log(map.getStyle());
-  console.log(map.getSource(id));
   let source = map && map.getStyle() && map.getSource(id);
   if (source) {
     updateSource(source, props, propsRef.current);
