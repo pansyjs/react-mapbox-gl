@@ -32,14 +32,14 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@pansy/react-hooks": "^1.0.6",
+    "@pansy/react-hooks": "^2.3.0",
     "@pansy/shared": "^1.15.0",
     "lodash-es": "^4.17.21",
     "type-fest": "^4.9.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.7.1",
-    "@commitlint/config-conventional": "17.7.0",
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@storybook/addon-actions": "^7.6.8",
@@ -65,7 +65,7 @@
     "antd": "^5.13.1",
     "husky": "^8.0.3",
     "jsdom": "^23.2.0",
-    "lint-staged": "^14.0.1",
+    "lint-staged": "^15.2.0",
     "mapbox-gl": "^3.0.1",
     "prettier": "^3.0.3",
     "react": "^18.2.0",
