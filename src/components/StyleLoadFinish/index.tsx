@@ -1,21 +1,30 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { isFunction } from '@pansy/shared';
 import { useMap } from '../../hooks/useMap';
 
 interface StyleLoadFinishProps {
-  children?: React.ReactNode;
+  children?: React.ReactNode | ((finish: boolean, firstTime: boolean) => React.ReactNode);
 }
 
 export const StyleLoadFinish: React.FC<StyleLoadFinishProps> = (props) => {
+  const { children } = props;
   const { map } = useMap();
   const [, setStyleLoaded] = useState(0);
   const themeStatus = useRef([0, 0, 0]);
+  const checkStylePassRef = useRef(0);
 
   const forceUpdate = () => {
     setStyleLoaded((version) => version + 1);
   };
 
   const checkStyle = () => {
-    return ['131', '031'].includes(themeStatus.current.join(''));
+    const result = ['031', '131'].includes(themeStatus.current.join(''));
+
+    if (result) {
+      checkStylePassRef.current = checkStylePassRef.current + 1;
+    }
+
+    return result;
   };
 
   const handleStyleLoading = () => {
@@ -51,5 +60,9 @@ export const StyleLoadFinish: React.FC<StyleLoadFinishProps> = (props) => {
     return undefined;
   }, [map]);
 
-  return checkStyle() && props.children;
+  if (isFunction(children)) {
+    return children(checkStyle(), checkStylePassRef.current === 2);
+  }
+
+  return checkStyle() && (props.children as React.ReactNode);
 };
