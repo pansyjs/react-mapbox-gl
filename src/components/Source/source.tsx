@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useMemo, cloneElement } from 'react';
-import { useMap } from '../hooks/useMap';
-import { isStyleLoaded } from '../utils/isStyleLoaded';
+import { useMap } from '../../hooks/useMap';
+import { isStyleLoaded } from '../../utils/isStyleLoaded';
 import { updateSource, createSource } from './utils';
 
 import type { SourceProps } from './types';

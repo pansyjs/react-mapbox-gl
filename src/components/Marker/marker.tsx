@@ -1,9 +1,9 @@
 import Mapbox from 'mapbox-gl';
 import { useGetState, usePortal } from '@pansy/react-hooks';
 import { forwardRef, useEffect, useImperativeHandle } from 'react';
-import { useMap } from '../hooks/useMap';
-import { usePropsReactive } from '../hooks/usePropsReactive';
-import { useEvents } from '../hooks/useEvents';
+import { useMap } from '../../hooks/useMap';
+import { usePropsReactive } from '../../hooks/usePropsReactive';
+import { useEvents } from '../../hooks/useEvents';
 import { allProps, setterMap, converterMap } from './config';
 import { MarkerEventMap, MarkerEventList } from './constant';
 

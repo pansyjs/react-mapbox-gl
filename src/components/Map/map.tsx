@@ -8,8 +8,8 @@ import React, {
   useMemo,
 } from 'react';
 import { MapContext } from './context';
-import { useEvents } from '../hooks/useEvents';
-import { usePropsReactive } from '../hooks/usePropsReactive';
+import { useEvents } from '../../hooks/useEvents';
+import { usePropsReactive } from '../../hooks/usePropsReactive';
 import { allProps, setterMap, converterMap } from './config';
 import { MapEventMap, MapEventList } from './constant';
 

@@ -1,4 +1,4 @@
-import { toLngLat } from '../utils/toLngLat';
+import { toLngLat } from '../../utils/toLngLat';
 
 import type { PropKey } from './types';
 

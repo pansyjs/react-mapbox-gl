@@ -1,8 +1,8 @@
 import React from 'react';
 import type { MapboxOptions, MapEventType } from 'mapbox-gl';
-import type { KeysOfUnion } from '../types';
+import type { KeysOfUnion } from '../../types';
 
-export type { KeysOfUnion } from '../types';
+export type { KeysOfUnion } from '../../types';
 
 export type MapEvents = {
   onError: (e: MapEventType['error']) => void;

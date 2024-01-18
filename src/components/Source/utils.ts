@@ -1,6 +1,6 @@
-import { assert } from '../utils/assert';
-import { isStyleLoaded } from '../utils/isStyleLoaded';
-import { deepEqual } from '../utils/deepEqual';
+import { assert } from '../../utils/assert';
+import { isStyleLoaded } from '../../utils/isStyleLoaded';
+import { deepEqual } from '../../utils/deepEqual';
 
 import type {
   Map as MapInstance,
