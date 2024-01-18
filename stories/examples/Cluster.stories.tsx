@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useMap, Map, Marker } from '../../src';
+import { useMap, Map, Marker, StyleLoadFinish } from '../../src';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -8,73 +8,71 @@ const MarkerCluster = () => {
 
   useEffect(() => {
     if (map) {
-      map.once('style.load', () => {
-        map.addSource('earthquakes', {
-          type: 'geojson',
-          data: 'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson',
-          cluster: true,
-          clusterMaxZoom: 14,
-          clusterRadius: 50,
+      map.addSource('earthquakes', {
+        type: 'geojson',
+        data: 'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson',
+        cluster: true,
+        clusterMaxZoom: 14,
+        clusterRadius: 50,
+      });
+
+      map.addLayer({
+        id: 'clusters',
+        type: 'circle',
+        source: 'earthquakes',
+        filter: ['has', 'point_count'],
+        paint: {
+          'circle-color': [
+            'step',
+            ['get', 'point_count'],
+            '#51bbd6',
+            100,
+            '#f1f075',
+            750,
+            '#f28cb1',
+          ],
+          'circle-radius': ['step', ['get', 'point_count'], 20, 100, 30, 750, 40],
+        },
+      });
+
+      map.addLayer({
+        id: 'cluster-count',
+        type: 'symbol',
+        source: 'earthquakes',
+        filter: ['has', 'point_count'],
+        layout: {
+          'text-field': ['get', 'point_count_abbreviated'],
+          'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+          'text-size': 12,
+        },
+      });
+
+      map.addLayer({
+        id: 'unclustered-point',
+        type: 'circle',
+        source: 'earthquakes',
+        filter: ['!', ['has', 'point_count']],
+        paint: {
+          'circle-color': '#11b4da',
+          'circle-radius': 4,
+          'circle-stroke-width': 1,
+          'circle-stroke-color': '#fff',
+        },
+      });
+
+      map.on('click', 'clusters', (e) => {
+        const features = map.queryRenderedFeatures(e.point, {
+          layers: ['clusters'],
         });
+        const clusterId = features[0].properties?.cluster_id;
+        // @ts-ignore
+        map.getSource('earthquakes').getClusterExpansionZoom(clusterId, (err, zoom) => {
+          if (err) return;
 
-        map.addLayer({
-          id: 'clusters',
-          type: 'circle',
-          source: 'earthquakes',
-          filter: ['has', 'point_count'],
-          paint: {
-            'circle-color': [
-              'step',
-              ['get', 'point_count'],
-              '#51bbd6',
-              100,
-              '#f1f075',
-              750,
-              '#f28cb1',
-            ],
-            'circle-radius': ['step', ['get', 'point_count'], 20, 100, 30, 750, 40],
-          },
-        });
-
-        map.addLayer({
-          id: 'cluster-count',
-          type: 'symbol',
-          source: 'earthquakes',
-          filter: ['has', 'point_count'],
-          layout: {
-            'text-field': ['get', 'point_count_abbreviated'],
-            'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-            'text-size': 12,
-          },
-        });
-
-        map.addLayer({
-          id: 'unclustered-point',
-          type: 'circle',
-          source: 'earthquakes',
-          filter: ['!', ['has', 'point_count']],
-          paint: {
-            'circle-color': '#11b4da',
-            'circle-radius': 4,
-            'circle-stroke-width': 1,
-            'circle-stroke-color': '#fff',
-          },
-        });
-
-        map.on('click', 'clusters', (e) => {
-          const features = map.queryRenderedFeatures(e.point, {
-            layers: ['clusters'],
-          });
-          const clusterId = features[0].properties?.cluster_id;
-          // @ts-ignore
-          map.getSource('earthquakes').getClusterExpansionZoom(clusterId, (err, zoom) => {
-            if (err) return;
-
-            map.easeTo({
-              // @ts-ignore
-              center: features[0].geometry.coordinates,
-              zoom: zoom,
-            });
+          map.easeTo({
+            // @ts-ignore
+            center: features[0].geometry.coordinates,
+            zoom: zoom,
           });
         });
       });
@@ -94,7 +92,9 @@ const meta = {
         style="mapbox://styles/mapbox/dark-v11"
         containerStyle={{ height: '100vh' }}
       >
-        <MarkerCluster />
+        <StyleLoadFinish>
+          <MarkerCluster />
+        </StyleLoadFinish>
       </Map>
     );
   },
