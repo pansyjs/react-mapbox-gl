@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useMap, Map, Marker, StyleLoadFinish } from '../../src';
+import { useMap, Map, Marker, Source, StyleLoadFinish } from '../../src';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -8,14 +8,6 @@ const MarkerCluster = () => {
 
   useEffect(() => {
     if (map) {
-      map.addSource('earthquakes', {
-        type: 'geojson',
-        data: 'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson',
-        cluster: true,
-        clusterMaxZoom: 14,
-        clusterRadius: 50,
-      });
-
       map.addLayer({
         id: 'clusters',
         type: 'circle',
@@ -93,7 +85,16 @@ const meta = {
         containerStyle={{ height: '100vh' }}
       >
         <StyleLoadFinish>
-          <MarkerCluster />
+          <Source
+            id="earthquakes"
+            type="geojson"
+            data="https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"
+            cluster
+            clusterMaxZoom={14}
+            clusterRadius={50}
+          >
+            <MarkerCluster />
+          </Source>
         </StyleLoadFinish>
       </Map>
     );
