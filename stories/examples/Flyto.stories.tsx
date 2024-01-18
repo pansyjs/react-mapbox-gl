@@ -57,12 +57,7 @@ const meta = {
     return (
       <Map containerStyle={{ height: '100vh' }} zoom={1} style={getStyleUrl(themes[0].value)}>
         <StyleLoadFinish>
-          {(status, firstTime) => {
-            if (firstTime && status) {
-              return <FlytoComponent />;
-            }
-            return null;
-          }}
+          <FlytoComponent />;
         </StyleLoadFinish>
 
         <ThemeComponent />
