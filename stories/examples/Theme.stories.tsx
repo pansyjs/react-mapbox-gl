@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
-import { Radio } from 'antd';
-import { Map, useMap } from '../../src';
+import React, { useState, useEffect } from 'react';
+import { Radio, App, Button } from 'antd';
+import { useMap, Map, StyleLoadFinish } from '../../src';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -19,7 +19,7 @@ const ThemeComponent = () => {
   const [theme, setTheme] = useState(themes[0].value);
 
   return (
-    <div style={{ position: 'absolute', background: '#efefef', padding: 12 }}>
+    <div style={{ position: 'absolute', background: '#efefef', right: 0, padding: 12 }}>
       <Radio.Group
         value={theme}
         options={themes}
@@ -35,34 +35,29 @@ const ThemeComponent = () => {
   );
 };
 
+const Child: React.FC = () => {
+  useEffect(() => {
+    console.log('样式加载成功');
+
+    return () => {
+      console.log('切换样式');
+    };
+  }, []);
+  return <Button type="primary">样式加载完成</Button>;
+};
+
 const meta = {
   title: '示例/Theme',
   render: () => {
-    const themeStatus = useRef([0, 0, 0]);
-
     return (
-      <Map
-        containerStyle={{ height: '100vh' }}
-        zoom={3}
-        style={getStyleUrl(themes[0].value)}
-        onStyleDataLoading={(e) => {
-          console.log('styledataloading', e);
-          themeStatus.current = [1, 0, 0];
-        }}
-        onStyleData={(e) => {
-          console.log('styledata', e);
-          themeStatus.current[1] = themeStatus.current[1] + 1;
-          if (['131', '031'].includes(themeStatus.current.join(''))) {
-            console.log('样式加载完成');
-          }
-        }}
-        onStyleLoad={(e) => {
-          themeStatus.current[2] = 1;
-          console.log('style.load', e);
-        }}
-      >
-        <ThemeComponent />
-      </Map>
+      <App>
+        <Map containerStyle={{ height: '100vh' }} zoom={3} style={getStyleUrl(themes[0].value)}>
+          <ThemeComponent />
+          <StyleLoadFinish>
+            <Child />
+          </StyleLoadFinish>
+        </Map>
+      </App>
     );
   },
   parameters: {},
