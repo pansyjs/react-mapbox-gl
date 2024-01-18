@@ -2,12 +2,26 @@ import React, { useRef, useEffect, useState } from 'react';
 import { isFunction } from '@pansy/shared';
 import { useMap } from '../../hooks/useMap';
 
-interface StyleLoadFinishProps {
-  children?: React.ReactNode | ((finish: boolean, firstTime: boolean) => React.ReactNode);
+/**
+ * finish: 样式是否加载完成
+ * isFirstTime: 是否是初次加载
+ */
+type ChildrenFun = (finish: boolean, isFirstTime: boolean) => React.ReactNode;
+
+export interface StyleLoadFinishProps {
+  /**
+   * 样式加载完成子组件才可渲染，加载中卸载子组件
+   * @default false 加载中不卸载子组件
+   */
+  isFinishRender?: boolean;
+  /**
+   * 子组件，如果为
+   */
+  children?: React.ReactNode | ChildrenFun;
 }
 
 export const StyleLoadFinish: React.FC<StyleLoadFinishProps> = (props) => {
-  const { children } = props;
+  const { isFinishRender = false, children } = props;
   const { map } = useMap();
   const [, setStyleLoaded] = useState(0);
   const themeStatus = useRef([0, 0, 0]);
@@ -18,13 +32,7 @@ export const StyleLoadFinish: React.FC<StyleLoadFinishProps> = (props) => {
   };
 
   const checkStyle = () => {
-    const result = ['031', '131'].includes(themeStatus.current.join(''));
-
-    if (result) {
-      checkStylePassRef.current = checkStylePassRef.current + 1;
-    }
-
-    return result;
+    return ['031', '131'].includes(themeStatus.current.join(''));
   };
 
   const handleStyleLoading = () => {
@@ -34,6 +42,10 @@ export const StyleLoadFinish: React.FC<StyleLoadFinishProps> = (props) => {
 
   const handleStyleData = () => {
     themeStatus.current[1] = themeStatus.current[1] + 1;
+
+    if (themeStatus.current[1] === 3) {
+      checkStylePassRef.current = checkStylePassRef.current + 1;
+    }
 
     if (checkStyle()) {
       forceUpdate();
@@ -61,7 +73,11 @@ export const StyleLoadFinish: React.FC<StyleLoadFinishProps> = (props) => {
   }, [map]);
 
   if (isFunction(children)) {
-    return children(checkStyle(), checkStylePassRef.current === 2);
+    return children(checkStyle(), checkStylePassRef.current === 1);
+  }
+
+  if (!isFinishRender) {
+    return checkStylePassRef.current > 0 && (props.children as React.ReactNode);
   }
 
   return checkStyle() && (props.children as React.ReactNode);
