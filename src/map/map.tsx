@@ -81,10 +81,20 @@ export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
     return options as Mapbox.MapboxOptions;
   };
 
+  const CHILD_CONTAINER_STYLE = {
+    height: '100%',
+  };
+
   return (
     <div ref={containerRef} style={style} className={className}>
       {!mapInstance && loading}
-      {mapInstance && <MapContext.Provider value={contextValue}>{children}</MapContext.Provider>}
+      {mapInstance && (
+        <MapContext.Provider value={contextValue}>
+          <div mapboxgl-children="" style={CHILD_CONTAINER_STYLE}>
+            {children}
+          </div>
+        </MapContext.Provider>
+      )}
     </div>
   );
 });
