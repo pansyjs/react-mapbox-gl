@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Radio, App, Button } from 'antd';
+import { Radio, App, Button, Space } from 'antd';
 import { useMap, Map, StyleLoadFinish } from '../../src';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -35,7 +35,7 @@ const ThemeComponent = () => {
   );
 };
 
-const Child: React.FC = () => {
+const Child: React.FC = (props) => {
   useEffect(() => {
     console.log('样式加载成功');
 
@@ -53,9 +53,14 @@ const meta = {
       <App>
         <Map containerStyle={{ height: '100vh' }} zoom={3} style={getStyleUrl(themes[0].value)}>
           <ThemeComponent />
-          <StyleLoadFinish>
-            <Child />
-          </StyleLoadFinish>
+          <Space>
+            <StyleLoadFinish>
+              <Button type="primary">初次样式加载完成</Button>;
+            </StyleLoadFinish>
+            <StyleLoadFinish isFinishRender>
+              <Child />
+            </StyleLoadFinish>
+          </Space>
         </Map>
       </App>
     );
