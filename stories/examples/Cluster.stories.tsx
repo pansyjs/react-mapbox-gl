@@ -4,7 +4,7 @@ import { useMap, Map, Marker, Source, StyleLoadFinish, Layer } from '../../src';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { LayerProps } from '../../src';
 
-export const clusterLayer: LayerProps = {
+const clusterLayer: LayerProps = {
   id: 'clusters',
   type: 'circle',
   source: 'earthquakes',
@@ -15,7 +15,7 @@ export const clusterLayer: LayerProps = {
   },
 };
 
-export const clusterCountLayer: LayerProps = {
+const clusterCountLayer: LayerProps = {
   id: 'cluster-count',
   type: 'symbol',
   source: 'earthquakes',
@@ -27,7 +27,7 @@ export const clusterCountLayer: LayerProps = {
   },
 };
 
-export const unclusteredPointLayer: LayerProps = {
+const unclusteredPointLayer: LayerProps = {
   id: 'unclustered-point',
   type: 'circle',
   source: 'earthquakes',
