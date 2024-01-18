@@ -17,6 +17,8 @@ export const MapEventMap: EventMapping = {
   onTileDataLoading: 'tiledataloading',
   onSourceDataLoading: 'sourcedataloading',
   onStyleDataLoading: 'styledataloading',
+  onStyleLoad: 'style.load',
+  onStyleImportLoad: 'style.import.load',
   onSourceData: 'sourcedata',
   onStyleData: 'styledata',
 

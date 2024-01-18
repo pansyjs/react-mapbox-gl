@@ -26,6 +26,10 @@ export type MapEvents = {
   onTileDataLoading: (e: MapEventType['tiledataloading']) => void;
   onSourceDataLoading: (e: MapEventType['sourcedataloading']) => void;
   onStyleDataLoading: (e: MapEventType['styledataloading']) => void;
+  onStyleLoad: (e: Omit<MapEventType['styledata'], 'dataType'> & { type: 'style.load' }) => void;
+  onStyleImportLoad: (
+    e: Omit<MapEventType['styledata'], 'dataType'> & { type: 'style.import.load' },
+  ) => void;
   onSourceData: (e: MapEventType['sourcedata']) => void;
   onStyleData: (e: MapEventType['styledata']) => void;
 
