@@ -34,6 +34,11 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
     });
   };
 
+  const handleDoubleClick = (e: MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
   useEffect(() => {
     if (map) {
       createInstance().then((marker) => {
@@ -42,13 +47,18 @@ export const Marker = forwardRef<MapboxMarker, MarkerProps>((props, ref) => {
         marker.addTo(map);
 
         container.addEventListener('click', handleClick);
+        // Marker 应阻止双击事件冒泡
+        container.addEventListener('dblclick', handleDoubleClick);
 
         onInstanceCreated();
       });
     }
 
     return () => {
-      container && container.removeEventListener('click', handleClick);
+      if (container) {
+        container.removeEventListener('click', handleClick);
+        container.removeEventListener('dblclick', handleClick);
+      }
     };
   }, [map]);
 
