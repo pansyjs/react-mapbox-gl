@@ -4,7 +4,7 @@ import type { PaddingOptions } from 'mapbox-gl';
 
 export type AnyObject = Record<PropertyKey, any>;
 export type RenderMarkerFun = (data: any) => React.ReactNode;
-export type RenderClusterMarkerFun = (count: number, clusterId: string) => React.ReactNode;
+export type RenderClusterMarkerFun = (count: number) => React.ReactNode;
 
 export type { Supercluster };
 
@@ -49,8 +49,8 @@ export interface MarkerClusterProps<D extends object = any> {
    * @default 20
    */
   zoomOnClickPadding?: number | PaddingOptions;
-  onClick?: any;
-  onClusterClick?: any;
+  onClick?: (data: D) => void;
+  onClusterClick?: (count: number, clusterId: number) => void;
 }
 
 export type RefMarkerCluster = <D extends AnyObject = AnyObject>(

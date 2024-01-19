@@ -28,7 +28,6 @@ const meta = {
       >
         <StyleLoadFinish>
           <MarkerCluster
-            cluster={{ radius: 50 }}
             ref={clusterRef}
             data={features}
             zoomOnClick
@@ -39,6 +38,16 @@ const meta = {
                   {count}
                 </Avatar>
               );
+            }}
+            onClick={(data) => {
+              console.log(data);
+            }}
+            onClusterClick={(count, clusterId) => {
+              console.log(count);
+
+              if (clusterRef.current) {
+                console.log(clusterRef.current.getLeaves(clusterId, Infinity));
+              }
             }}
           />
         </StyleLoadFinish>

@@ -15,7 +15,16 @@ const InternalMarkerCluster = <D extends AnyObject = AnyObject>(
   props: MarkerClusterProps<D>,
   ref: React.Ref<Supercluster>,
 ) => {
-  const { cluster, render, renderCluster, data = [], zoomOnClick, zoomOnClickPadding = 20 } = props;
+  const {
+    cluster,
+    render,
+    renderCluster,
+    data = [],
+    zoomOnClick,
+    zoomOnClickPadding = 20,
+    onClick,
+    onClusterClick,
+  } = props;
   const { map } = useMap();
   const [list, setList] = useState<any[]>([]);
 
@@ -43,7 +52,7 @@ const InternalMarkerCluster = <D extends AnyObject = AnyObject>(
   }, [map]);
 
   useEffect(() => {
-    if (data && data.length) {
+    if (data) {
       supercluster.load(data);
       handleChangeBoundary();
     }
@@ -104,18 +113,25 @@ const InternalMarkerCluster = <D extends AnyObject = AnyObject>(
               key={item.id}
               lngLat={geometry.coordinates}
               onClick={() => {
+                onClusterClick?.(point_count, cluster_id);
                 if (zoomOnClick) {
-                  handleClusterMarkerClick(JSON.parse(JSON.stringify(item)));
+                  handleClusterMarkerClick(item);
                 }
               }}
             >
-              {isFunction(renderCluster) ? renderCluster(point_count, cluster_id) : renderCluster}
+              {isFunction(renderCluster) ? renderCluster(point_count) : renderCluster}
             </Marker>
           );
         }
 
         return (
-          <Marker key={item.id} lngLat={geometry.coordinates}>
+          <Marker
+            key={item.id}
+            lngLat={geometry.coordinates}
+            onClick={() => {
+              onClick?.(properties);
+            }}
+          >
             {isFunction(render) ? render(item) : render}
           </Marker>
         );
