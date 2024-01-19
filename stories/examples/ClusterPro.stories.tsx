@@ -1,14 +1,23 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Avatar } from 'antd';
 import { Map, Marker, StyleLoadFinish, MarkerCluster } from '../../src';
 
 import type { Meta, StoryObj } from '@storybook/react';
-import type { Supercluster } from '../../src';
+import type { Supercluster, MarkerClusterProps } from '../../src';
 
 const meta = {
   title: '示例/ClusterPro',
   render: () => {
+    const [features, setFeatures] = useState<MarkerClusterProps['data']>([]);
     const clusterRef = useRef<Supercluster>(null);
+
+    useEffect(() => {
+      fetch('https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson')
+        .then((res) => res.json())
+        .then((data) => {
+          setFeatures(data.features);
+        });
+    }, []);
 
     return (
       <Map
@@ -21,6 +30,7 @@ const meta = {
           <MarkerCluster
             cluster={{ radius: 50 }}
             ref={clusterRef}
+            data={features}
             zoomOnClick
             render={<Avatar style={{ backgroundColor: '#fde3cf', color: '#f56a00' }}>U</Avatar>}
             renderCluster={(count) => {

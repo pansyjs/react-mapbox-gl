@@ -42,16 +42,14 @@ const InternalMarkerCluster = <D extends AnyObject = AnyObject>(
     return undefined;
   }, [map]);
 
-  useImperativeHandle(ref, () => supercluster, []);
-
   useEffect(() => {
-    fetch('https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson')
-      .then((res) => res.json())
-      .then((data) => {
-        supercluster.load(data.features);
-        handleChangeBoundary();
-      });
-  }, []);
+    if (data && data.length) {
+      supercluster.load(data);
+      handleChangeBoundary();
+    }
+  }, [data]);
+
+  useImperativeHandle(ref, () => supercluster, []);
 
   const handleChangeBoundary = useCallback(
     debounce(() => {
