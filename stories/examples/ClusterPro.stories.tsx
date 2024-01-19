@@ -29,13 +29,16 @@ const getFeatures = (len = 10): MarkerClusterProps['data'] =>
 const meta = {
   title: '示例/ClusterPro',
   render: () => {
-    const [features, setFeatures] = useState<MarkerClusterProps['data']>(getFeatures());
+    const [features] = useState<MarkerClusterProps['data']>(getFeatures());
     const clusterRef = useRef<Supercluster>(null);
 
     return (
       <Map
         zoom={3}
-        center={[-103.5917, 40.6699]}
+        center={[116.36904455256712, 39.94939362625391]}
+        onClick={(e) => {
+          console.log(e);
+        }}
         style="mapbox://styles/mapbox/dark-v11"
         containerStyle={{ height: '100vh' }}
       >
