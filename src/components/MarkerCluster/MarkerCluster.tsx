@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react';
-import { isFunction } from '@pansy/shared';
+import { isFunction, uuid } from '@pansy/shared';
 import { LngLatBounds } from 'mapbox-gl';
 import Supercluster from 'supercluster';
 import { debounce } from 'lodash-es';
@@ -56,7 +56,14 @@ export const MarkerCluster = forwardRef<Supercluster, MarkerClusterProps>((props
 
       const result = supercluster.getClusters(...mapBoundary);
 
-      setList(result);
+      setList(
+        result.map((item) => {
+          return {
+            ...item,
+            id: item.id || uuid(),
+          };
+        }),
+      );
     }, 500),
     [],
   );
@@ -86,16 +93,14 @@ export const MarkerCluster = forwardRef<Supercluster, MarkerClusterProps>((props
 
   return (
     <>
-      {list.map((item, index) => {
+      {list.map((item) => {
         const { geometry, properties } = item;
         const { point_count, cluster, cluster_id } = properties;
-
-        const key = item.id || index;
 
         if (cluster) {
           return (
             <Marker
-              key={key}
+              key={item.id}
               lngLat={geometry.coordinates}
               onClick={(e) => {
                 handleClusterMarkerClick(JSON.parse(JSON.stringify(item)));
@@ -107,7 +112,7 @@ export const MarkerCluster = forwardRef<Supercluster, MarkerClusterProps>((props
         }
 
         return (
-          <Marker key={key} lngLat={geometry.coordinates}>
+          <Marker key={item.id} lngLat={geometry.coordinates}>
             {isFunction(render) ? render(item) : render}
           </Marker>
         );
