@@ -5,24 +5,27 @@ import { Map, Marker, StyleLoadFinish, MarkerCluster } from '../../src';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { Supercluster, MarkerClusterProps } from '../../src';
 
+interface UserInfo {
+  id: number;
+  name: string;
+}
+
 const randomLnglat = () => [100 + Math.random() * 20, 30 + Math.random() * 20];
 
-const getFeatures = (len = 10): MarkerClusterProps['data'] =>
+const getFeatures = (len = 10): MarkerClusterProps<UserInfo>['data'] =>
   Array(len)
     .fill(true)
-    .map((item, index) => {
+    .map((_, index) => {
       return {
         type: 'Feature',
         geometry: {
           type: 'Point',
           coordinates: randomLnglat(),
         },
-        properties: [
-          {
-            id: index,
-            name: `name${index}`,
-          },
-        ],
+        properties: {
+          id: index,
+          name: `name${index}`,
+        },
       };
     });
 
@@ -40,7 +43,7 @@ const meta = {
         containerStyle={{ height: '100vh' }}
       >
         <StyleLoadFinish>
-          <MarkerCluster
+          <MarkerCluster<UserInfo>
             ref={clusterRef}
             data={features}
             zoomOnClick
