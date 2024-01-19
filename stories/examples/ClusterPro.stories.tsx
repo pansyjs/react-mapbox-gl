@@ -36,9 +36,6 @@ const meta = {
       <Map
         zoom={3}
         center={[116.36904455256712, 39.94939362625391]}
-        onClick={(e) => {
-          console.log(e);
-        }}
         style="mapbox://styles/mapbox/dark-v11"
         containerStyle={{ height: '100vh' }}
       >
