@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Language } from './components/Language';
 import { useMap, Map, Marker, Source, StyleLoadFinish, Layer } from '../../src';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -92,6 +93,7 @@ const meta = {
             <MarkerCluster />
           </Source>
         </StyleLoadFinish>
+        <Language />
       </Map>
     );
   },

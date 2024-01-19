@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Radio } from 'antd';
-import { Map, useMap, StyleLoadFinish } from '../../src';
+import React from 'react';
+import { Map, StyleLoadFinish } from '../../src';
+import { Language } from './components/Language';
+import { Theme as ThemeCom, getStyleUrl } from './components/Theme';
+import { Flyto as FlytoCom } from './components/Flyto';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -9,58 +11,17 @@ const themes = [
   { label: 'satellite', value: 'satellite-streets-v12' },
 ];
 
-const getStyleUrl = (value: string) => {
-  return `mapbox://styles/mapbox/${value}`;
-};
-
-const ThemeComponent = () => {
-  const { map } = useMap();
-  const [theme, setTheme] = useState(themes[0].value);
-
-  return (
-    <div style={{ position: 'absolute', background: '#efefef', right: 0, padding: 12 }}>
-      <Radio.Group
-        value={theme}
-        options={themes}
-        onChange={(e) => {
-          const value = e.target.value;
-          if (map) {
-            setTheme(value);
-            map.setStyle(getStyleUrl(value));
-          }
-        }}
-      />
-    </div>
-  );
-};
-
-const FlytoComponent = () => {
-  const { map } = useMap();
-
-  useEffect(() => {
-    if (map) {
-      map.flyTo({
-        center: [8.11862, 46.58842],
-        zoom: 12.5,
-        duration: 12 * 1000,
-        essential: true,
-      });
-    }
-  }, [map]);
-
-  return null;
-};
-
 const meta = {
   title: '示例/Flyto',
   render: () => {
     return (
       <Map containerStyle={{ height: '100vh' }} zoom={1} style={getStyleUrl(themes[0].value)}>
         <StyleLoadFinish>
-          <FlytoComponent />;
+          <FlytoCom />;
         </StyleLoadFinish>
 
-        <ThemeComponent />
+        <ThemeCom options={themes} />
+        <Language />
       </Map>
     );
   },

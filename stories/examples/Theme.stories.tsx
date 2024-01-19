@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Radio, App, Button, Space } from 'antd';
-import { useMap, Map, StyleLoadFinish } from '../../src';
+import React, { useEffect } from 'react';
+import { App, Button, Space } from 'antd';
+import { Map, StyleLoadFinish } from '../../src';
+import { Language } from './components/Language';
+import { Theme as ThemeCom, getStyleUrl } from './components/Theme';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -10,32 +12,7 @@ const themes = [
   { label: 'satellite', value: 'satellite-streets-v12' },
 ];
 
-const getStyleUrl = (value: string) => {
-  return `mapbox://styles/mapbox/${value}`;
-};
-
-const ThemeComponent = () => {
-  const { map } = useMap();
-  const [theme, setTheme] = useState(themes[0].value);
-
-  return (
-    <div style={{ position: 'absolute', background: '#efefef', right: 0, padding: 12 }}>
-      <Radio.Group
-        value={theme}
-        options={themes}
-        onChange={(e) => {
-          const value = e.target.value;
-          if (map) {
-            setTheme(value);
-            map.setStyle(getStyleUrl(value));
-          }
-        }}
-      />
-    </div>
-  );
-};
-
-const Child: React.FC = (props) => {
+const Child: React.FC = () => {
   useEffect(() => {
     console.log('样式加载成功');
 
@@ -52,7 +29,7 @@ const meta = {
     return (
       <App>
         <Map containerStyle={{ height: '100vh' }} zoom={3} style={getStyleUrl(themes[0].value)}>
-          <ThemeComponent />
+          <ThemeCom />
           <Space>
             <StyleLoadFinish>
               <Button type="primary">初次样式加载完成</Button>;
@@ -61,6 +38,7 @@ const meta = {
               <Child />
             </StyleLoadFinish>
           </Space>
+          <Language />
         </Map>
       </App>
     );
@@ -69,7 +47,7 @@ const meta = {
   argTypes: {},
   args: {
     containerStyle: {
-      height: 500,
+      height: '100vh',
     },
   },
 } satisfies Meta<typeof Map>;
