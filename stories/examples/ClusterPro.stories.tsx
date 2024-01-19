@@ -21,6 +21,7 @@ const meta = {
           <MarkerCluster
             cluster={{ radius: 50 }}
             ref={clusterRef}
+            zoomOnClick
             render={<Avatar style={{ backgroundColor: '#fde3cf', color: '#f56a00' }}>U</Avatar>}
             renderCluster={(count) => {
               return (

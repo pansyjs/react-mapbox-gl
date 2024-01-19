@@ -9,10 +9,13 @@ import { defaultSuperclusterOptions } from './config';
 import { Marker } from '../Marker';
 import { useMap } from '../../hooks/useMap';
 
-import type { MarkerClusterProps } from './types';
+import type { MarkerClusterProps, AnyObject, RefMarkerCluster } from './types';
 
-export const MarkerCluster = forwardRef<Supercluster, MarkerClusterProps>((props, ref) => {
-  const { cluster, render, renderCluster, zoomOnClickPadding = 20 } = props;
+const InternalMarkerCluster = <D extends AnyObject = AnyObject>(
+  props: MarkerClusterProps<D>,
+  ref: React.Ref<Supercluster>,
+) => {
+  const { cluster, render, renderCluster, data = [], zoomOnClick, zoomOnClickPadding = 20 } = props;
   const { map } = useMap();
   const [list, setList] = useState<any[]>([]);
 
@@ -102,8 +105,10 @@ export const MarkerCluster = forwardRef<Supercluster, MarkerClusterProps>((props
             <Marker
               key={item.id}
               lngLat={geometry.coordinates}
-              onClick={(e) => {
-                handleClusterMarkerClick(JSON.parse(JSON.stringify(item)));
+              onClick={() => {
+                if (zoomOnClick) {
+                  handleClusterMarkerClick(JSON.parse(JSON.stringify(item)));
+                }
               }}
             >
               {isFunction(renderCluster) ? renderCluster(point_count, cluster_id) : renderCluster}
@@ -119,4 +124,6 @@ export const MarkerCluster = forwardRef<Supercluster, MarkerClusterProps>((props
       })}
     </>
   );
-});
+};
+
+export const MarkerCluster = forwardRef(InternalMarkerCluster) as RefMarkerCluster;
