@@ -1,7 +1,10 @@
 import { useState, useMemo, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react';
 import { isFunction } from '@pansy/shared';
+import { LngLatBounds } from 'mapbox-gl';
 import Supercluster from 'supercluster';
 import { debounce } from 'lodash-es';
+import bbox from '@turf/bbox';
+import { featureCollection } from '@turf/helpers';
 import { defaultSuperclusterOptions } from './config';
 import { Marker } from '../Marker';
 import { useMap } from '../../hooks/useMap';
@@ -51,6 +54,8 @@ export const MarkerCluster = forwardRef<Supercluster, MarkerClusterProps>((props
     debounce(() => {
       const mapBoundary = getMapBoundary();
 
+      console.log(333);
+
       const result = supercluster.getClusters(...mapBoundary);
 
       setList(result);
@@ -73,13 +78,26 @@ export const MarkerCluster = forwardRef<Supercluster, MarkerClusterProps>((props
     const { properties } = data;
 
     if (!properties?.cluster) return;
+
+    console.log(111);
+    const children = supercluster.getLeaves(properties.cluster_id, Infinity);
+    console.log(222);
+    const childrenBbox = bbox(featureCollection(children));
+
+    map.fitBounds(LngLatBounds.convert(childrenBbox as any), {
+      padding: 20,
+    });
   };
+
+  console.log(list);
 
   return (
     <>
       {list.map((item, index) => {
         const { geometry, properties } = item;
         const { point_count, cluster, cluster_id } = properties;
+
+        console.log(item);
 
         if (cluster) {
           return (
