@@ -14,7 +14,6 @@ export const WorldView: React.FC<WorldViewProps> = (props) => {
   }, [code]);
 
   const filterLayers = (worldview: Code) => {
-    console.log(worldview);
     map.setFilter('admin-0-boundary-disputed', [
       'all',
       ['==', ['get', 'disputed'], 'true'],
