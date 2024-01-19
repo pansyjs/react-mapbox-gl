@@ -12,7 +12,7 @@ import { useMap } from '../../hooks/useMap';
 import type { MarkerClusterProps } from './types';
 
 export const MarkerCluster = forwardRef<Supercluster, MarkerClusterProps>((props, ref) => {
-  const { cluster, render, renderCluster } = props;
+  const { cluster, render, renderCluster, zoomOnClickPadding = 20 } = props;
   const { map } = useMap();
   const [list, setList] = useState<any[]>([]);
 
@@ -54,8 +54,6 @@ export const MarkerCluster = forwardRef<Supercluster, MarkerClusterProps>((props
     debounce(() => {
       const mapBoundary = getMapBoundary();
 
-      console.log(333);
-
       const result = supercluster.getClusters(...mapBoundary);
 
       setList(result);
@@ -74,22 +72,17 @@ export const MarkerCluster = forwardRef<Supercluster, MarkerClusterProps>((props
   };
 
   const handleClusterMarkerClick = (data: any) => {
-    console.log(data);
     const { properties } = data;
 
     if (!properties?.cluster) return;
 
-    console.log(111);
     const children = supercluster.getLeaves(properties.cluster_id, Infinity);
-    console.log(222);
     const childrenBbox = bbox(featureCollection(children));
 
     map.fitBounds(LngLatBounds.convert(childrenBbox as any), {
-      padding: 20,
+      padding: zoomOnClickPadding,
     });
   };
-
-  console.log(list);
 
   return (
     <>
@@ -97,23 +90,24 @@ export const MarkerCluster = forwardRef<Supercluster, MarkerClusterProps>((props
         const { geometry, properties } = item;
         const { point_count, cluster, cluster_id } = properties;
 
-        console.log(item);
+        const key = item.id || index;
 
         if (cluster) {
           return (
             <Marker
-              key={index}
+              key={key}
               lngLat={geometry.coordinates}
               onClick={(e) => {
-                handleClusterMarkerClick(item);
+                handleClusterMarkerClick(JSON.parse(JSON.stringify(item)));
               }}
             >
               {isFunction(renderCluster) ? renderCluster(point_count, cluster_id) : renderCluster}
             </Marker>
           );
         }
+
         return (
-          <Marker key={index} lngLat={geometry.coordinates}>
+          <Marker key={key} lngLat={geometry.coordinates}>
             {isFunction(render) ? render(item) : render}
           </Marker>
         );
