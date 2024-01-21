@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "start": "storybook dev -p 6007",
-    "build": "redbud build",
+    "build": "father build",
     "build:site": "storybook build",
     "prepare": "husky install",
     "tsc:check": "tsc --noEmit"
