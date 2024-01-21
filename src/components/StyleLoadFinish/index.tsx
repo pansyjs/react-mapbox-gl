@@ -20,7 +20,7 @@ export interface StyleLoadFinishProps {
   children?: React.ReactNode | ChildrenFun;
 }
 
-export const StyleLoadFinish: React.FC<StyleLoadFinishProps> = (props) => {
+export const StyleLoadFinish = (props: StyleLoadFinishProps) => {
   const { isFinishRender = false, children } = props;
   const { map } = useMap();
   const [, setStyleLoaded] = useState(0);
@@ -80,5 +80,5 @@ export const StyleLoadFinish: React.FC<StyleLoadFinishProps> = (props) => {
     return checkStylePassRef.current > 0 && (props.children as React.ReactNode);
   }
 
-  return (checkStyle() ? (props.children as React.ReactNode) : null) as React.ReactNode;
+  return checkStyle() ? (props.children as React.ReactNode) : null;
 };
