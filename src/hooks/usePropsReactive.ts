@@ -1,7 +1,7 @@
 import { isEqual } from 'lodash-es';
 import { isFunction } from '@pansy/shared';
 import { useDeepCompareEffect, useUnmount, usePrevious } from '@pansy/react-hooks';
-import { toCapitalString } from '@/utils';
+import { toCapitalString } from '../utils/toCapitalString';
 
 interface Options {
   setterMap?: Record<string, Function>;
