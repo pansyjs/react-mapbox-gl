@@ -11,6 +11,9 @@
     "es",
     "src"
   ],
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "start": "storybook dev -p 6007",
     "build": "redbud build",
