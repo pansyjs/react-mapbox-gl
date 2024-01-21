@@ -5,7 +5,7 @@ const theme = create({
   base: 'dark',
 
   // Brand assets
-  brandTitle: 'ReactMaoboxGl',
+  brandTitle: '🌍 React-MapboxGL',
   brandUrl: 'https://github.com/pansyjs/react-mapbox-gl',
 });
 
