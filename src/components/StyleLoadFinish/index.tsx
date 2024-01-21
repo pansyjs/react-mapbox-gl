@@ -80,5 +80,5 @@ export const StyleLoadFinish: React.FC<StyleLoadFinishProps> = (props) => {
     return checkStylePassRef.current > 0 && (props.children as React.ReactNode);
   }
 
-  return checkStyle() ? (props.children as React.ReactNode) : null;
+  return (checkStyle() ? (props.children as React.ReactNode) : null) as React.ReactNode;
 };
