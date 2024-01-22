@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Avatar } from 'antd';
 import { Map, Marker, StyleLoadFinish, MarkerCluster } from '../../src';
 import { Language } from './components/Language';
