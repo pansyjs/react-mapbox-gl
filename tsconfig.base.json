@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": "src",
     "target": "ESNEXT",
     "module": "ESNext",
     "lib": ["ESNext", "DOM"],
@@ -16,6 +15,5 @@
     "jsx": "react-jsx",
     "types": ["vitest", "vitest/globals"]
   },
-  "include": ["src"],
   "exclude": ["node_modules", "**/**/*.md", "**/dist"]
 }
