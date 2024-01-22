@@ -19,6 +19,7 @@
     "build": "father build",
     "build:site": "storybook build",
     "prepare": "is-ci || husky install",
+    "test": "vitest",
     "tsc:check": "tsc --noEmit"
   },
   "keywords": [
