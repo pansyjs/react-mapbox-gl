@@ -9,7 +9,7 @@ import { defaultSuperclusterOptions } from './config';
 import { Marker } from '../Marker';
 import { useMap } from '../../hooks/useMap';
 
-import type { MarkerClusterProps, AnyObject, RefMarkerCluster } from './types';
+import type { MarkerClusterProps, AnyObject, RefMarkerCluster, Feature, LngLatLike } from './types';
 
 const InternalMarkerCluster = <D extends AnyObject = AnyObject>(
   props: MarkerClusterProps<D>,
@@ -26,7 +26,7 @@ const InternalMarkerCluster = <D extends AnyObject = AnyObject>(
     onClusterClick,
   } = props;
   const { map } = useMap();
-  const [list, setList] = useState<any[]>([]);
+  const [list, setList] = useState<Feature<D>[]>([]);
 
   const supercluster = useMemo(() => {
     return new Supercluster({
@@ -111,7 +111,7 @@ const InternalMarkerCluster = <D extends AnyObject = AnyObject>(
           return (
             <Marker
               key={item.id}
-              lngLat={geometry.coordinates}
+              lngLat={geometry.coordinates as LngLatLike}
               onClick={() => {
                 onClusterClick?.(point_count, cluster_id);
                 if (zoomOnClick) {
@@ -119,7 +119,7 @@ const InternalMarkerCluster = <D extends AnyObject = AnyObject>(
                 }
               }}
             >
-              {isFunction(renderCluster) ? renderCluster(point_count) : renderCluster}
+              {isFunction(renderCluster) ? renderCluster(point_count, cluster_id) : renderCluster}
             </Marker>
           );
         }
@@ -127,9 +127,9 @@ const InternalMarkerCluster = <D extends AnyObject = AnyObject>(
         return (
           <Marker
             key={item.id}
-            lngLat={geometry.coordinates}
+            lngLat={geometry.coordinates as LngLatLike}
             onClick={() => {
-              onClick?.(properties);
+              onClick?.(item);
             }}
           >
             {isFunction(render) ? render(item) : render}

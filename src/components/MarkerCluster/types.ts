@@ -1,12 +1,12 @@
 import type Supercluster from 'supercluster';
 import type { GeoJsonProperties, GeoJsonObject, Point } from 'geojson';
-import type { PaddingOptions } from 'mapbox-gl';
+import type { PaddingOptions, LngLatLike } from 'mapbox-gl';
 
 export type AnyObject = Record<PropertyKey, any>;
 export type RenderMarkerFun = (data: any) => React.ReactNode;
-export type RenderClusterMarkerFun = (count: number) => React.ReactNode;
+export type RenderClusterMarkerFun = (count: number, clusterId: number) => React.ReactNode;
 
-export type { Supercluster };
+export type { Supercluster, LngLatLike };
 
 export interface Feature<P = GeoJsonProperties> extends GeoJsonObject {
   type: 'Feature';
@@ -49,7 +49,7 @@ export interface MarkerClusterProps<D extends object = any> {
    * @default 20
    */
   zoomOnClickPadding?: number | PaddingOptions;
-  onClick?: (data: D) => void;
+  onClick?: (data: Feature<D>) => void;
   onClusterClick?: (count: number, clusterId: number) => void;
 }
 
