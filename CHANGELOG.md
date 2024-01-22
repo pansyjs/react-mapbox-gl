@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.1.0...v1.2.0) (2024-01-22)
+
+
+### Features
+
+* **MarkerCluster:** 统一数据结构 ([9971005](https://github.com/pansyjs/react-mapbox-gl/commit/9971005d5fdae5f34351784ce16d6a1be9bc5c4a))
+* 优化代码 ([d171a1c](https://github.com/pansyjs/react-mapbox-gl/commit/d171a1cb6201bac4970b56581fc527a417005a94))
+
 # [1.1.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.0.0...v1.1.0) (2024-01-21)
 
 
