@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.2.0...v1.3.0) (2024-01-24)
+
+
+### Features
+
+* replace lodash isEqual ([4e09144](https://github.com/pansyjs/react-mapbox-gl/commit/4e09144ac0fd7e87ca5eb79636937cf668a00db4))
+
 # [1.2.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.1.0...v1.2.0) (2024-01-22)
 
 
