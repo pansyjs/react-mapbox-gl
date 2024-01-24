@@ -36,7 +36,7 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@pansy/react-hooks": "^2.3.0",
+    "@pansy/react-hooks": "^2.4.0",
     "@pansy/shared": "^1.15.0",
     "@turf/bbox": "^6.5.0",
     "@turf/helpers": "^6.5.0",
