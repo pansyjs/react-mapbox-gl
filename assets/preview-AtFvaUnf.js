@@ -1,1 +1,0 @@
-import{M as o}from"./mapbox-gl-0eWPQeFN.js";import"./_commonjsHelpers-4gQjN7DL.js";o.accessToken="pk.eyJ1IjoienQyMDIzMTEwOSIsImEiOiJjbG9xdGgxcDMwbDAyMmpwODVrNG5seXphIn0.1xKSk8Ll-80kkEwtzfLWhw";const a={parameters:{actions:{},controls:{matchers:{color:/(background|color)$/i,date:/Date$/i}},layout:"fullscreen"}};export{a as default};
