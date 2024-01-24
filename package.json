@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@pansy/react-hooks": "^2.4.0",
-    "@pansy/shared": "^1.15.0",
+    "@pansy/shared": "^1.16.1",
     "@turf/bbox": "^6.5.0",
     "@turf/helpers": "^6.5.0",
     "@types/supercluster": "^7.1.3",
