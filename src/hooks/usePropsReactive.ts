@@ -1,7 +1,7 @@
-import { isEqual } from 'lodash-es';
 import { isFunction } from '@pansy/shared';
 import { useDeepCompareEffect, useUnmount, usePrevious } from '@pansy/react-hooks';
 import { toCapitalString } from '../utils/toCapitalString';
+import { deepEqual } from '../utils/deepEqual';
 
 interface Options {
   setterMap?: Record<string, Function>;
@@ -46,7 +46,7 @@ export function usePropsReactive<
 
         let willReactive = true;
         if (shouldDetectChange) {
-          willReactive = !isEqual(nextProps[key], prevProps?.[key]);
+          willReactive = !deepEqual(nextProps[key], prevProps?.[key]);
         }
         if (!willReactive) return;
 
