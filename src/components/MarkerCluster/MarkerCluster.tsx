@@ -1,4 +1,11 @@
-import { useState, useMemo, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react';
+import React, {
+  useState,
+  useMemo,
+  useEffect,
+  useCallback,
+  useImperativeHandle,
+  forwardRef,
+} from 'react';
 import { isFunction, uuid } from '@pansy/shared';
 import { LngLatBounds } from 'mapbox-gl';
 import Supercluster from 'supercluster';
