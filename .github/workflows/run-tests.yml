@@ -23,6 +23,7 @@ on:
       - master
     paths:
       - "src/**"
+      - "tests/**"
 jobs:
   tests:
     timeout-minutes: 10
