@@ -1,0 +1,47 @@
+name: "🧪 Tests"
+
+on:
+  workflow_dispatch:
+    inputs:
+      filter:
+        type: choice
+        description: Filter tests
+        default: " "
+        options:
+          - " "
+          - "-t framework"
+          - "-t contrast"
+          - "-t foreground"
+          - "-t variables"
+          - "-t colors"
+  workflow_call:
+    inputs:
+      filter:
+        type: string
+  push:
+    branches:
+      - master
+    paths:
+      - "src/**"
+jobs:
+  tests:
+    timeout-minutes: 10
+    env:
+      filter: ${{ inputs.filter || ' '}}
+    name: "Tests"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 10
+          clean: false
+
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install package dependencies
+        run: bun install
+
+      - name: Run tests
+        run: bun test ${{ env.filter }}
