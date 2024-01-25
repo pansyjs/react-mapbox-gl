@@ -37,11 +37,24 @@ jobs:
           fetch-depth: 10
           clean: false
 
-      - name: Setup bun
-        uses: oven-sh/setup-bun@v1
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-      - name: Install package dependencies
-        run: bun install
+      - name: Cache pnpm modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
 
-      - name: Run tests
-        run: bun test ${{ env.filter }}
+      - name: Pnpm action
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+          run_install: true
+
+      - name: Test
+        run: pnpm test
