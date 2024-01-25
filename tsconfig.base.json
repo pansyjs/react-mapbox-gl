@@ -12,8 +12,7 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "Node",
-    "jsx": "react-jsx",
-    "types": ["vitest", "vitest/globals"]
+    "jsx": "react-jsx"
   },
   "exclude": ["node_modules", "**/**/*.md", "**/dist"]
 }
