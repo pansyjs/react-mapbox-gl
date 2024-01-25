@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.3.0...v1.4.0) (2024-01-25)
+
+
+### Features
+
+* 优化导出 ([67f8acc](https://github.com/pansyjs/react-mapbox-gl/commit/67f8acca2587baba3583b45c0531a66d11b5b4d9))
+
 # [1.3.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.2.0...v1.3.0) (2024-01-24)
 
 
