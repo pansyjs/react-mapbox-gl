@@ -1,6 +1,6 @@
 {
   "name": "@pansy/react-mapbox-gl",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "🌍 基于 Mapbox GL 封装的 React 组件库",
   "repository": "git@github.com:pansyjs/react-mapbox-gl.git",
   "main": "./lib/index.js",

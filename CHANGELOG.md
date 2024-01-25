@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/pansyjs/react-mapbox-gl/compare/v1.4.0...v1.4.1) (2024-01-25)
+
+
+### Bug Fixes
+
+* 修复 React is not defined ([c8e72c9](https://github.com/pansyjs/react-mapbox-gl/commit/c8e72c9405b1035a0f5e42955202c6fa9eccb630))
+
 # [1.4.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.3.0...v1.4.0) (2024-01-25)
 
 
