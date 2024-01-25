@@ -1,4 +1,4 @@
-name: Release
+name: 🎉 Release new version
 
 env:
   NODE_OPTIONS: --max-old-space-size=6144
@@ -7,7 +7,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-release:
+  build-publish:
+    name: 🔨 Build + 🚀 Publish
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'

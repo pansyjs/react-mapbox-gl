@@ -1,4 +1,4 @@
-name: Deploy CI
+name: 📘 Deploy docs
 
 env:
   NODE_OPTIONS: --max-old-space-size=6144
@@ -8,6 +8,9 @@ on:
     branches:
       - master
       - beta
+    paths:
+      - "stories/**"
+      - "CHANGELOG.md"
 
 jobs:
   build-and-deploy:
