@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { isFunction } from '@pansy/shared';
 import { useMap } from '../../hooks/useMap';
+import { isStyleLoaded } from '../../utils/isStyleLoaded';
 
 /**
  * finish: 样式是否加载完成
@@ -58,6 +59,12 @@ export const StyleLoadFinish = (props: StyleLoadFinishProps) => {
 
   useEffect(() => {
     if (map) {
+      if (isStyleLoaded(map)) {
+        themeStatus.current = [0, 3, 1];
+        checkStylePassRef.current = 1;
+        forceUpdate();
+        themeStatus.current = [0, 0, 0];
+      }
       map.on('styledataloading', handleStyleLoading);
       map.on('styledata', handleStyleData);
       map.on('style.load', handleStyleLoad);
