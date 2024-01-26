@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { App, Button, Space } from 'antd';
-import { Map, StyleLoadFinish } from '../../src';
+import { Map, StyleLoaded } from '../../src';
 import { Language } from './components/Language';
 import { Theme as ThemeCom, getStyleUrl } from './components/Theme';
 
@@ -31,12 +31,12 @@ const meta = {
         <Map containerStyle={{ height: '100vh' }} zoom={3} style={getStyleUrl(themes[0].value)}>
           <ThemeCom />
           <Space>
-            <StyleLoadFinish>
+            <StyleLoaded>
               <Button type="primary">初次样式加载完成</Button>;
-            </StyleLoadFinish>
-            <StyleLoadFinish isFinishRender>
+            </StyleLoaded>
+            <StyleLoaded isFinishRender>
               <Child />
-            </StyleLoadFinish>
+            </StyleLoaded>
           </Space>
           <Language />
         </Map>

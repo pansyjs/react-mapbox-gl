@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Map, Marker, StyleLoadFinish } from '../src';
+import { Map, Marker, StyleLoaded } from '../src';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -18,17 +18,17 @@ const TestCom = () => {
 
   return (
     isRender && (
-      <StyleLoadFinish>
+      <StyleLoaded>
         <Marker lngLat={[-110.414, 37.776]}>
           <div style={{ background: 'green', borderRadius: '50%', padding: '3px' }}>124</div>
         </Marker>
-      </StyleLoadFinish>
+      </StyleLoaded>
     )
   );
 };
 
 const meta = {
-  title: '组件/StyleLoad',
+  title: '组件/StyleLoaded',
   render: (props) => {
     return (
       <Map
@@ -36,11 +36,11 @@ const meta = {
         style="mapbox://styles/mapbox/satellite-streets-v12"
         containerStyle={{ height: 500 }}
       >
-        <StyleLoadFinish>
+        <StyleLoaded>
           <Marker lngLat={[-122.414, 37.776]}>
             <div style={{ background: 'red', borderRadius: '50%', padding: '3px' }}>123</div>
           </Marker>
-        </StyleLoadFinish>
+        </StyleLoaded>
         <div>
           <TestCom />
         </div>
@@ -51,7 +51,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {},
   args: {},
-} satisfies Meta<typeof StyleLoadFinish>;
+} satisfies Meta<typeof StyleLoaded>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

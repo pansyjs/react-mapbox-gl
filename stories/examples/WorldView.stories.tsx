@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Radio } from 'antd';
-import { Map, StyleLoadFinish, WorldView as WorldViewCom } from '../../src';
+import { Map, StyleLoaded, WorldView as WorldViewCom } from '../../src';
 import { Language } from './components/Language';
 import { Flyto } from './components/Flyto';
 
@@ -39,10 +39,10 @@ const meta = {
           console.log(e);
         }}
       >
-        <StyleLoadFinish>
+        <StyleLoaded>
           <Flyto center={[85.14477595859074, 29.68859973130745]} zoom={4} />
           <WorldViewCom code={worldView as any} />
-        </StyleLoadFinish>
+        </StyleLoaded>
         <Language />
 
         <div style={{ position: 'absolute', background: '#efefef', right: 0, padding: 12 }}>

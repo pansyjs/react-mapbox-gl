@@ -1,5 +1,4 @@
-import React from 'react';
-import { Map, StyleLoadFinish } from '../../src';
+import { Map, StyleLoaded } from '../../src';
 import { Language } from './components/Language';
 import { Theme as ThemeCom, getStyleUrl } from './components/Theme';
 import { Flyto as FlytoCom } from './components/Flyto';
@@ -16,9 +15,9 @@ const meta = {
   render: () => {
     return (
       <Map containerStyle={{ height: '100vh' }} zoom={1} style={getStyleUrl(themes[0].value)}>
-        <StyleLoadFinish>
+        <StyleLoaded>
           <FlytoCom />;
-        </StyleLoadFinish>
+        </StyleLoaded>
 
         <ThemeCom options={themes} />
         <Language />

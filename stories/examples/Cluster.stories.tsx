@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Language } from './components/Language';
-import { useMap, Map, Marker, Source, StyleLoadFinish, Layer } from '../../src';
+import { useMap, Map, Marker, Source, StyleLoaded, Layer } from '../../src';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import type { LayerProps } from '../../src';
@@ -78,7 +78,7 @@ const meta = {
         style="mapbox://styles/mapbox/dark-v11"
         containerStyle={{ height: '100vh' }}
       >
-        <StyleLoadFinish>
+        <StyleLoaded>
           <Source
             id="earthquakes"
             type="geojson"
@@ -92,7 +92,7 @@ const meta = {
             <Layer {...unclusteredPointLayer} />
             <MarkerCluster />
           </Source>
-        </StyleLoadFinish>
+        </StyleLoaded>
         <Language />
       </Map>
     );

@@ -9,7 +9,7 @@ import { isStyleLoaded } from '../../utils/isStyleLoaded';
  */
 type ChildrenFun = (finish: boolean, isFirstTime: boolean) => React.ReactNode;
 
-export interface StyleLoadFinishProps {
+export interface StyleLoadedProps {
   /**
    * 样式加载完成子组件才可渲染，加载中卸载子组件
    * @default false 加载中不卸载子组件
@@ -21,7 +21,7 @@ export interface StyleLoadFinishProps {
   children?: React.ReactNode | ChildrenFun;
 }
 
-export const StyleLoadFinish = (props: StyleLoadFinishProps) => {
+export const StyleLoaded = (props: StyleLoadedProps) => {
   const { isFinishRender = false, children } = props;
   const { map } = useMap();
   const [, setStyleLoaded] = useState(0);

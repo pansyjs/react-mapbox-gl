@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Avatar } from 'antd';
-import { Map, Marker, StyleLoadFinish, MarkerCluster } from '../../src';
+import { Map, Marker, StyleLoaded, MarkerCluster } from '../../src';
 import { Language } from './components/Language';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -43,7 +43,7 @@ const meta = {
         style="mapbox://styles/mapbox/dark-v11"
         containerStyle={{ height: '100vh' }}
       >
-        <StyleLoadFinish>
+        <StyleLoaded>
           <MarkerCluster<UserInfo>
             ref={clusterRef}
             data={features}
@@ -67,7 +67,7 @@ const meta = {
               }
             }}
           />
-        </StyleLoadFinish>
+        </StyleLoaded>
         <Language />
       </Map>
     );

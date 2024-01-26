@@ -1,5 +1,4 @@
-import React from 'react';
-import { Map, Marker, StyleLoadFinish } from '../src';
+import { Map, Marker, StyleLoaded } from '../src';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -8,11 +7,11 @@ const meta = {
   render: (props) => {
     return (
       <Map containerStyle={{ height: 500 }}>
-        <StyleLoadFinish>
+        <StyleLoaded>
           <Marker {...props}>
             <div style={{ background: 'red', borderRadius: '50%', padding: '3px' }}>123</div>
           </Marker>
-        </StyleLoadFinish>
+        </StyleLoaded>
       </Map>
     );
   },
