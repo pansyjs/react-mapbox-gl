@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.4.1...v1.5.0) (2024-01-26)
+
+
+### Bug Fixes
+
+* **StyleLoadFinish:** 解决样式加载完子组件不渲染 ([dd28301](https://github.com/pansyjs/react-mapbox-gl/commit/dd28301e1db41e59a4bec38b4a19ed910ec136ad))
+
+
+### Features
+
+* rename StyleLoadFinish to StyleLoaded ([66bca62](https://github.com/pansyjs/react-mapbox-gl/commit/66bca62b5d550f44803fe170d0773813e6b75f4a))
+
 ## [1.4.1](https://github.com/pansyjs/react-mapbox-gl/compare/v1.4.0...v1.4.1) (2024-01-25)
 
 
