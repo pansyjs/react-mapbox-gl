@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.5.0...v1.6.0) (2024-01-27)
+
+
+### Features
+
+* **Map:** 支持绑定 styleimagemissing 事件 ([091535d](https://github.com/pansyjs/react-mapbox-gl/commit/091535dc421f0129af1e766f502fa7674787027e))
+
 # [1.5.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.4.1...v1.5.0) (2024-01-26)
 
 
