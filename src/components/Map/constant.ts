@@ -61,6 +61,7 @@ export const MapEventMap: EventMapping = {
   onPitchEnd: 'pitchend',
 
   onWheel: 'wheel',
+  onStyleImageMissing: 'styleimagemissing',
 };
 
 export const MapEventList = Object.keys(MapEventMap) as KeysOfUnion<EventMapping>[];

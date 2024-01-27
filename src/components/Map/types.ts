@@ -1,8 +1,17 @@
 import React from 'react';
-import type { MapboxOptions, MapEventType } from 'mapbox-gl';
+import type { Map, Style, MapboxOptions, MapEventType } from 'mapbox-gl';
 import type { KeysOfUnion } from '../../types';
 
 export type { KeysOfUnion } from '../../types';
+
+export type SupplementMapEventType = {
+  styleimagemissing: {
+    id: string;
+    target: Map;
+    style: Style;
+    type: 'styleimagemissing';
+  };
+};
 
 export type MapEvents = {
   onError: (e: MapEventType['error']) => void;
@@ -72,6 +81,7 @@ export type MapEvents = {
   onPitchEnd: (e: MapEventType['pitchend']) => void;
 
   onWheel: (e: MapEventType['wheel']) => void;
+  onStyleImageMissing: (e: SupplementMapEventType['styleimagemissing']) => void;
 };
 
 export type EventMapping = { [T in keyof MapEvents]: string };
