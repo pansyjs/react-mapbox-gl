@@ -5,9 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import type { LayerProps } from '../../src';
 
 const pointsLayer: LayerProps = {
-  id: 'points',
   type: 'symbol',
-  source: 'points',
   layout: {
     // These icons are a part of the Mapbox Light style.
     // To view all images available in a Mapbox style, open
@@ -28,60 +26,66 @@ const pointsLayer: LayerProps = {
   },
 };
 
+const data: GeoJSON.FeatureCollection<
+  GeoJSON.Point,
+  {
+    title: string;
+    icon: string;
+  }
+> = {
+  type: 'FeatureCollection',
+  features: [
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-77.03238901390978, 38.913188059745586],
+      },
+      properties: {
+        title: 'Washington DC',
+        icon: 'monument',
+      },
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-79.9959, 40.4406],
+      },
+      properties: {
+        title: 'Pittsburgh',
+        // The Mapbox Light style's sprite does not
+        // contain an image with the name "bridges"
+        // but we can display a fallback image.
+        icon: 'bridges',
+      },
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-76.2859, 36.8508],
+      },
+      properties: {
+        title: 'Norfolk',
+        icon: 'harbor',
+      },
+    },
+  ],
+};
+
 const meta = {
   title: '示例/FallbackImage',
   render: () => {
     return (
-      <Map zoom={5} center={[-77, 38.75]} containerStyle={{ height: '100vh' }}>
+      <Map
+        zoom={5}
+        center={[-77, 38.75]}
+        containerStyle={{ height: '100vh' }}
+        style="mapbox://styles/mapbox/light-v11"
+      >
         <StyleLoaded>
-          <Source
-            id="points"
-            type="geojson"
-            data={{
-              type: 'FeatureCollection',
-              features: [
-                {
-                  type: 'Feature',
-                  geometry: {
-                    type: 'Point',
-                    coordinates: [-77.03238901390978, 38.913188059745586],
-                  },
-                  properties: {
-                    title: 'Washington DC',
-                    icon: 'monument',
-                  },
-                },
-                {
-                  type: 'Feature',
-                  geometry: {
-                    type: 'Point',
-                    coordinates: [-79.9959, 40.4406],
-                  },
-                  properties: {
-                    title: 'Pittsburgh',
-                    // The Mapbox Light style's sprite does not
-                    // contain an image with the name "bridges"
-                    // but we can display a fallback image.
-                    icon: 'bridges',
-                  },
-                },
-                {
-                  type: 'Feature',
-                  geometry: {
-                    type: 'Point',
-                    coordinates: [-76.2859, 36.8508],
-                  },
-                  properties: {
-                    title: 'Norfolk',
-                    icon: 'harbor',
-                  },
-                },
-              ],
-            }}
-            cluster
-            clusterMaxZoom={14}
-            clusterRadius={50}
-          >
+          <Source type="geojson" data={data} cluster clusterMaxZoom={14} clusterRadius={50}>
             <Layer {...pointsLayer} />
           </Source>
         </StyleLoaded>
