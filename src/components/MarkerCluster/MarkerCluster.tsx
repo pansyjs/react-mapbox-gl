@@ -101,9 +101,9 @@ const InternalMarkerCluster = <D extends AnyObject = AnyObject>(
     if (!properties?.cluster) return;
 
     const children = supercluster.getLeaves(properties.cluster_id, Infinity);
-    const childrenBbox = bbox(featureCollection(children));
+    const childrenBbox = bbox(featureCollection(children)) as [number, number, number, number];
 
-    map.fitBounds(LngLatBounds.convert(childrenBbox as any), {
+    map.fitBounds(LngLatBounds.convert(childrenBbox), {
       padding: zoomOnClickPadding,
     });
   };
