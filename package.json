@@ -9,6 +9,7 @@
   "files": [
     "lib",
     "es",
+    "dist",
     "src"
   ],
   "sideEffects": [

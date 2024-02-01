@@ -9,5 +9,14 @@ export default defineConfig({
     output: 'lib',
     transformer: 'esbuild',
   },
+  umd: {
+    name: 'ReactMapboxGl',
+    output: 'dist',
+    externals: {
+      react: 'React',
+      'react-dom': 'ReactDOM',
+      'mapbox-gl': 'mapboxgl',
+    },
+  },
   platform: 'browser',
 });
