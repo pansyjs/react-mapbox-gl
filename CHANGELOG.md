@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.6.0...v1.7.0) (2024-02-01)
+
+
+### Features
+
+* 样式应有业务方引入 ([b7cd686](https://github.com/pansyjs/react-mapbox-gl/commit/b7cd686f26a8632231382fe95c41af9a89ed2d1c))
+
 # [1.6.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.5.0...v1.6.0) (2024-01-27)
 
 
