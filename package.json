@@ -12,9 +12,7 @@
     "dist",
     "src"
   ],
-  "sideEffects": [
-    "*.css"
-  ],
+  "sideEffects": false,
   "scripts": {
     "start": "storybook dev -p 6007",
     "build": "father build",
