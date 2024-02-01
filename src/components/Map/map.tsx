@@ -13,8 +13,8 @@ import { usePropsReactive } from '../../hooks/usePropsReactive';
 import { allProps, setterMap, converterMap } from './config';
 import { MapEventMap, MapEventList } from './constant';
 
-import 'mapbox-gl/dist/mapbox-gl.css';
-import './map.css';
+// import 'mapbox-gl/dist/mapbox-gl.css';
+// import './map.css';
 
 import type { MapContextValue } from './context';
 import type { MapProps, MapboxOptionKeys } from './types';
