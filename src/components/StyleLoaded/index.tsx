@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { isFunction } from '@pansy/shared';
+import { isFunction } from '@rcuse/core';
 import { useMap } from '../../hooks/useMap';
 import { isStyleLoaded } from '../../utils/isStyleLoaded';
 

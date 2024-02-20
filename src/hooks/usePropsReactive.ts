@@ -1,5 +1,4 @@
-import { isFunction, isEqual } from '@pansy/shared';
-import { useDeepCompareEffect, useUnmount, usePrevious } from '@pansy/react-hooks';
+import { isFunction, isEqual, useDeepCompareEffect, useUnmount, usePrevious } from '@rcuse/core';
 import { toCapitalString } from '../utils/toCapitalString';
 
 interface Options {

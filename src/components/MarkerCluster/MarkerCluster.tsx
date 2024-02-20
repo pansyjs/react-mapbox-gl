@@ -6,7 +6,7 @@ import React, {
   useImperativeHandle,
   forwardRef,
 } from 'react';
-import { isFunction, uuid } from '@pansy/shared';
+import { isFunction, uuid } from '@rcuse/core';
 import { LngLatBounds } from 'mapbox-gl';
 import Supercluster from 'supercluster';
 import { debounce } from 'lodash-es';

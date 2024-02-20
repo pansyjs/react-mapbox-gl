@@ -1,4 +1,4 @@
-import { useUnmount } from '@pansy/react-hooks';
+import { useUnmount } from '@rcuse/core';
 import { useTrackedEffect } from './useTrackedEffect';
 
 import type { Instance } from '../types';

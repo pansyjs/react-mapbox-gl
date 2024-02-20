@@ -5,12 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@pansy/react-hooks':
-    specifier: ^2.4.0
-    version: 2.4.0(react@18.2.0)
-  '@pansy/shared':
-    specifier: ^1.16.1
-    version: 1.16.1
+  '@rcuse/core':
+    specifier: ^0.3.8
+    version: 0.3.8
   '@turf/bbox':
     specifier: ^6.5.0
     version: 6.5.0
@@ -3089,531 +3086,6 @@ packages:
       '@octokit/openapi-types': 19.1.0
     dev: true
 
-  /@pansy/classnames@1.0.1:
-    resolution: {integrity: sha512-L+8EGUhuqlZhWz1ojVnTcRk8U958QhHvzCy3KHvmAGm+cRiHaX/CyJd5mEEGSKZhAOa/EpPjqTjafPX6TZNvtw==}
-    dev: false
-
-  /@pansy/hook-utils@0.5.3(react@18.2.0):
-    resolution: {integrity: sha512-Q/V7fD1qa8V0J0tuu5KPkCEe8RzOKNDxCuJtg1RytUi3vNSW76svwRlR5tjwxOmrixKRixR8Bpqj3D4Rc3KiZw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/shared': 1.16.1
-      '@pansy/use-memoized-fn': 0.3.3(react@18.2.0)
-      '@pansy/use-unmount': 0.2.9(react@18.2.0)
-      '@pansy/use-update-effect': 0.2.6(react@18.2.0)
-      lodash: 4.17.21
-      react: 18.2.0
-    dev: false
-
-  /@pansy/react-hooks@2.4.0(react@18.2.0):
-    resolution: {integrity: sha512-MEUFJP4VwhnW+W/GUD1YZcoFg6peE5JWiHtj6uMXXjJyOm1QqfpnCa42LKARt2M9XNlUjwfaRoExQ3UJvNnlTw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/use-boolean': 0.3.2(react@18.2.0)
-      '@pansy/use-click-away': 0.4.3(react@18.2.0)
-      '@pansy/use-controllable-value': 0.4.2(react@18.2.0)
-      '@pansy/use-cookie-state': 0.2.3(react@18.2.0)
-      '@pansy/use-creation': 0.2.4(react@18.2.0)
-      '@pansy/use-deep-compare-effect': 1.3.3(react@18.2.0)
-      '@pansy/use-deep-compare-layout-effect': 1.1.2(react@18.2.0)
-      '@pansy/use-document-visibility': 0.3.4(react@18.2.0)
-      '@pansy/use-event-listener': 0.3.4(react@18.2.0)
-      '@pansy/use-event-target': 0.2.8(react@18.2.0)
-      '@pansy/use-external': 0.1.6(react@18.2.0)
-      '@pansy/use-favicon': 0.2.6(react@18.2.0)
-      '@pansy/use-fullscreen': 0.1.0(react@18.2.0)
-      '@pansy/use-get-state': 0.4.2(react@18.2.0)
-      '@pansy/use-hover': 0.4.3(react@18.2.0)
-      '@pansy/use-in-viewport': 0.4.3(react@18.2.0)
-      '@pansy/use-interval': 0.3.2(react@18.2.0)
-      '@pansy/use-key-press': 0.3.3(react@18.2.0)
-      '@pansy/use-latest': 0.2.6(react@18.2.0)
-      '@pansy/use-local-storage-state': 0.3.4(react@18.2.0)
-      '@pansy/use-lock-fn': 1.0.7(react@18.2.0)
-      '@pansy/use-memoized-fn': 0.3.3(react@18.2.0)
-      '@pansy/use-modal': 1.0.3(react@18.2.0)
-      '@pansy/use-mount': 0.2.1(react@18.2.0)
-      '@pansy/use-mouse': 0.3.3(react@18.2.0)
-      '@pansy/use-pagination': 0.1.2(react@18.2.0)
-      '@pansy/use-portal': 0.2.2(react@18.2.0)
-      '@pansy/use-previous': 0.2.6(react@18.2.0)
-      '@pansy/use-raf-state': 0.2.9(react@18.2.0)
-      '@pansy/use-request': 0.3.3(react@18.2.0)
-      '@pansy/use-scroll': 0.3.4(react@18.2.0)
-      '@pansy/use-scroll-lock': 1.3.4(react@18.2.0)
-      '@pansy/use-selections': 0.4.2(react@18.2.0)
-      '@pansy/use-session-storage-state': 0.3.4(react@18.2.0)
-      '@pansy/use-size': 0.3.4(react@18.2.0)
-      '@pansy/use-timeout': 0.2.8(react@18.2.0)
-      '@pansy/use-title': 0.3.4(react@18.2.0)
-      '@pansy/use-toggle': 0.2.6(react@18.2.0)
-      '@pansy/use-unmount': 0.2.9(react@18.2.0)
-      '@pansy/use-update': 0.2.6(react@18.2.0)
-      '@pansy/use-update-effect': 0.2.6(react@18.2.0)
-      '@pansy/use-update-layout-effect': 0.2.13(react@18.2.0)
-      '@pansy/use-watermark': 0.3.4(react@18.2.0)
-      '@pansy/use-web-socket': 0.2.3(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/scrollbar-width@1.0.0:
-    resolution: {integrity: sha512-uewJ/MstUMieEa4dS4CQkLVTOhIReKnmeNJAIlW95I7L//SipI7uh2/O0lwKNPYLumNIcmUlRz7j8p0hEGsgNQ==}
-    dev: false
-
-  /@pansy/shared@1.16.1:
-    resolution: {integrity: sha512-aeEghhWlEuauh7damE5cmAC2+e0cxMszz8OictoM5gms4/WfPL+BG4yRCm1R4/FezFG19/M7xFyfJTHy9UFspg==}
-    dependencies:
-      '@pansy/classnames': 1.0.1
-      '@pansy/scrollbar-width': 1.0.0
-      tree-lodash: 0.3.1
-      type-fest: 4.9.0
-    dev: false
-
-  /@pansy/use-boolean@0.3.2(react@18.2.0):
-    resolution: {integrity: sha512-QD4PWcSnfWFm3HYqvMlcqDVlybcNfZmCKS0i2fU0dAo7Vv9XX8dbjziXT/wcazcPehSysMXVkG5C66QeombHTA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/use-toggle': 0.2.6(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-click-away@0.4.3(react@18.2.0):
-    resolution: {integrity: sha512-RAcI9Hm5+Dl+gFdutHDwjE1YIjPMNjM1rwdZ6Nowp4KGTRaQaxjNwI/aDk9wQRbP2cYlCck8quN1J0gQ7ApP4A==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      '@pansy/shared': 1.16.1
-      '@pansy/use-latest': 0.2.6(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-controllable-value@0.4.2(react@18.2.0):
-    resolution: {integrity: sha512-7+MgpTREKYWd+yKsJysOXWHg8YwW6UUNfRCVVZmt5ynqfLJpV7UxgQN6Tpry0Sb9ZicDXWfzW4jJU/dCejx6VQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/shared': 1.16.1
-      '@pansy/use-memoized-fn': 0.3.3(react@18.2.0)
-      '@pansy/use-update': 0.2.6(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-cookie-state@0.2.3(react@18.2.0):
-    resolution: {integrity: sha512-aS4+J9cv64xg/ks2/rAEjt6RcKCeIFflJWpgiyMCe0giejbU9niFu1BnG04pNZ9GH+Hk/AzeA1AQINDl/it2+g==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/shared': 1.16.1
-      '@pansy/use-memoized-fn': 0.3.3(react@18.2.0)
-      '@types/js-cookie': 2.2.7
-      js-cookie: 2.2.1
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-creation@0.2.4(react@18.2.0):
-    resolution: {integrity: sha512-nl4e67aQSFFakekSg2cgN9OuCViemLSkeH70Q/YMr7cUl/070DxopgpS2Q+jn4UQf16noh/Js8cuXlMq8Z+zpA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      '@pansy/shared': 1.16.1
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-deep-compare-effect@1.3.3(react@18.2.0):
-    resolution: {integrity: sha512-e7uM/tLhPQf7uoiT25p7Pwou84nNVEb8YxnX59jpLrs+3bHXFoO1nMn5HHwJTOXpQIobGrR09+jokcD+OaNYXQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/shared': 1.16.1
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-deep-compare-layout-effect@1.1.2(react@18.2.0):
-    resolution: {integrity: sha512-Hv1MVmJh44kwgaR3j46F7b6g8nMAK6Himz1+eoKzNtbMlcse9pSAyLf+8qorFGJc9RZTLQgzCAvulsJawkKo0g==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/shared': 1.16.1
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-document-visibility@0.3.4(react@18.2.0):
-    resolution: {integrity: sha512-QYWljR6PuM5UDc6X0TggiD3cKr5nDPls6Kn5oRMj/PmHzf0RHHnADAYytIbPWMe2w3hqVPtToNk+W+9xzzh1Kg==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      '@pansy/shared': 1.16.1
-      '@pansy/use-event-listener': 0.3.4(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-event-listener@0.3.4(react@18.2.0):
-    resolution: {integrity: sha512-wBIkXqjgzJWkAluLZyS53j9nwDcT9ZxDxOXcuqPJRlFgR8JziBg0bi3f3T4xWx0315tZdgcpF7paqHXYgwdMAQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      '@pansy/shared': 1.16.1
-      '@pansy/use-latest': 0.2.6(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-event-target@0.2.8(react@18.2.0):
-    resolution: {integrity: sha512-egp9ovxHQ+xyX61unqwzGLR/0jCTt4Reo3WksHPViFZq4sjCzbwMeSH+njyv+BKHDrxAsMZ7Alo+hLHfSaJVaA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/use-latest': 0.2.6(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-external@0.1.6(react@18.2.0):
-    resolution: {integrity: sha512-7gUm0VCpm0HHu9jZWvrU/dm7xD2JoRJcMoEI+KH4zU4I4QgpFm+q+0uaUrSgFftUkUzgkvIvyFjB2+ucSf7qPw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-favicon@0.2.6(react@18.2.0):
-    resolution: {integrity: sha512-9qSz7ZJDCkKM338jIeIdWo2+zk09146JZq6Afc4HIBhnH0nvjhtk/EO9jEmRNb+gJeDxYhn1sjdR808Tt4tkug==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-fullscreen@0.1.0(react@18.2.0):
-    resolution: {integrity: sha512-HZXJOlMHOpxy9QWO9ecEjAG6OKzkz3fGMettj3kR2NXR9dC7T7/yqmbuAdXvMLn0PTwaanPcqFwLrRNZnMo21g==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/shared': 1.16.1
-      '@pansy/use-boolean': 0.3.2(react@18.2.0)
-      react: 18.2.0
-      screenfull: 5.2.0
-    dev: false
-
-  /@pansy/use-get-state@0.4.2(react@18.2.0):
-    resolution: {integrity: sha512-dnVPFhIGCB6WwqsPCi6SGi54D4OXI1sRzjTT1l1Kd33NGbdgM3tl2VNkmODWfnqFovRuXshn4R8Zhudof6+wvQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/use-toggle': 0.2.6(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-hover@0.4.3(react@18.2.0):
-    resolution: {integrity: sha512-2VQ/8+r4SArzdfeClMaauh4BSRxSb+ucmLs+q9R4wg2nwsM1ErlHJeBOyiU5P62pIQZJ/5lVeD3kHE2PsULQcA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/shared': 1.16.1
-      '@pansy/use-boolean': 0.3.2(react@18.2.0)
-      '@pansy/use-event-listener': 0.3.4(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-in-viewport@0.4.3(react@18.2.0):
-    resolution: {integrity: sha512-KkL59bEv0RY8ZW0Ei3GnYlKLXMnBJMUPi6a4Fg4Vdc40IxRLFOF6CtczwkrhxDapWpQP8ngPAqok07H4rGLP0A==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      '@pansy/shared': 1.16.1
-      intersection-observer: 0.12.2
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-interval@0.3.2(react@18.2.0):
-    resolution: {integrity: sha512-1Lxw8SIiKT3KgubKhj152weElGsJNYURQAYeZod3ZCLq0pi8hJ7RcL+338CpVO5/ZQzsx8MhDLaATtwlxmnUKw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/shared': 1.16.1
-      '@pansy/use-latest': 0.2.6(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-key-press@0.3.3(react@18.2.0):
-    resolution: {integrity: sha512-5KJLN9Ps/Z+mhSnBMGnhgpbBZbLRW2qfofheN7IoQeG0G+Df2Ul/vuTFmKuWkeNEx3GQQSNGEjvNnnoBuDzTNw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      '@pansy/shared': 1.16.1
-      '@pansy/use-latest': 0.2.6(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-latest@0.2.6(react@18.2.0):
-    resolution: {integrity: sha512-AT0NpW/6MJV3xkCpSzQJwSh1psqhnp5KSpWK8bLCICT4nleUhFoLeEGSJC9mmxQNwNoVONumSfGwcaJBZXNExg==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-local-storage-state@0.3.4(react@18.2.0):
-    resolution: {integrity: sha512-EwDe1mYMfijBT6wjVbPa7C2MfB3mKeL3c9aMyeOg75nXcdlLM1fGUl0NoiU/GdejCfRpczoOCx90joqe9bG3rQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      '@pansy/shared': 1.16.1
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-lock-fn@1.0.7(react@18.2.0):
-    resolution: {integrity: sha512-9SdAfVFw+wHqaw6htvHCn94aUwtB5yQYnlhFXjrFG2eBsBAoiGe+WK7yBR2x9UTOopCnsVSBTOz77nQhCH0OQQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-memoized-fn@0.3.3(react@18.2.0):
-    resolution: {integrity: sha512-S6YrfSe9M3pP4zvtazKNEIUfVoeEtpryCGlJYt0oHR22/GKPxyrGvgOZX5lYnpQwo09QfZ2JNG1T0nBMHoswTw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/use-toggle': 0.2.6(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-modal@1.0.3(react@18.2.0):
-    resolution: {integrity: sha512-npQ5/2fEKv7o0KIJi1LNoUqDGdz3wlJYDMW1fXy5qmQ+MXHipVLLER+drU/s5AmI0HRZuRsTIbZgOwOaJl1I2g==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/use-boolean': 0.3.2(react@18.2.0)
-      '@pansy/use-memoized-fn': 0.3.3(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-mount@0.2.1(react@18.2.0):
-    resolution: {integrity: sha512-jjliX2u9cEk1Fk8EsVPkUAYOeQ4Xa2XhsF+VJ1hTMFAuUds8uBDFxkn8frbkQBF7YpVVe/ZPxycv569yhih10Q==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-mouse@0.3.3(react@18.2.0):
-    resolution: {integrity: sha512-uxjy1ImavdOfGShGtFy6jauAz5a1tQZ6xX6jGPm7BpDhhgXmKPG4D2AojwVuqAY5UOWSF3AYQOh86JZIPoWAwA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/shared': 1.16.1
-      '@pansy/use-event-listener': 0.3.4(react@18.2.0)
-      '@pansy/use-raf-state': 0.2.9(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-pagination@0.1.2(react@18.2.0):
-    resolution: {integrity: sha512-6y5sNTXlz+EyNTakuE0r8WuFMCLHoqitApYdFk8hKlu0+bAXwxtrOfJelEwFaleC4mak3WWPSSc2MnN3+P3ulQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/use-memoized-fn': 0.3.3(react@18.2.0)
-      '@pansy/use-request': 0.3.3(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-portal@0.2.2(react@18.2.0):
-    resolution: {integrity: sha512-UQjFI9lC43kyUbO9nFUHCSo0qK4228KQUww+4lYR5ySEVqtKsbBvq/4soKjj2O9otUVEopYpV9J03J7bpsMpKQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-previous@0.2.6(react@18.2.0):
-    resolution: {integrity: sha512-LtzmvvEX1K0fns0lHodw40e+8HKxEE7uNOGepCCc8C5Yr+rFRQYql5tUYQsiAEPck5nXDpLLYobmcXKolemGEQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-raf-state@0.2.9(react@18.2.0):
-    resolution: {integrity: sha512-AYG2ZRykuP86t4R34TgdbJP8/oeSZqZSfazf6OlnqGf6k7EV1UPWYM5YEjgUNNYAOwj5Tlvw3FuvjS0M3NN+EQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/use-unmount': 0.2.9(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-request@0.3.3(react@18.2.0):
-    resolution: {integrity: sha512-8eg/1B7OXgifGzrqtixr0n+FBAzv1AwZBnGBr85Hlm4+hNIZv/8+MTOZm+9BagGPt65h4eRYfz1otrdeQ3QiLA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      '@pansy/shared': 1.16.1
-      '@pansy/use-creation': 0.2.4(react@18.2.0)
-      '@pansy/use-latest': 0.2.6(react@18.2.0)
-      '@pansy/use-memoized-fn': 0.3.3(react@18.2.0)
-      '@pansy/use-mount': 0.2.1(react@18.2.0)
-      '@pansy/use-unmount': 0.2.9(react@18.2.0)
-      '@pansy/use-update': 0.2.6(react@18.2.0)
-      lodash: 4.17.21
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-scroll-lock@1.3.4(react@18.2.0):
-    resolution: {integrity: sha512-AXnGF8oZOiSFZbPOJXSHP52tQ31p4ClZ46A6x2t+6TJ8zo0Ftqkd7U/Yy5tRnkDELUcHjh8DOuXWzRiTvzNwNw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/shared': 1.16.1
-      '@pansy/use-event-listener': 0.3.4(react@18.2.0)
-      '@pansy/use-get-state': 0.4.2(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-scroll@0.3.4(react@18.2.0):
-    resolution: {integrity: sha512-UvoJn/OrBVbDMgQ+lw3zwi7224IVAbymr/X9SgXn4CiO/WNVDcLC0e7k8JRv4h39ZnxkCf0W6A1G+BpSsl6CuA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      '@pansy/shared': 1.16.1
-      '@pansy/use-latest': 0.2.6(react@18.2.0)
-      '@pansy/use-raf-state': 0.2.9(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-selections@0.4.2(react@18.2.0):
-    resolution: {integrity: sha512-kfNKpvyP58S2w30MMp3537gijyblPZ6EncKgz+Zbo+OnYE8fZlMFmzqyjfO8Xg341JAsz7vLrSjS80QP57AqWQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/use-memoized-fn': 0.3.3(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-session-storage-state@0.3.4(react@18.2.0):
-    resolution: {integrity: sha512-snR9pa99o1W32KrHVCCsYJD6FXKeK6VNxOAHhro7pBJIVcRrn9/IQUs5Bg/U6WRnzscI6lyZfZgmUOOt+0vAsg==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      '@pansy/shared': 1.16.1
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-size@0.3.4(react@18.2.0):
-    resolution: {integrity: sha512-Z0BQPwo9oRPmXjW4GYOdivO2QtlSrK3wzAHOGqghfGkvU1Yo/FY3AYs9n7OzCFmAtCc65V6kLSRSG9uQf6VrNg==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      '@pansy/shared': 1.16.1
-      '@pansy/use-raf-state': 0.2.9(react@18.2.0)
-      react: 18.2.0
-      resize-observer-polyfill: 1.5.1
-    dev: false
-
-  /@pansy/use-timeout@0.2.8(react@18.2.0):
-    resolution: {integrity: sha512-1szP/eJ4RoQwiE7kKYDqQ2/jT372aIk1pHZQrNMaEccklbNEhnT9Dk267mVqwcfFGKHK1UG+83hnBBVf3DDwAQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/shared': 1.16.1
-      '@pansy/use-latest': 0.2.6(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-title@0.3.4(react@18.2.0):
-    resolution: {integrity: sha512-hgfJ6rbuj2utiBfPhgiCwc2Da77huXfQ0NTTj1m7tSjcYDYMQNcrLQe0heE3npiiWWaBIqid7iwpu3bFTqI6VA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      '@pansy/shared': 1.16.1
-      '@pansy/use-unmount': 0.2.9(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-toggle@0.2.6(react@18.2.0):
-    resolution: {integrity: sha512-DFAGbe/afrotyEOPZ2HxVkHGluUvEx34LpHH3Ol1ubfup+24FnmpRFXEE2SILrjkvD0HBmGxTUQkdPiPXsF23w==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-unmount@0.2.9(react@18.2.0):
-    resolution: {integrity: sha512-HHwaY0jLmecenNgMojHnrOVTzGonXaJBWddaVESHwwM3UCNLP8jkJIDhY+Fmx10/oFhbRnLc2aWvI6ruetqFWw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/shared': 1.16.1
-      '@pansy/use-latest': 0.2.6(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-update-effect@0.2.6(react@18.2.0):
-    resolution: {integrity: sha512-jFfILtLEqzCCwz/dabNmEkLJzkrGHeCPi5qgRKQswALP78qRzNQvydEEs/qRH2yNCLvrlsWZMMmE5uaLJJSwYw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-update-layout-effect@0.2.13(react@18.2.0):
-    resolution: {integrity: sha512-Ii13DVRTm5RbwNodnEaHu4o61i0EjhHcyAsEvkZjfVAB1SvT7uImilrQncYeC/SLA8x2iUsmhQlNdcmlNcKvpQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-update@0.2.6(react@18.2.0):
-    resolution: {integrity: sha512-ktBKV9fsjyYsvlLD3gy70/2LeIEXAtHBhrg7AzV6HJktLI/ibo8CFKx6Hx/gxGfqlodf4ZkZ+zIZ89Fv/xAEHA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-watermark@0.3.4(react@18.2.0):
-    resolution: {integrity: sha512-AhD2GHl70GCbpIWMMR8b2aInvTfEnYB79t/hRV5n9hSc3dEQQjXPN9IQhJH6v7ECfl+W1/0zCc55/jM5x+sHHA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/hook-utils': 0.5.3(react@18.2.0)
-      '@pansy/shared': 1.16.1
-      '@pansy/use-memoized-fn': 0.3.3(react@18.2.0)
-      '@pansy/use-unmount': 0.2.9(react@18.2.0)
-      '@pansy/watermark': 2.3.0
-      react: 18.2.0
-    dev: false
-
-  /@pansy/use-web-socket@0.2.3(react@18.2.0):
-    resolution: {integrity: sha512-qT3Plp8DYsypG8te3UDVO9p5GHzvP2jmWTO2cPJJSjAa3DCPYzG77iN31Z0bCLPBap4gUwRiIR7w6VeAwtteDA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@pansy/use-latest': 0.2.6(react@18.2.0)
-      '@pansy/use-memoized-fn': 0.3.3(react@18.2.0)
-      '@pansy/use-unmount': 0.2.9(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@pansy/watermark@2.3.0:
-    resolution: {integrity: sha512-eVq5XD0BGkAkp0I36WgupRJOnEf+d3mJzy4HJUOUx4XzpZAk6fCRu1OKodTx+64FegEhfAMr7QpbUMTmdXrDPQ==}
-    dev: false
-
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
@@ -4295,6 +3767,19 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
+
+  /@rcuse/core@0.3.8:
+    resolution: {integrity: sha512-HDPcG6duRTwG0IVdw8wT5AIVaTpaaIAyxzQtUP9Y3Pcfks2Fr2UYEtHAKeZmUwA4iE3pePr4KyB5cON4T78OCQ==}
+    dependencies:
+      '@rcuse/shared': 0.3.8
+    dev: false
+
+  /@rcuse/shared@0.3.8:
+    resolution: {integrity: sha512-XUApEXTiAOQFkG7dirBSZ+GEbU12IMvWcxvHSClQE0q1WkTeoGt592B6jojYun+2goHOa1IH+KBO1P/lR7TDIA==}
+    dependencies:
+      type-fest: 4.10.2
+      user-agent-data-types: 0.4.2
+    dev: false
 
   /@rollup/pluginutils@5.1.0:
     resolution: {integrity: sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g==}
@@ -5794,10 +5279,6 @@ packages:
       expect: 29.7.0
       pretty-format: 29.7.0
     dev: true
-
-  /@types/js-cookie@2.2.7:
-    resolution: {integrity: sha512-aLkWa0C0vO5b4Sr798E26QgOkss68Un0bLjs7u9qxzPT5CG+8DuNTffWES58YzJs3hrVAOs1wonycqEBqNJubA==}
-    dev: false
 
   /@types/jsdom@20.0.1:
     resolution: {integrity: sha512-d0r18sZPmMQr1eG35u12FZfhIXNrnsPU/g5wvRKCUf/tOGilKKwYMYGqh33BNR6ba+2gkHw1EUiHoN3mn7E5IQ==}
@@ -10305,10 +9786,6 @@ packages:
       side-channel: 1.0.4
     dev: true
 
-  /intersection-observer@0.12.2:
-    resolution: {integrity: sha512-7m1vEcPCxXYI8HqnL8CKI6siDyD+eIWSwgB3DZA+ZTogxk9I4CDnj4wilt9x/+/QbHI4YG5YZNmC6458/e9Ktg==}
-    dev: false
-
   /into-stream@7.0.0:
     resolution: {integrity: sha512-2dYz766i9HprMBasCMvHMuazJ7u4WzhJwo5kb3iPSiW/iRYV6uPari3zHoqZlnuaR7V1bEiNMxikhp37rdBXbw==}
     engines: {node: '>=12'}
@@ -11276,12 +10753,9 @@ packages:
     resolution: {integrity: sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==}
     dev: true
 
-  /js-cookie@2.2.1:
-    resolution: {integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==}
-    dev: false
-
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    dev: true
 
   /js-yaml@3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
@@ -11830,6 +11304,7 @@ packages:
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: true
 
   /log-symbols@4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
@@ -11855,6 +11330,7 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+    dev: true
 
   /loupe@2.3.7:
     resolution: {integrity: sha512-zSMINGVYkdpYSOBmLi0D1Uo7JU9nVdQKrHxC8eYlV+9YKK9WePqAlL7lSlorG/U2Fw1w0hTBmaa/jrQ3UbPHtA==}
@@ -14483,6 +13959,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: true
 
   /read-pkg-up@11.0.0:
     resolution: {integrity: sha512-LOVbvF1Q0SZdjClSefZ0Nz5z8u+tIE7mV5NibzmE9VYmDe9CaBbAVtz1veOSZbofrdsilxuDAYnFenukZVp8/Q==}
@@ -14727,6 +14204,7 @@ packages:
 
   /resize-observer-polyfill@1.5.1:
     resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
+    dev: true
 
   /resolve-cwd@3.0.0:
     resolution: {integrity: sha512-OrZaX2Mb+rJCpH/6CpSqt9xFVpN++x01XnN2ie9g6P5/3xelLAkXWVADpdz1IHD/KFfEXyE6V0U01OQ3UO2rEg==}
@@ -14926,11 +14404,6 @@ packages:
       ajv: 6.12.6
       ajv-keywords: 3.5.2(ajv@6.12.6)
     dev: true
-
-  /screenfull@5.2.0:
-    resolution: {integrity: sha512-9BakfsO2aUQN2K9Fdbj87RJIEZ82Q9IGim7FqM5OsebfoFC6ZHXgDq/KvniuLTPdeM8wY2o6Dj3WQ7KeQCj3cA==}
-    engines: {node: '>=0.10.0'}
-    dev: false
 
   /scroll-into-view-if-needed@3.1.0:
     resolution: {integrity: sha512-49oNpRjWRvnU8NyGVmUaYG4jtTkNonFZI86MmGRDqBphEK2EXT9gdEUoQPZhuBM8yWHxCWbobltqYO5M4XrUvQ==}
@@ -15982,10 +15455,6 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /tree-lodash@0.3.1:
-    resolution: {integrity: sha512-wu3kZ+dA5M3cJ31FbYw2z225KpGgeLcZ1JQQ2Cp6h/Q1YVKjNFMuJFFtmsR6acujFufHk34ycWMhKidLkQS2CQ==}
-    dev: false
-
   /trim-newlines@3.0.1:
     resolution: {integrity: sha512-c1PTsA3tYrIsLGkJkzHF+w9F2EyxfXGo4UyJc4pFL++FMjnq0HJS69T3M7d//gKrFKwy429bouPescbjecU+Zw==}
     engines: {node: '>=8'}
@@ -16157,6 +15626,11 @@ packages:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
     dev: true
+
+  /type-fest@4.10.2:
+    resolution: {integrity: sha512-anpAG63wSpdEbLwOqH8L84urkL6PiVIov3EMmgIhhThevh9aiMQov+6Btx0wldNcvm4wV+e2/Rt1QdDwKHFbHw==}
+    engines: {node: '>=16'}
+    dev: false
 
   /type-fest@4.9.0:
     resolution: {integrity: sha512-KS/6lh/ynPGiHD/LnAobrEFq3Ad4pBzOlJ1wAnJx9N4EYoqFhMfLIBjUT2UEx4wg5ZE+cC1ob6DCSpppVo+rtg==}
@@ -16439,6 +15913,10 @@ packages:
       react: 18.2.0
       tslib: 2.6.2
     dev: true
+
+  /user-agent-data-types@0.4.2:
+    resolution: {integrity: sha512-jXep3kO/dGNmDOkbDa8ccp4QArgxR4I76m3QVcJ1aOF0B9toc+YtSXtX5gLdDTZXyWlpQYQrABr6L1L2GZOghw==}
+    dev: false
 
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}

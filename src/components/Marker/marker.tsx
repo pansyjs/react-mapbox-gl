@@ -1,6 +1,6 @@
 import React, { useEffect, useImperativeHandle } from 'react';
 import Mapbox from 'mapbox-gl';
-import { useGetState, usePortal } from '@pansy/react-hooks';
+import { useGetState, usePortal } from '@rcuse/core';
 import { useMap } from '../../hooks/useMap';
 import { usePropsReactive } from '../../hooks/usePropsReactive';
 import { useEvents } from '../../hooks/useEvents';
