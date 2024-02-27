@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@rcuse/core':
-    specifier: ^0.3.8
-    version: 0.3.8
+    specifier: ^0.6.0
+    version: 0.6.0
   '@turf/bbox':
     specifier: ^6.5.0
     version: 6.5.0
@@ -3768,14 +3768,14 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /@rcuse/core@0.3.8:
-    resolution: {integrity: sha512-HDPcG6duRTwG0IVdw8wT5AIVaTpaaIAyxzQtUP9Y3Pcfks2Fr2UYEtHAKeZmUwA4iE3pePr4KyB5cON4T78OCQ==}
+  /@rcuse/core@0.6.0:
+    resolution: {integrity: sha512-7Gz8+wjwrxpRnq31wvM8prUhD1x++bptLSwrGV7EQINTVywp00H/Woad7RblUeKOvC/CHGrqvfyHq93jfV0ZEQ==}
     dependencies:
-      '@rcuse/shared': 0.3.8
+      '@rcuse/shared': 0.6.0
     dev: false
 
-  /@rcuse/shared@0.3.8:
-    resolution: {integrity: sha512-XUApEXTiAOQFkG7dirBSZ+GEbU12IMvWcxvHSClQE0q1WkTeoGt592B6jojYun+2goHOa1IH+KBO1P/lR7TDIA==}
+  /@rcuse/shared@0.6.0:
+    resolution: {integrity: sha512-EIVlb0oY7B9uoUDnI8fHJRjnz2UMNYDQyea8xcmnaFyninXRSRcXgQhVvzvUaWdMslv+0M+HDpZgRR9IV8XJwg==}
     dependencies:
       type-fest: 4.10.2
       user-agent-data-types: 0.4.2
@@ -12344,7 +12344,7 @@ packages:
     dependencies:
       '@babel/code-frame': 7.23.5
       index-to-position: 0.1.2
-      type-fest: 4.9.0
+      type-fest: 4.10.2
     dev: true
 
   /parse5@7.1.2:
@@ -15630,7 +15630,6 @@ packages:
   /type-fest@4.10.2:
     resolution: {integrity: sha512-anpAG63wSpdEbLwOqH8L84urkL6PiVIov3EMmgIhhThevh9aiMQov+6Btx0wldNcvm4wV+e2/Rt1QdDwKHFbHw==}
     engines: {node: '>=16'}
-    dev: false
 
   /type-fest@4.9.0:
     resolution: {integrity: sha512-KS/6lh/ynPGiHD/LnAobrEFq3Ad4pBzOlJ1wAnJx9N4EYoqFhMfLIBjUT2UEx4wg5ZE+cC1ob6DCSpppVo+rtg==}
