@@ -2,6 +2,7 @@ name: 🎉 Release new version
 
 env:
   NODE_OPTIONS: --max-old-space-size=6144
+  HUSKY: 0
 
 on:
   workflow_dispatch:

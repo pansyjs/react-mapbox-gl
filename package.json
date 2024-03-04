@@ -17,7 +17,7 @@
     "start": "storybook dev -p 6007",
     "build": "father build",
     "build:site": "storybook build",
-    "prepare": "is-ci || husky",
+    "prepare": "husky || true",
     "test": "jest",
     "tsc:check": "tsc --noEmit"
   },
