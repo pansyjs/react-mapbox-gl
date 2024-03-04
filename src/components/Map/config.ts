@@ -25,7 +25,7 @@ export const StaticProps: MapboxOptionKeys[] = [
   'collectResourceTiming',
   'fadeDuration',
   'crossSourceCollisions',
-  'optimizeForTerrain',
+  // 'optimizeForTerrain',
   'locale',
   'localFontFamily',
   'localIdeographFontFamily',
