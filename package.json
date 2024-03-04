@@ -83,7 +83,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jsdom": "^24.0.0",
     "lint-staged": "^15.2.2",
-    "mapbox-gl": "^3.1.2",
+    "mapbox-gl": "^3.2.0",
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
