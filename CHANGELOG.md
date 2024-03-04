@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/pansyjs/react-mapbox-gl/compare/v1.7.0...v1.7.1) (2024-03-04)
+
+
+### Bug Fixes
+
+* 修复类型报错 ([040d192](https://github.com/pansyjs/react-mapbox-gl/commit/040d192b44549f1cb87118b9e8d6f57a189d8492))
+
 # [1.7.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.6.0...v1.7.0) (2024-02-01)
 
 
