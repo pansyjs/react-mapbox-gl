@@ -105,6 +105,7 @@
   "authors": [
     "wangxingkang <wang_xingkang@qq.com> (https://github.com/wangxingkang)"
   ],
+  "type": "module",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
