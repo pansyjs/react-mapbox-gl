@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.7.1...v1.8.0) (2024-03-20)
+
+
+### Features
+
+* replace lodash-es debounce ([a42d42b](https://github.com/pansyjs/react-mapbox-gl/commit/a42d42beeb172e77fa0bc9f6e8c2c37d2ae964e9))
+
 ## [1.7.1](https://github.com/pansyjs/react-mapbox-gl/compare/v1.7.0...v1.7.1) (2024-03-04)
 
 
