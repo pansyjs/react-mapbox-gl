@@ -10,6 +10,7 @@ index.json
 indexes.json
 node_modules
 .umi
+.eslintcache
 
 # dumi
 storybook-static
