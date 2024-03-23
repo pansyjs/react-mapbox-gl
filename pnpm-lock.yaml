@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@rcuse/core':
-    specifier: ^0.10.1
-    version: 0.10.1
+    specifier: ^0.11.0
+    version: 0.11.0
   '@turf/bbox':
     specifier: ^6.5.0
     version: 6.5.0
@@ -3946,14 +3946,14 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /@rcuse/core@0.10.1:
-    resolution: {integrity: sha512-zfAsCd1NW612fA4QGd8ht7ET34B1hhtmzLy2b8E6b3XYdh5khHHj04A8Uwvw/v0HlyGj9qaNs7qIxDNlzjiHYg==}
+  /@rcuse/core@0.11.0:
+    resolution: {integrity: sha512-f7UI5uzT8v6QZ7jVPsEhL0DkJNO2icDJW9LxCiisZvISYf6MKEiZwgBBDisCP15xPa9dPON/jZNkUJWW3PmunA==}
     dependencies:
-      '@rcuse/shared': 0.10.1
+      '@rcuse/shared': 0.11.0
     dev: false
 
-  /@rcuse/shared@0.10.1:
-    resolution: {integrity: sha512-LQd3LOBGVzAQDfjwI4fvr95yhfN8JXeVMjXkztok2i6/DranObFlp09YBB2pd8hiyDlT20OdZsenDC1xPpILKg==}
+  /@rcuse/shared@0.11.0:
+    resolution: {integrity: sha512-cD2O/BOT0hHTUzQR0EA8Phbnpu2XQlCZA5pYuvw/G6ZIkuUrpofmND4sG1akljJpJ8BOSNQoIfF+KNnH+obp4w==}
     dependencies:
       radash: 12.1.0
       type-fest: 4.13.0
