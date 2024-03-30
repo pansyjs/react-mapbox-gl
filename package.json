@@ -37,7 +37,7 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@rcuse/core": "^0.14.0",
+    "@rcuse/core": "^0.14.2",
     "@turf/bbox": "^6.5.0",
     "@turf/helpers": "^6.5.0",
     "@types/supercluster": "^7.1.3",
