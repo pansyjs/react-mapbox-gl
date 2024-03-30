@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@rcuse/core':
-    specifier: ^0.10.1
-    version: 0.10.1
+    specifier: ^0.14.0
+    version: 0.14.0
   '@turf/bbox':
     specifier: ^6.5.0
     version: 6.5.0
@@ -21,8 +21,8 @@ dependencies:
     specifier: ^8.0.1
     version: 8.0.1
   type-fest:
-    specifier: ^4.13.0
-    version: 4.13.0
+    specifier: ^4.14.0
+    version: 4.14.0
 
 devDependencies:
   '@antfu/eslint-config':
@@ -135,7 +135,7 @@ devDependencies:
     version: 0.4.6(eslint@8.57.0)
   father:
     specifier: ^4.4.0
-    version: 4.4.0(@babel/core@7.23.7)(@types/node@20.11.6)(styled-components@6.1.8)(type-fest@4.13.0)(webpack@5.89.0)
+    version: 4.4.0(@babel/core@7.23.7)(@types/node@20.11.6)(styled-components@6.1.8)(type-fest@4.14.0)(webpack@5.89.0)
   husky:
     specifier: ^9.0.11
     version: 9.0.11
@@ -3946,17 +3946,17 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /@rcuse/core@0.10.1:
-    resolution: {integrity: sha512-zfAsCd1NW612fA4QGd8ht7ET34B1hhtmzLy2b8E6b3XYdh5khHHj04A8Uwvw/v0HlyGj9qaNs7qIxDNlzjiHYg==}
+  /@rcuse/core@0.14.0:
+    resolution: {integrity: sha512-x6yiTCjxdd6ZTQa24rk5JDT2RVKOV/4csYkNAY3qKHM1ds6JzPBly4z1pTvb4ml9oqIg2U6scY9bXV5hW57A3A==}
     dependencies:
-      '@rcuse/shared': 0.10.1
+      '@rcuse/shared': 0.14.0
     dev: false
 
-  /@rcuse/shared@0.10.1:
-    resolution: {integrity: sha512-LQd3LOBGVzAQDfjwI4fvr95yhfN8JXeVMjXkztok2i6/DranObFlp09YBB2pd8hiyDlT20OdZsenDC1xPpILKg==}
+  /@rcuse/shared@0.14.0:
+    resolution: {integrity: sha512-bNUQ0VgHG5nDa2adBq+8tyY6BWzA3DmPQbR+zi8AhHIjdiGNEmW1iPSj3IwdRr1SGudsQVKPnWc2h98KiBhR5w==}
     dependencies:
       radash: 12.1.0
-      type-fest: 4.13.0
+      type-fest: 4.14.0
       user-agent-data-types: 0.4.2
     dev: false
 
@@ -6088,7 +6088,7 @@ packages:
       - supports-color
     dev: true
 
-  /@umijs/bundler-webpack@4.1.1(type-fest@4.13.0)(typescript@5.3.3)(webpack@5.89.0):
+  /@umijs/bundler-webpack@4.1.1(type-fest@4.14.0)(typescript@5.3.3)(webpack@5.89.0):
     resolution: {integrity: sha512-LL+ZmPmSIGOMo1+OHsBtMARqr+dTZEqDkTbQ/ZPrrrtxK27rXi/lHFEUnzKjPeHVL+xtJ4m9QR13zGWlhLT+UA==}
     hasBin: true
     dependencies:
@@ -6100,7 +6100,7 @@ packages:
       '@umijs/bundler-utils': 4.1.1
       '@umijs/case-sensitive-paths-webpack-plugin': 1.0.1
       '@umijs/mfsu': 4.1.1
-      '@umijs/react-refresh-webpack-plugin': 0.5.11(react-refresh@0.14.0)(type-fest@4.13.0)(webpack@5.89.0)
+      '@umijs/react-refresh-webpack-plugin': 0.5.11(react-refresh@0.14.0)(type-fest@4.14.0)(webpack@5.89.0)
       '@umijs/utils': 4.1.1
       cors: 2.8.5
       css-loader: 6.7.1(webpack@5.89.0)
@@ -6192,7 +6192,7 @@ packages:
       - supports-color
     dev: true
 
-  /@umijs/react-refresh-webpack-plugin@0.5.11(react-refresh@0.14.0)(type-fest@4.13.0)(webpack@5.89.0):
+  /@umijs/react-refresh-webpack-plugin@0.5.11(react-refresh@0.14.0)(type-fest@4.14.0)(webpack@5.89.0):
     resolution: {integrity: sha512-RtFvB+/GmjRhpHcqNgnw8iWZpTlxOnmNxi8eDcecxMmxmSgeDj25LV0jr4Q6rOhv3GTIfVGBhkwz+khGT5tfmg==}
     engines: {node: '>= 10.13'}
     peerDependencies:
@@ -6228,7 +6228,7 @@ packages:
       react-refresh: 0.14.0
       schema-utils: 3.3.0
       source-map: 0.7.4
-      type-fest: 4.13.0
+      type-fest: 4.14.0
       webpack: 5.89.0(esbuild@0.18.20)
     dev: true
 
@@ -9904,14 +9904,14 @@ packages:
       reusify: 1.0.4
     dev: true
 
-  /father@4.4.0(@babel/core@7.23.7)(@types/node@20.11.6)(styled-components@6.1.8)(type-fest@4.13.0)(webpack@5.89.0):
+  /father@4.4.0(@babel/core@7.23.7)(@types/node@20.11.6)(styled-components@6.1.8)(type-fest@4.14.0)(webpack@5.89.0):
     resolution: {integrity: sha512-7xwjMLmZtPmoCkvA+B+65X0SUplcJD7lxA+ruELObpGsEGOxPgmdrNbZcdmDg1xAHCrNv/mlE6A4z3QxOKF7WA==}
     hasBin: true
     dependencies:
       '@microsoft/api-extractor': 7.39.1(@types/node@20.11.6)
       '@umijs/babel-preset-umi': 4.1.1
       '@umijs/bundler-utils': 4.1.1
-      '@umijs/bundler-webpack': 4.1.1(type-fest@4.13.0)(typescript@5.3.3)(webpack@5.89.0)
+      '@umijs/bundler-webpack': 4.1.1(type-fest@4.14.0)(typescript@5.3.3)(webpack@5.89.0)
       '@umijs/case-sensitive-paths-webpack-plugin': 1.0.1
       '@umijs/core': 4.1.1
       '@umijs/utils': 4.1.1
@@ -13700,7 +13700,7 @@ packages:
     dependencies:
       '@babel/code-frame': 7.23.5
       index-to-position: 0.1.2
-      type-fest: 4.13.0
+      type-fest: 4.14.0
     dev: true
 
   /parse5-htmlparser2-tree-adapter@6.0.1:
@@ -15375,7 +15375,7 @@ packages:
     dependencies:
       find-up-simple: 1.0.0
       read-pkg: 9.0.1
-      type-fest: 4.13.0
+      type-fest: 4.14.0
     dev: true
 
   /read-pkg-up@7.0.1:
@@ -15423,7 +15423,7 @@ packages:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.0
       parse-json: 8.1.0
-      type-fest: 4.13.0
+      type-fest: 4.14.0
       unicorn-magic: 0.1.0
     dev: true
 
@@ -17148,8 +17148,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /type-fest@4.13.0:
-    resolution: {integrity: sha512-nKO1N9IFeTec3jnNe/3nZlX+RzwZsvT3c4akWC3IlhYGQbRSPFMBe87vmoaymS3hW2l/rs+4ptDDTxzcbqAcmA==}
+  /type-fest@4.14.0:
+    resolution: {integrity: sha512-on5/Cw89wwqGZQu+yWO0gGMGu8VNxsaW9SB2HE8yJjllEk7IDTwnSN1dUVldYILhYPN5HzD7WAaw2cc/jBfn0Q==}
     engines: {node: '>=16'}
 
   /type-is@1.6.18:
