@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/pansyjs/react-mapbox-gl/compare/v1.8.0...v1.8.1) (2024-03-30)
+
+
+### Bug Fixes
+
+* **Map:** 修复地图样式设置问题 ([12cc946](https://github.com/pansyjs/react-mapbox-gl/commit/12cc94609b8c90c274f361045218bb41daca1cc4))
+
 # [1.8.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.7.1...v1.8.0) (2024-03-20)
 
 
