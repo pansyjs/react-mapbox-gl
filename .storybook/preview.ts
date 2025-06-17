@@ -1,5 +1,6 @@
 import Mapbox from 'mapbox-gl';
 import type { Preview } from '@storybook/react';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 Mapbox.accessToken =
   'pk.eyJ1IjoienQyMDIzMTEwOSIsImEiOiJjbG9xdGgxcDMwbDAyMmpwODVrNG5seXphIn0.1xKSk8Ll-80kkEwtzfLWhw';
