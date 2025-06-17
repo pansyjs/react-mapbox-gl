@@ -1,9 +1,8 @@
 import { createContext } from 'react';
-
-import type { Map } from 'mapbox-gl';
+import type { MapboxMap } from './types';
 
 export interface MapContextValue {
-  map: Map;
+  map: MapboxMap;
 }
 
 export const MapContext = createContext<MapContextValue>({} as MapContextValue);

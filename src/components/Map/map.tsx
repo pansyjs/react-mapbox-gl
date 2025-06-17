@@ -1,4 +1,4 @@
-import Mapbox from 'mapbox-gl'
+import Mapbox from 'mapbox-gl';
 import React, { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
 import { useEvents } from '../../hooks/useEvents'
 import { usePropsReactive } from '../../hooks/usePropsReactive'
@@ -7,12 +7,12 @@ import { allProps, converterMap, setterMap } from './config'
 import { MapEventList, MapEventMap } from './constant'
 
 import type { MapContextValue } from './context'
-import type { MapProps, MapboxOptionKeys } from './types'
+import type { MapProps, MapboxOptionKeys, MapboxMap, MapOptions } from './types'
 
-export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
+export const Map = forwardRef<MapboxMap, MapProps>((props, ref) => {
   const { className, loading, containerStyle, children } = props
   const containerRef = useRef<HTMLDivElement>(null)
-  const [mapInstance, setMapInstance] = useState<Mapbox.Map>()
+  const [mapInstance, setMapInstance] = useState<MapboxMap>()
 
   const style: React.CSSProperties = useMemo(
     () => ({
@@ -37,7 +37,7 @@ export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
         options[key] = props[key]
     })
 
-    return options as Mapbox.MapboxOptions
+    return options as MapOptions
   }
 
   /** 创建地图实例 */
@@ -53,12 +53,12 @@ export const Map = forwardRef<Mapbox.Map, MapProps>((props, ref) => {
     converterMap,
   })
 
-  useEvents<Mapbox.Map, MapProps>(mapInstance!, props, {
+  useEvents<MapboxMap, MapProps>(mapInstance!, props, {
     eventMap: MapEventMap,
     eventList: MapEventList,
   })
 
-  useImperativeHandle(ref, () => mapInstance as Mapbox.Map, [mapInstance])
+  useImperativeHandle(ref, () => mapInstance as MapboxMap, [mapInstance])
 
   useEffect(() => {
     if (!containerRef.current)

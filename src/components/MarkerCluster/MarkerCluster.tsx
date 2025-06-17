@@ -36,6 +36,7 @@ function InternalMarkerCluster<D extends AnyObject = AnyObject>(props: MarkerClu
     const zoom = map.getZoom()
 
     return [
+      // @ts-expect-error
       [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()],
       Math.round(zoom),
     ]

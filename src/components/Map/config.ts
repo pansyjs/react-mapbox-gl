@@ -1,5 +1,4 @@
-import type { Map } from 'mapbox-gl';
-import type { MapboxOptionKeys } from './types';
+import type { MapboxOptionKeys, MapboxMap } from './types';
 
 /** 静态属性 */
 export const StaticProps: MapboxOptionKeys[] = [
@@ -62,7 +61,7 @@ export const NativeDynamicProps: MapboxOptionKeys[] = [
 export const allProps = NativeDynamicProps.concat(StaticProps);
 
 export const setterMap = {
-  touchPitch(enable: boolean, map: Map) {
+  touchPitch(enable: boolean, map: MapboxMap) {
     if (!map) return;
 
     if (enable) {
@@ -72,7 +71,7 @@ export const setterMap = {
 
     map.touchPitch.disable();
   },
-  scrollZoom(enable: boolean, map: Map) {
+  scrollZoom(enable: boolean, map: MapboxMap) {
     if (!map) return;
 
     if (enable) {
@@ -82,7 +81,7 @@ export const setterMap = {
 
     map.scrollZoom.disable();
   },
-  boxZoom(enable: boolean, map: Map) {
+  boxZoom(enable: boolean, map: MapboxMap) {
     if (!map) return;
 
     if (enable) {
@@ -92,7 +91,7 @@ export const setterMap = {
 
     map.boxZoom.disable();
   },
-  dragRotate(enable: boolean, map: Map) {
+  dragRotate(enable: boolean, map: MapboxMap) {
     if (!map) return;
 
     if (enable) {
@@ -102,7 +101,7 @@ export const setterMap = {
 
     map.dragRotate.disable();
   },
-  dragPan(enable: boolean, map: Map) {
+  dragPan(enable: boolean, map: MapboxMap) {
     if (!map) return;
 
     if (enable) {
@@ -112,7 +111,7 @@ export const setterMap = {
 
     map.dragPan.disable();
   },
-  keyboard(enable: boolean, map: Map) {
+  keyboard(enable: boolean, map: MapboxMap) {
     if (!map) return;
 
     if (enable) {
@@ -122,7 +121,7 @@ export const setterMap = {
 
     map.keyboard.disable();
   },
-  touchZoomRotate(enable: boolean, map: Map) {
+  touchZoomRotate(enable: boolean, map: MapboxMap) {
     if (!map) return;
 
     if (enable) {
@@ -132,7 +131,7 @@ export const setterMap = {
 
     map.touchZoomRotate.disable();
   },
-  doubleClickZoom(enable: boolean, map: Map) {
+  doubleClickZoom(enable: boolean, map: MapboxMap) {
     if (!map) return;
 
     if (enable) {

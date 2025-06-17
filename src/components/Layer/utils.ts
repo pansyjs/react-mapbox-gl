@@ -41,11 +41,13 @@ export function updateLayer<L extends LayerType>(
     const prevLayout = prevProps.layout || {};
     for (const key in layout) {
       if (!deepEqual(layout[key], prevLayout[key])) {
+        // @ts-expect-error
         map.setLayoutProperty(id, key, layout[key]);
       }
     }
     for (const key in prevLayout) {
       if (!layout.hasOwnProperty(key)) {
+        // @ts-expect-error
         map.setLayoutProperty(id, key, undefined);
       }
     }
@@ -55,11 +57,13 @@ export function updateLayer<L extends LayerType>(
     const prevPaint = prevProps.paint || {};
     for (const key in paint) {
       if (!deepEqual(paint[key], prevPaint[key])) {
+        // @ts-expect-error
         map.setPaintProperty(id, key, paint[key]);
       }
     }
     for (const key in prevPaint) {
       if (!paint.hasOwnProperty(key)) {
+        // @ts-expect-error
         map.setPaintProperty(id, key, undefined);
       }
     }

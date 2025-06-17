@@ -1,8 +1,12 @@
 import React from 'react';
-import type { Marker, MarkerOptions, LngLatLike } from 'mapbox-gl';
+import type {
+  Marker,
+  MarkerOptions,
+  LngLatLike,
+} from 'mapbox-gl';
 import type { KeysOfUnion } from '../../types';
 
-export type { KeysOfUnion } from '../../types';
+export type { KeysOfUnion };
 export type { Marker as MapboxMarker, MarkerOptions } from 'mapbox-gl';
 
 export interface MarkerEvent<TOrig = undefined> {

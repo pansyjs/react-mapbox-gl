@@ -1,5 +1,10 @@
 import React from 'react';
-import type { Map, Style, MapboxOptions, MapEventType } from 'mapbox-gl';
+import type {
+  Map as MapboxMap,
+  StyleSpecification,
+  MapOptions,
+  MapEvents as MapEventType
+} from 'mapbox-gl';
 import type { KeysOfUnion } from '../../types';
 
 export type { KeysOfUnion } from '../../types';
@@ -7,8 +12,8 @@ export type { KeysOfUnion } from '../../types';
 export type SupplementMapEventType = {
   styleimagemissing: {
     id: string;
-    target: Map;
-    style: Style;
+    target: MapboxMap;
+    style: StyleSpecification;
     type: 'styleimagemissing';
   };
 };
@@ -32,7 +37,6 @@ export type MapEvents = {
 
   onDataloading: (e: MapEventType['dataloading']) => void;
   onData: (e: MapEventType['data']) => void;
-  onTileDataLoading: (e: MapEventType['tiledataloading']) => void;
   onSourceDataLoading: (e: MapEventType['sourcedataloading']) => void;
   onStyleDataLoading: (e: MapEventType['styledataloading']) => void;
   onStyleLoad: (e: Omit<MapEventType['styledata'], 'dataType'> & { type: 'style.load' }) => void;
@@ -86,9 +90,9 @@ export type MapEvents = {
 
 export type EventMapping = { [T in keyof MapEvents]: string };
 
-export type MapboxOptionKeys = KeysOfUnion<MapboxOptions>;
+export type MapboxOptionKeys = KeysOfUnion<MapOptions>;
 
-export interface MapProps extends Omit<MapboxOptions, 'container'>, Partial<MapEvents> {
+export interface MapProps extends Omit<MapOptions, 'container'>, Partial<MapEvents> {
   /** 地图加载前的加载效果 */
   loading?: React.ReactNode;
   /** 额外的样式类 */
@@ -99,3 +103,8 @@ export interface MapProps extends Omit<MapboxOptions, 'container'>, Partial<MapE
 }
 
 export type PropKey = KeysOfUnion<MapProps>;
+
+export type {
+  MapboxMap,
+  MapOptions,
+}
