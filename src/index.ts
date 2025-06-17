@@ -14,3 +14,6 @@ export { WorldView } from './components/WorldView';
 export type { WorldViewProps } from './components/WorldView';
 export { useMap } from './hooks/useMap';
 export { default as Supercluster } from 'supercluster';
+
+export { Popup } from './components/Popup';
+export type { PopupProps } from './components/Popup';

@@ -4,12 +4,10 @@ import { deepEqual } from '../../utils/deepEqual';
 
 import type {
   Map as MapInstance,
-  AnySourceData,
-  AnySourceImpl,
+  SourceSpecification,
+  Source as MapboxSource,
   GeoJSONSource,
   ImageSource,
-  ImageSourceRaw,
-  VectorSource,
 } from 'mapbox-gl';
 import type { Source, SourceProps } from './types';
 
@@ -23,14 +21,14 @@ export function createSource<SourceT extends Source>(
     delete options.id;
     delete options.children;
 
-    map.addSource(id, options as AnySourceData);
+    map.addSource(id, options as SourceSpecification);
 
     return map.getSource(id);
   }
 }
 
 export function updateSource<SourceT extends Source>(
-  source: AnySourceImpl,
+  source: MapboxSource,
   props: SourceProps<SourceT>,
   prevProps: SourceProps<SourceT>,
 ) {
@@ -62,18 +60,18 @@ export function updateSource<SourceT extends Source>(
     (source as GeoJSONSource).setData((props as any).data);
   } else if (type === 'image') {
     (source as ImageSource).updateImage({
-      url: (props as unknown as ImageSourceRaw).url,
-      coordinates: (props as unknown as ImageSourceRaw).coordinates,
+      url: (props as unknown as any).url,
+      coordinates: (props as unknown as any).coordinates,
     });
   } else if ('setCoordinates' in source && changedKeyCount === 1 && changedKey === 'coordinates') {
-    source.setCoordinates((props as ImageSourceRaw).coordinates!);
+    source.setCoordinates((props as any).coordinates!);
   } else if ('setUrl' in source) {
     switch (changedKey) {
       case 'url':
-        source.setUrl((props as VectorSource).url!);
+        source.setUrl((props as any).url!);
         break;
       case 'tiles':
-        source.setTiles((props as VectorSource).tiles!);
+        source.setTiles((props as any).tiles!);
         break;
       default:
     }

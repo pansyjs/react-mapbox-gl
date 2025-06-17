@@ -1,6 +1,7 @@
+import type { LngLatLike, LngLat } from 'mapbox-gl';
 import mapbox from 'mapbox-gl';
 
-export const toLngLat = (position: mapbox.LngLatLike): mapbox.LngLat | null => {
+export const toLngLat = (position: LngLatLike): LngLat | null => {
   if (!position) return null;
 
   if ('toBounds' in position) {
