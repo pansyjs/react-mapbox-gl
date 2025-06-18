@@ -1,3 +1,16 @@
+# [1.9.0](https://github.com/pansyjs/react-mapbox-gl/compare/v1.8.1...v1.9.0) (2025-06-18)
+
+
+### Bug Fixes
+
+* 修复 Popup 设置 lngLat 不生效 ([13ae2f3](https://github.com/pansyjs/react-mapbox-gl/commit/13ae2f3ac5fb15f01b7d1d996a9d7348d991b531))
+
+
+### Features
+
+* add Popup component ([e5f4ea2](https://github.com/pansyjs/react-mapbox-gl/commit/e5f4ea2fb6708981014552c960bd2f7060487c52))
+* mapbox 升级相关更改 ([9985975](https://github.com/pansyjs/react-mapbox-gl/commit/998597569ffc736889e8322b03b50e8322491850))
+
 ## [1.8.1](https://github.com/pansyjs/react-mapbox-gl/compare/v1.8.0...v1.8.1) (2024-03-30)
 
 
