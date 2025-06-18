@@ -6,6 +6,7 @@ import Mapbox from 'mapbox-gl';
 import { useMap } from '../../hooks/useMap';
 import { useEvents } from '../../hooks/useEvents';
 import { usePropsReactive } from '../../hooks/usePropsReactive';
+import { applyReactStyle } from '../../utils/applyReactStyle';
 import { allProps, setterMap, converterMap } from './config';
 import { MarkerEventMap, MarkerEventList } from './constant';
 
@@ -40,6 +41,17 @@ export const Popup = forwardRef<MapboxPopup, PopupProps>(
       },
       [map]
     );
+
+    useEffect(
+      () => {
+        const popupElement = popup?.getElement();
+
+        if (popupElement) {
+          applyReactStyle(popupElement, props.style);
+        }
+      },
+      [props.style, popup]
+    )
 
     const createInstance = () => {
       const options = getCreateOptions(props);
