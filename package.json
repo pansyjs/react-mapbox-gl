@@ -45,7 +45,7 @@
     "type-fest": "^4.41.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.8.3",
+    "@antfu/eslint-config": "^5.0.0",
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
     "@mapbox/mapbox-gl-language": "^1.0.1",
